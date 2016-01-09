@@ -1,10 +1,11 @@
-# Overview of the Rating & Compatibility web app
+Overview of the Rating & Compatibility web app
 
 The website will be broken down into multiple different parts, probably different tasks (as it is a very large project). Each part is described in more detail below, in no specific order.
 
 
 
-## Part 1) Website:
+Part 1) Website:
+----------------
 
 This part of the application is what I am going to work on in this task. It consists of multiple pages, including:
 
@@ -20,8 +21,8 @@ This part of the application is what I am going to work on in this task. It cons
 
 
 
-## Part 2) Automagic Tester:
-
+Part 2) Automagic Tester:
+----------------
 
 This part of the application, will automatically run a script to test the hardware on a machine & generate a test report which is automatically uploaded to the server, and then added to the database.
 
@@ -29,9 +30,10 @@ It is an enhancement to the "Add a Test" page
 
 
 
-## Page Demos:
+Page Demos:
+----------------
 
-### Index Page)
+Index Page)
 
 Link to the homepage			    Link to "Config Tests"	Link to "Add" page (Add a test)
 							|												|		     |	      |
@@ -54,7 +56,7 @@ Link to the homepage			    Link to "Config Tests"	Link to "Add" page (Add a test
 |----------------------------------------------------------|
 
 
-### Config Tests -- Components)
+Config Tests -- Components)
 
 Link to the homepage			    Link to "Config Tests"	Link to "Add" page (Add a test)
 							|												|		     |	      |
@@ -77,7 +79,7 @@ Link to the homepage			    Link to "Config Tests"	Link to "Add" page (Add a test
 |----------------------------------------------------------|
 
 
-### Config Tests -- Computers)
+Config Tests -- Computers)
 
 Link to the homepage			    Link to "Config Tests"	Link to "Add" page (Add a test)
 							|												|		     |	      |
@@ -100,7 +102,7 @@ Link to the homepage			    Link to "Config Tests"	Link to "Add" page (Add a test
 |----------------------------------------------------------|
 
 
-### Add)
+Add)
 
 Link to the homepage			    Link to "Config Tests"	Link to "Add" page (Add a test)
 							|												|		     |	      |
