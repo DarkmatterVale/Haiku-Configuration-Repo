@@ -1,0 +1,123 @@
+# Overview of the Rating & Compatibility web app
+
+The website will be broken down into multiple different parts, probably different tasks (as it is a very large project). Each part is described in more detail below, in no specific order.
+
+
+
+## Part 1) Website:
+
+This part of the application is what I am going to work on in this task. It consists of multiple pages, including:
+
+- Index page:			This gives a brief overview of what the app is & what it does
+- Configurations page:	This page will have a list of configurations that have been tested. It will be simple, and
+				will display basic information about each configuration test, including whether it passed,
+				rating, and basic config information. The passed will be a big "Passed" label with a
+				green background, while fail will be a big "Failed" in red
+- Search page:		This page will let a user search for tests completed on a given configuration. Each test
+				will be displayed in a similar manner to each test that is displayed in the configurations
+				page
+- Add a Test:			This page will let a user add a test to the database that stores the data
+
+
+
+## Part 2) Automagic Tester:
+
+
+This part of the application, will automatically run a script to test the hardware on a machine & generate a test report which is automatically uploaded to the server, and then added to the database.
+
+It is an enhancement to the "Add a Test" page
+
+
+
+## Page Demos:
+
+### Index Page)
+
+Link to the homepage			    Link to "Config Tests"	Link to "Add" page (Add a test)
+							|												|		     |	      |
+|----------------------------------------------------------|
+| Configuration Monitor		       Components	Computers	Add	 | <-- Navbar
+|											 																		 |
+| Welcome text goes here!!								 								 |
+|											  																	 | <-- Text
+| Some more text goes here!!							 								 |
+|																													 |
+|											 																		 |
+| Search bar & info goes here							 								 | <-- Search
+|																													 |
+|																													 |
+|																													 |
+|																													 |
+|																													 |
+|																													 |
+|																													 |
+|----------------------------------------------------------|
+
+
+### Config Tests -- Components)
+
+Link to the homepage			    Link to "Config Tests"	Link to "Add" page (Add a test)
+							|												|		     |	      |
+|----------------------------------------------------------|
+| Configuration Monitor		       Components	Computers	Add	 | <-- Navbar
+|																													 |
+|			         Sort by:	       Options					           | <-- Sort Options
+|																													 |
+|																													 |
+| 			      Passed	  Info	   Rating				 						 |
+| 			      Passed	  Info	   Rating				 						 | <-- Config Tests
+| 			      Passed	  Info	   Rating				 						 |
+| 			      Passed	  Info	   Rating				 						 |
+| 			      Passed	  Info	   Rating				 						 |
+| 			      Passed	  Info	   Rating				 						 |
+| 			      Passed	  Info	   Rating				 						 |
+| 			      Passed	  Info	   Rating				 						 |
+| 			      Passed	  Info	   Rating				 						 |
+|																													 |
+|----------------------------------------------------------|
+
+
+### Config Tests -- Computers)
+
+Link to the homepage			    Link to "Config Tests"	Link to "Add" page (Add a test)
+							|												|		     |	      |
+|----------------------------------------------------------|
+| Configuration Monitor		       Components	Computers	Add	 | <-- Navbar
+|																													 |
+|			         Sort by:	       Options					           | <-- Sort Options
+|																													 |
+|																													 |
+| 			      Passed	  Info	   Rating				 						 |
+| 			      Passed	  Info	   Rating				 						 | <-- Config Tests
+| 			      Passed	  Info	   Rating				 						 |
+| 			      Passed	  Info	   Rating				 						 |
+| 			      Passed	  Info	   Rating				 						 |
+| 			      Passed	  Info	   Rating				 						 |
+| 			      Passed	  Info	   Rating				 						 |
+| 			      Passed	  Info	   Rating				 						 |
+| 			      Passed	  Info	   Rating				 						 |
+|																													 |
+|----------------------------------------------------------|
+
+
+### Add)
+
+Link to the homepage			    Link to "Config Tests"	Link to "Add" page (Add a test)
+							|												|		     |	      |
+|----------------------------------------------------------|
+| Configuration Monitor		       Components	Computers	Add	 | <-- Navbar
+|																													 |
+|																													 |
+|																													 |
+|																													 |
+|																													 |
+|																													 |
+|				Options available					 												 | <-- Options & info
+|																													 |
+|																													 |
+|																													 |
+|																													 |
+|																													 |
+|																													 |
+|																													 |
+|----------------------------------------------------------|
