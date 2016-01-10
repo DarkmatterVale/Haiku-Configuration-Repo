@@ -4,7 +4,7 @@ from django.db import models
 
 class Component(models.Model):
     name = models.CharField(max_length=200)
-    is_working = models.BooleanField()
+    is_working = models.CharField(max_length=10)
     rating = models.IntegerField()
 
     def __str__(self):
