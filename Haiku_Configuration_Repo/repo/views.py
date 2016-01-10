@@ -38,6 +38,7 @@ def createComponent(request):
     rating = request.POST['rating']
     is_working = "Failed"
     notes = request.POST['test_notes']
+    component_category = request.POST['component_category']
 
     author_first_name = request.POST['tester_first_name']
     author_last_name = request.POST['tester_last_name']
@@ -55,7 +56,8 @@ def createComponent(request):
         notes = notes,
         author_first_name = author_first_name,
         author_last_name = author_last_name,
-        author_email = author_email)
+        author_email = author_email,
+        category = component_category)
     newComponent.save()
 
     return HttpResponseRedirect(reverse('repo:index'))
