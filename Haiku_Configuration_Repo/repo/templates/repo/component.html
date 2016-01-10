@@ -13,7 +13,7 @@
       <nav>
         <div class="nav-wrapper">
           <div class="col s12">
-            <a href="" class="large-font"><b>Haiku's Config Repository</b></a>
+            <a href="{% url 'repo:index' %}" class="large-font"><b>Haiku's Config Repository</b></a>
 
             <div class="right-nav">
               <a href="{% url 'repo:componentList' %}" class="btn-flat blue"><b>Component Tests</b></a>
@@ -25,7 +25,27 @@
       </nav>
     </div>
 
-    <div class="container">
+    <div class="pad-item-list center-list-item row">
+      <h4 class="center-align">{{ component_name }}</h4>
+      <h5 class="center-align padtop-5">Tests</h5>
+      {% for component in all_components %}
+        <div class="collection">
+          <p class="collection-item">{{ component.name }}
+            {% if component.is_working == "Passed" %}
+              <span class="new badge green"><b>Passed</b></span>
+            {% else %}
+              <span class="new badge red"><b>Failed</b></span>
+            {% endif %}
+            <span class="new rating-badge orange"><b>Rating: {{ component.rating }}</b></span>
+          </a>
+        </div>
+        <h5 class="center-align padtop-5">Other Information</h5>
+        <div class="row">
+          <p><b>Author:</b> {{ component.author_first_name }}&nbsp;{{ component.author_last_name }}</p>
+          <p><b>Author's Email:</b> {{ component.author_email }}</p>
+          <p><b>Notes:</b> {{ component.notes }}</p>
+        </div>
+      {% endfor %}
     </div>
   </body>
 </html>

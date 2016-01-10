@@ -3,9 +3,15 @@ from __future__ import unicode_literals
 from django.db import models
 
 class Component(models.Model):
-    name = models.CharField(max_length=200)
-    is_working = models.CharField(max_length=10)
+    name = models.CharField(default='', max_length=200)
+    notes = models.CharField(default='', max_length=500)
+    is_working = models.CharField(default='', max_length=10)
     rating = models.IntegerField()
+    category = models.CharField(default='', max_length=100)
 
-    def __str__(self):
-        return self.name
+    author_first_name = models.CharField(default='', max_length=50)
+    author_last_name = models.CharField(default='', max_length=50)
+    author_email = models.CharField(default='', max_length=100)
+
+    date_created = models.DateTimeField('date created', auto_now=True)
+    date_modified = models.DateTimeField('date modified', auto_now=True)

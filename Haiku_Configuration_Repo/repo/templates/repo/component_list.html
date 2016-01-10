@@ -33,7 +33,7 @@
     <div class="pad-item-list center-list-item row">
       {% for component in all_components %}
         <div class="collection">
-          <a href="#!" class="collection-item">{{ component.name }}
+          <a href="{% url 'repo:componentDetail' component.id %}" class="collection-item">{{ component.name }}
             {% if component.is_working == "Passed" %}
               <span class="new badge green"><b>Passed</b></span>
             {% else %}
@@ -43,7 +43,6 @@
           </a>
         </div>
       {% endfor %}
-    </div>
     </div>
   </body>
 </html>

@@ -23,7 +23,10 @@ def deviceList(request):
 
 def componentDetail(request, component_id):
     myComponent = get_object_or_404(Component, pk=component_id)
-    context = { 'component' : myComponent }
+    context = {
+        'component_name' : myComponent.name,
+        'all_components' : [ myComponent ]
+    }
 
     return render(request, 'repo/component.html', context)
 
@@ -34,6 +37,11 @@ def createComponent(request):
     name = request.POST['component_name']
     rating = request.POST['rating']
     is_working = "Failed"
+    notes = request.POST['test_notes']
+
+    author_first_name = request.POST['tester_first_name']
+    author_last_name = request.POST['tester_last_name']
+    author_email = request.POST['tester_email']
 
     try:
         if str(request.POST['group1']) == "on":
@@ -41,7 +49,13 @@ def createComponent(request):
     except:
         pass
 
-    newComponent = Component(name = name, rating = rating, is_working = is_working)
+    newComponent = Component(name = name,
+        rating = rating,
+        is_working = is_working,
+        notes = notes,
+        author_first_name = author_first_name,
+        author_last_name = author_last_name,
+        author_email = author_email)
     newComponent.save()
 
     return HttpResponseRedirect(reverse('repo:index'))
