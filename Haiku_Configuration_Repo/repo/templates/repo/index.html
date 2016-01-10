@@ -1,0 +1,31 @@
+{% load staticfiles %}
+
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'repo/materialize.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'repo/main.css' %}" />
+
+    <title>Haiku's Configuration Repository</title>
+  </head>
+
+  <body>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <div class="col s12">
+            <a href="" class="large-font"><b>Haiku's Config Repository</b></a>
+
+            <div class="right-nav">
+              <a href="{% url 'repo:componentList' %}" class="btn-flat blue"><b>Component Tests</b></a>
+              <a href="" class="btn-flat blue"><b>Computer Tests</b></a>
+              <a href="" class="btn-flat blue"><b>Add a Test</b></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+    </div>
+  </body>
+</html>
