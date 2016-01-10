@@ -2366,44 +2366,6 @@ td, th {
   margin: 0;
   border: none; }
 
-span.badge {
-  min-width: 3rem;
-  padding: 0 6px;
-  text-align: center;
-  font-size: 1rem;
-  line-height: inherit;
-  color: #757575;
-  position: absolute;
-  right: 15px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-  span.badge.new {
-    font-weight: 300;
-    font-size: 0.8rem;
-    color: #fff;
-    background-color: #26a69a;
-    border-radius: 2px; }
-  span.badge.new:after {
-    content: " new"; }
-
-nav ul a span.badge {
-  position: static;
-  margin-left: 4px;
-  line-height: 0; }
-
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden; }
-  .video-container iframe, .video-container object, .video-container embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; }
-
 .progress {
   position: relative;
   height: 4px;

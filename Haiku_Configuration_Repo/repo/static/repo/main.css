@@ -29,6 +29,73 @@ nav .large-font {
   font-size: 2.4rem;
 }
 
-.a blue {
+blue {
   color: blue;
 }
+
+green {
+  color: green;
+}
+
+red {
+  color: red;
+}
+
+orange {
+  color: #ffb74d;
+}
+
+.padtop-5 {
+  padding-top: 5%;
+}
+
+.pad-item-list {
+  padding-top: 3%;
+}
+
+.center-list-item {
+  margin-left: 13%;
+  margin-right: 13%;
+}
+
+span.badge {
+  min-width: 3rem;
+  padding: 0 6px;
+  text-align: center;
+  font-size: 1rem;
+  line-height: inherit;
+  color: #757575;
+  position: absolute;
+  right: 8%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  span.badge.new {
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: #fff;
+    background-color: #26a69a;
+    border-radius: 2px; }
+span.rating-badge {
+  min-width: 3rem;
+  padding: 0 6px;
+  text-align: center;
+  font-size: 1rem;
+  line-height: inherit;
+  color: #757575;
+  position: absolute;
+  right: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  span.rating-badge.new {
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: #fff;
+    background-color: #26a69a;
+    border-radius: 2px; }
+
+nav ul a span.badge {
+  position: static;
+  margin-left: 4px;
+  line-height: 0; }

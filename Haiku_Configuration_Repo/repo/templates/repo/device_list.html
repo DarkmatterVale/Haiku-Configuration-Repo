@@ -16,8 +16,8 @@
             <a href="{% url 'repo:index' %}" class="large-font"><b>Haiku's Config Repository</b></a>
 
             <div class="right-nav">
-              <a href="" class="btn-flat blue"><b>Component Tests</b></a>
-              <a href="{% url 'repo:deviceList' %}" class="btn-flat blue"><b>Device Tests</b></a>
+              <a href="{% url 'repo:componentList' %}" class="btn-flat blue"><b>Component Tests</b></a>
+              <a href="" class="btn-flat blue"><b>Device Tests</b></a>
               <a href="" class="btn-flat blue"><b>Add a Test</b></a>
             </div>
           </div>
@@ -26,25 +26,25 @@
     </div>
 
     <div class="row padtop-5">
-      <h4 class="center-align">Welcome to the components list!</h4>
-      <h5 class="center-align">This page contains all of the tests that have been run on individual hardware components</h5>
+      <h4 class="center-align">Welcome to the device list!</h4>
+      <h5 class="center-align">This page contains all of the tests that have been run on full setups (devices)</h5>
     </div>
 
     <div class="pad-item-list center-list-item row" id="tests">
       <div class="collection">
-        <a href="#!" class="collection-item">Test Component 1
+        <a href="#!" class="collection-item">Test Device 1
           <span class="new badge green"><b>Passed</b></span>
           <span class="new rating-badge orange"><b>Rating: &nbsp;0</b></span>
         </a>
       </div>
       <div class="collection">
-        <a href="#!" class="collection-item">Test Component 2
+        <a href="#!" class="collection-item">Test Device 2
           <span href="" class="new badge red"><b>Failed</b></span>
           <span class="new rating-badge orange"><b>Rating: &nbsp;0</b></span>
         </a>
       </div>
       <div class="collection">
-        <a href="#!" class="collection-item">Test Component 3
+        <a href="#!" class="collection-item">Test Device 3
           <span class="new badge red"><b>Failed</b></span>
           <span class="new rating-badge orange"><b>Rating: &nbsp;0</b></span>
         </a>
