@@ -1,0 +1,76 @@
+{% load staticfiles %}
+
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'repo/materialize.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'repo/main.css' %}" />
+
+    <title>Haiku's Configuration Repository</title>
+  </head>
+
+  <body>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <div class="col s12">
+            <a href="{% url 'repo:index' %}" class="large-font"><b>Haiku's Config Repository</b></a>
+
+            <div class="right-nav">
+              <a href="{% url 'repo:componentList' %}" class="btn-flat blue"><b>Component Tests</b></a>
+              <a href="{% url 'repo:deviceList' %}" class="btn-flat blue"><b>Device Tests</b></a>
+              <a href="{% url 'repo:addTest' %}" class="btn-flat blue"><b>Add a Test</b></a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="pad-item-list center-list-item row">
+      <h4 class="center-align">{{ device_name }}</h4>
+      <h5 class="center-align padtop-5">Tests</h5>
+      {% for device in all_devices %}
+        <div class="collection">
+          <p class="collection-item">{{ device.name }}
+            {% if device.is_working == "Passed" %}
+              <span class="new badge green"><b>Passed</b></span>
+            {% else %}
+              <span class="new badge red"><b>Failed</b></span>
+            {% endif %}
+            <span class="new rating-badge orange"><b>Rating: {{ device.rating }}</b></span>
+          </a>
+        </div>
+        <h5 class="center-align padtop-5">Device Information</h5>
+        <div class="row">
+          <p><b>CPU:</b> {{ device.cpu }}</p>
+          <p><b>Motherboard:</b> {{ device.motherboard }}</p>
+          <p><b>Hard Drive:</b> {{ device.hard_drive }}</p>
+          {% if device.is_sound_working == "Passed" %}
+            <p><b>Sound (works):</b> {{ device.sound }}</p>
+          {% else %}
+            <p><b>Sound (doesn't work):</b> {{ device.sound }}</p>
+          {% endif %}
+          {% if device.is_sound_working == "Passed" %}
+            <p><b>Display (works):</b> {{ device.display }}</p>
+            <p><b>Display Configuration (works):</b> {{ device.display_configuration }}</p>
+          {% else %}
+            <p><b>Display (doesn't work):</b> {{ device.display }}</p>
+            <p><b>Display Configuration (doesn't work):</b> {{ device.display_configuration }}</p>
+          {% endif %}
+          {% if device.is_sound_working == "Passed" %}
+            <p><b>Dedicated Graphics Card (works):</b> {{ device.graphics_card }}</p>
+          {% else %}
+            <p><b>Dedicated Graphics Card (doesn't work):</b> {{ device.graphics_card }}</p>
+          {% endif %}
+        </div>
+        <div class="row">
+          <p><b>Notes:</b> {{ device.notes }}</p>
+        </div>
+        <h5 class="center-align padtop-5">Test Information</h5>
+        <div class="row">
+          <p><b>Author:</b> {{ device.author_first_name }}&nbsp;{{ device.author_last_name }}</p>
+          <p><b>Author's Email:</b> {{ device.author_email }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

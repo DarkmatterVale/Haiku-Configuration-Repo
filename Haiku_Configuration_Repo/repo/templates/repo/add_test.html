@@ -35,12 +35,12 @@
 
     <div class="row center-list-item padtop-5">
        <h5 class="center-align">Component Test Form</h5>
-       <form class="col s12" action="{% url 'repo:createComponent' %}" method="post">
+       <form class="col s12" action="{% url 'repo:createTest' %}" method="post">
          {% csrf_token %}
          <div class="row">
            <div class="col s12">
              <label>Rating</label>
-              <select name="rating" class="browser-default">
+              <select name="component_rating" class="browser-default">
                 <option value="0" selected>0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -70,12 +70,13 @@
                 <option value="Motherboard">Motherboard</option>
                 <option value="Hard Drive">Hard Drive</option>
                 <option value="SSD">SSD</option>
+                <option value="Display">Display</option>
               </select>
             </div>
          </div>
          <div class="row">
           <div class="input-field col s12">
-            <textarea name="test_notes" id="test_notes" class="materialize-textarea" length="500"></textarea>
+            <textarea name="component_test_notes" id="test_notes" class="materialize-textarea" length="500"></textarea>
             <label for="test_notes">Short Note</label>
           </div>
          </div>
@@ -88,6 +89,119 @@
              <p>
                <input name="group2" type="checkbox" id="test2" />
                <label for="test2">Fail</label>
+             </p>
+           </div>
+         </div>
+         <h5 class="center-align padtop-5">Device Test Form</h5>
+         <div class="row">
+           <div class="col s12">
+             <label>Rating</label>
+              <select name="device_rating" class="browser-default">
+                <option value="0" selected>0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+            </div>
+         </div>
+         <div class="row">
+           <div class="input-field col s12">
+             <input name="device_name" type="text" class="validate">
+             <label for="device_name">Device Name</label>
+           </div>
+         </div>
+         <div class="row">
+           <div class="input-field col s12">
+             <input name="device_cpu" type="text" class="validate">
+             <label for="device_cpu">Device CPU</label>
+           </div>
+         </div>
+         <div class="row">
+           <div class="input-field col s12">
+             <input name="device_motherboard" type="text" class="validate">
+             <label for="device_motherboard">Device Motherboard</label>
+           </div>
+         </div>
+         <div class="row">
+           <div class="input-field col s12">
+             <input name="device_hard_drive" type="text" class="validate">
+             <label for="device_hard_drive">Device Hard Drive</label>
+           </div>
+         </div>
+         <div class="row">
+           <div class="input-field col s12">
+             <input name="device_sound" type="text" class="validate">
+             <label for="device_sound">Device Sound</label>
+           </div>
+           <div class="col s12">
+             <p>
+               <input name="group3" type="checkbox" id="test3" />
+               <label for="test3">Sound Works</label>
+             </p>
+             <p>
+               <input name="group4" type="checkbox" id="test4" />
+               <label for="test4">Sound Fails</label>
+             </p>
+           </div>
+         </div>
+         <div class="row">
+           <div class="input-field col s12">
+             <input name="device_display_name" type="text" class="validate">
+             <label for="device_display_name">Device Display Name</label>
+           </div>
+           <div class="input-field col s12">
+             <input name="device_display_config" type="text" class="validate">
+             <label for="device_display_config">Device Display Configuration</label>
+           </div>
+           <div class="col s12">
+             <p>
+               <input name="group5" type="checkbox" id="test5" />
+               <label for="test5">Display Works</label>
+             </p>
+             <p>
+               <input name="group6" type="checkbox" id="test6" />
+               <label for="test6">Display Fails</label>
+             </p>
+           </div>
+         </div>
+         <div class="row">
+           <div class="input-field col s12">
+             <input name="device_dedicated_graphics" type="text" class="validate">
+             <label for="device_dedicated_graphics">Device Graphics Card</label>
+           </div>
+           <div class="col s12">
+             <p>
+               <input name="group7" type="checkbox" id="test7" />
+               <label for="test7">Graphics Works</label>
+             </p>
+             <p>
+               <input name="group8" type="checkbox" id="test8" />
+               <label for="test8">Graphics Fails</label>
+             </p>
+           </div>
+         </div>
+         <div class="row">
+          <div class="input-field col s12">
+            <textarea name="device_test_notes" id="test_notes" class="materialize-textarea" length="500"></textarea>
+            <label for="test_notes">Short Note</label>
+          </div>
+         </div>
+         <div class="row">
+           <div class="col s12">
+             <p>
+               <input name="group9" type="checkbox" id="test9" />
+               <label for="test9">Pass</label>
+             </p>
+             <p>
+               <input name="group10" type="checkbox" id="test10" />
+               <label for="test10">Fail</label>
              </p>
            </div>
          </div>

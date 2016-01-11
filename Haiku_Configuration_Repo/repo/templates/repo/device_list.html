@@ -31,15 +31,15 @@
     </div>
 
     <div class="pad-item-list center-list-item row" id="tests">
-      {% for component in all_components %}
+      {% for device in all_devices %}
         <div class="collection">
-          <a href="#!" class="collection-item">{{ component.name }}
-            {% if component.is_working == "Passed" %}
+          <a href="{% url 'repo:deviceDetail' device.id %}" class="collection-item">{{ device.name }}
+            {% if device.is_working == "Passed" %}
               <span class="new badge green"><b>Passed</b></span>
             {% else %}
               <span class="new badge red"><b>Failed</b></span>
             {% endif %}
-            <span class="new rating-badge orange"><b>Rating: {{ component.rating }}</b></span>
+            <span class="new rating-badge orange"><b>Rating: {{ device.rating }}</b></span>
           </a>
         </div>
       {% endfor %}
