@@ -5,6 +5,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'repo/materialize.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'repo/main.css' %}" />
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+
     <title>Haiku's Configuration Repository</title>
   </head>
 
@@ -16,7 +19,7 @@
             <a href="{% url 'repo:index' %}" class="large-font"><b>Haiku's Config Repository</b></a>
 
             <div class="right-nav">
-              <a href="" class="btn-flat blue"><b>Component Tests</b></a>
+              <a href="{% url 'repo:componentList' %}" class="btn-flat blue"><b>Component Tests</b></a>
               <a href="{% url 'repo:deviceList' %}" class="btn-flat blue"><b>Device Tests</b></a>
               <a href="{% url 'repo:addTest' %}" class="btn-flat blue"><b>Add a Test</b></a>
             </div>
@@ -29,6 +32,18 @@
       <h4 class="center-align">Welcome to the components list!</h4>
       <h5 class="center-align">This page contains all of the tests that have been run on individual hardware components</h5>
     </div>
+
+    <div class="row center-list-item padtop-2">
+       <form class="col s12" action="{% url 'repo:sortComponents' %}" method="post">
+         {% csrf_token %}
+         <div class="row">
+           <div class="input-field col s12">
+             <input name="name_to_sort" type="text" class="validate">
+             <label for="name_to_sort">Sort Name</label>
+           </div>
+         </div>
+       </form>
+     </div>
 
     <div class="pad-item-list center-list-item row">
       {% for component in all_components %}

@@ -11,4 +11,6 @@ urlpatterns = [
     url(r'^device_list/', views.deviceList, name='deviceList'),
     url(r'^add_test/', views.addTest, name='addTest'),
     url(r'^create_test', views.createTest, name='createTest'),
+    url(r'^sort_components', views.sortComponents, name='sortComponents'),
+    url(r'^sort_devices', views.sortDevices, name='sortDevices'),
 ]
