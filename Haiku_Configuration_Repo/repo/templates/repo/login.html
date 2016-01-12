@@ -34,30 +34,17 @@
     <div class="padtop-5"></div>
     <div id="page">
       <div class="pad-item-list center-list-item row">
-        <h2 class="text-center">{{ component_name }}</h2>
-        <h3 class="text-center padtop-5">Tests</h3>
-        {% for component in all_components %}
-          <div class="collection">
-            <p class="collection-item">{{ component.name }}
-              {% if component.is_working == "Passed" %}
-                <span class="new badge green"><b>Passed</b></span>
-              {% else %}
-                <span class="new badge red"><b>Failed</b></span>
-              {% endif %}
-              <span class="new rating-badge orange"><b>Rating: {{ component.rating }}</b></span>
-            </a>
-          </div>
-          <h3 class="text-center padtop-5">Component Information</h3>
-          <p><b>Component Category:</b> {{ component.category }}</p>
+        <form class="col s12" action="{% url 'repo:authenticateLogin' %}" method="post">
+          {% csrf_token %}
+          <h2 class="form-signin-heading">Please sign in</h2>
+          <input type="email" name="login_email" class="form-control" placeholder="Username" required autofocus>
+          <input type="password" name="login_password" class="form-control" placeholder="Password" required>
           <br>
-          <p><b>Notes:</b> {{ component.notes }}</p>
 
-          <h3 class="text-center padtop-5">Tester Information</h3>
-          <p><b>Author:</b> {{ component.author_first_name }}&nbsp;{{ component.author_last_name }}</p>
-          <p><b>Author's Email:</b> {{ component.author_email }}</p>
-        {% endfor %}
-      </div>
-      <div class="padtop-5"></div>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          <div class="padtop-5"></div>
+        </form>
+      </div> <!-- /container -->
     </div>
   </body>
 </html>

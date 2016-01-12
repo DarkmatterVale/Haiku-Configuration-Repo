@@ -13,4 +13,6 @@ urlpatterns = [
     url(r'^create_test', views.createTest, name='createTest'),
     url(r'^sort_components', views.sortComponents, name='sortComponents'),
     url(r'^sort_devices', views.sortDevices, name='sortDevices'),
+    url(r'^login_page', views.loginIndex, name='loginIndex'),
+    url(r'^login', views.authenticateLogin, name='authenticateLogin'),
 ]
