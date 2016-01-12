@@ -1,70 +1,71 @@
 {% load staticfiles %}
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'repo/materialize.css' %}" />
-    <link rel="stylesheet" type="text/css" href="{% static 'repo/main.css' %}" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'repo/main.css' %}">
+    <link href="{% static 'repo/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'repo/shijin4.css' %}">
 
     <title>Haiku's Configuration Repository</title>
   </head>
 
   <body>
-    <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper">
-          <div class="col s12">
-            <a href="{% url 'repo:index' %}" class="large-font"><b>Haiku's Config Repository</b></a>
-
-            <div class="right-nav">
-              <a href="{% url 'repo:componentList' %}" class="btn-flat blue"><b>Component Tests</b></a>
-              <a href="{% url 'repo:deviceList' %}" class="btn-flat blue"><b>Device Tests</b></a>
-              <a href="" class="btn-flat blue"><b>Add a Test</b></a>
-            </div>
-          </div>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'repo:index' %}">Haiku's Configuration Repo</a>
         </div>
-      </nav>
-    </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'repo:componentList' %}" class="active">Component Tests</a></li>
+            <li><a href="{% url 'repo:deviceList' %}">Device Tests</a></li>
+            <li><a href="{% url 'repo:addTest' %}">Add a Test</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
 
-    <div class="row padtop-5">
-      <h4 class="center-align">Submit your test below</h4>
-      <h5 class="center-align">*For authentication purposes, you <b>must</b> provide a valid email address and name</h5>
-    </div>
+    <div class="padtop-5"></div>
+    <div id="page">
+      <div class="row">
+        <h2>Submit your test below</h2>
+        <h3>*For authentication purposes, you <b>must</b> provide a valid email address and name</h3>
+      </div>
 
-    <div class="row center-list-item padtop-5">
-       <h5 class="center-align">Component Test Form</h5>
-       <form class="col s12" action="{% url 'repo:createTest' %}" method="post">
-         {% csrf_token %}
-         <div class="row">
-           <div class="col s12">
-             <label>Rating</label>
-              <select name="component_rating" class="browser-default">
-                <option value="0" selected>0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </div>
-         </div>
-         <div class="row">
-           <div class="input-field col s12">
-             <input name="component_name" type="text" class="validate">
-             <label for="last_name">Component Name</label>
-           </div>
-         </div>
-         <div class="row">
-           <div class="col s12">
-             <label>Component Category</label>
-              <select name="component_category" class="browser-default">
+      <div class="row center-list-item padtop-5">
+         <h3 class="text-center">Component Test Form</h3>
+         <form class="col s12" action="{% url 'repo:createTest' %}" method="post">
+           {% csrf_token %}
+           <fieldset class="form-group">
+             <label for="component_rating">Rating</label>
+             <select class="form-control" id="component_rating" name="component_rating">
+               <option value="0" selected>0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+            </select>
+           </fieldset>
+           <br>
+           <fieldset class="form-group">
+             <label for="component_name">Component Name</label>
+             <input type="text" class="form-control" name="component_name" placeholder="Enter text here">
+           </fieldset>
+           <br>
+           <fieldset class="form-group">
+             <label for="component_category">Component Category</label>
+             <select class="form-control" id="component_category" name="component_category">
                 <option value"" disabled selected>Choose an Option</option>
                 <option value="CPU">CPU</option>
                 <option value="Motherboard">Motherboard</option>
@@ -72,163 +73,148 @@
                 <option value="SSD">SSD</option>
                 <option value="Display">Display</option>
               </select>
-            </div>
-         </div>
-         <div class="row">
-          <div class="input-field col s12">
-            <textarea name="component_test_notes" id="test_notes" class="materialize-textarea" length="500"></textarea>
-            <label for="test_notes">Short Note</label>
-          </div>
-         </div>
-         <div class="row">
-           <div class="col s12">
-             <p>
-               <input name="group1" type="checkbox" id="test1" />
-               <label for="test1">Pass</label>
-             </p>
-             <p>
-               <input name="group2" type="checkbox" id="test2" />
-               <label for="test2">Fail</label>
-             </p>
+           </fieldset>
+           <br>
+           <fieldset class="form-group">
+             <label for="test_notes">Short Note (Up to 500 Characters)</label>
+             <textarea class="form-control" name="component_test_notes" id="test_notes" rows="5"></textarea>
+           </fieldset>
+           <br>
+           <label>Did the component work?</label>
+           <div class="checkbox">
+             <label>
+               <input name="group1" type="checkbox">Pass
+             </label>
+             <br>
+             <label>
+               <input name="group2" type="checkbox">Fail
+             </label>
            </div>
-         </div>
-         <h5 class="center-align padtop-5">Device Test Form</h5>
-         <div class="row">
-           <div class="col s12">
-             <label>Rating</label>
-              <select name="device_rating" class="browser-default">
-                <option value="0" selected>0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-            </div>
-         </div>
-         <div class="row">
-           <div class="input-field col s12">
-             <input name="device_name" type="text" class="validate">
+
+           <h3 class="text-center padtop-5">Device Test Form</h3>
+           <fieldset class="form-group">
+             <label for="device_rating">Rating</label>
+             <select class="form-control" id="device_rating" name="device_rating">
+               <option value="0" selected>0</option>
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option>
+               <option value="6">6</option>
+               <option value="7">7</option>
+               <option value="8">8</option>
+               <option value="9">9</option>
+               <option value="10">10</option>
+            </select>
+           </fieldset>
+           <br>
+           <fieldset class="form-group">
              <label for="device_name">Device Name</label>
-           </div>
-         </div>
-         <div class="row">
-           <div class="input-field col s12">
-             <input name="device_cpu" type="text" class="validate">
+             <input type="text" class="form-control" name="device_name" placeholder="Enter text here">
+           </fieldset>
+           <br>
+           <fieldset class="form-group">
              <label for="device_cpu">Device CPU</label>
-           </div>
-         </div>
-         <div class="row">
-           <div class="input-field col s12">
-             <input name="device_motherboard" type="text" class="validate">
+             <input type="text" class="form-control" name="device_cpu" placeholder="Enter text here">
+           </fieldset>
+           <br>
+           <fieldset class="form-group">
              <label for="device_motherboard">Device Motherboard</label>
-           </div>
-         </div>
-         <div class="row">
-           <div class="input-field col s12">
-             <input name="device_hard_drive" type="text" class="validate">
+             <input type="text" class="form-control" name="device_motherboard" placeholder="Enter text here">
+           </fieldset>
+           <br>
+           <fieldset class="form-group">
              <label for="device_hard_drive">Device Hard Drive</label>
-           </div>
-         </div>
-         <div class="row">
-           <div class="input-field col s12">
-             <input name="device_sound" type="text" class="validate">
+             <input type="text" class="form-control" name="device_hard_drive" placeholder="Enter text here">
+           </fieldset>
+           <br>
+           <fieldset class="form-group">
              <label for="device_sound">Device Sound</label>
+             <input type="text" class="form-control" name="device_sound" placeholder="Enter text here">
+           </fieldset>
+           <label>Does the sound work?</label>
+           <div class="checkbox">
+             <label>
+               <input name="group3" type="checkbox">Pass
+             </label>
+             <br>
+             <label>
+               <input name="group4" type="checkbox">Fail
+             </label>
            </div>
-           <div class="col s12">
-             <p>
-               <input name="group3" type="checkbox" id="test3" />
-               <label for="test3">Sound Works</label>
-             </p>
-             <p>
-               <input name="group4" type="checkbox" id="test4" />
-               <label for="test4">Sound Fails</label>
-             </p>
-           </div>
-         </div>
-         <div class="row">
-           <div class="input-field col s12">
-             <input name="device_display_name" type="text" class="validate">
+           <br>
+           <fieldset class="form-group">
              <label for="device_display_name">Device Display Name</label>
-           </div>
-           <div class="input-field col s12">
-             <input name="device_display_config" type="text" class="validate">
+             <input type="text" class="form-control" name="device_display_name" placeholder="Enter text here">
+           </fieldset>
+           <fieldset class="form-group">
              <label for="device_display_config">Device Display Configuration</label>
+             <input type="text" class="form-control" name="device_display_config" placeholder="Enter text here">
+           </fieldset>
+           <label>Does the display work?</label>
+           <div class="checkbox">
+             <label>
+               <input name="group5" type="checkbox">Pass
+             </label>
+             <br>
+             <label>
+               <input name="group6" type="checkbox">Fail
+             </label>
            </div>
-           <div class="col s12">
-             <p>
-               <input name="group5" type="checkbox" id="test5" />
-               <label for="test5">Display Works</label>
-             </p>
-             <p>
-               <input name="group6" type="checkbox" id="test6" />
-               <label for="test6">Display Fails</label>
-             </p>
-           </div>
-         </div>
-         <div class="row">
-           <div class="input-field col s12">
-             <input name="device_dedicated_graphics" type="text" class="validate">
+           <br>
+           <fieldset class="form-group">
              <label for="device_dedicated_graphics">Device Graphics Card</label>
+             <input type="text" class="form-control" name="device_dedicated_graphics" placeholder="Enter text here">
+           </fieldset>
+           <label>Does the dedicated graphics card work?</label>
+           <div class="checkbox">
+             <label>
+               <input name="group7" type="checkbox">Pass
+             </label>
+             <br>
+             <label>
+               <input name="group8" type="checkbox">Fail
+             </label>
            </div>
-           <div class="col s12">
-             <p>
-               <input name="group7" type="checkbox" id="test7" />
-               <label for="test7">Graphics Works</label>
-             </p>
-             <p>
-               <input name="group8" type="checkbox" id="test8" />
-               <label for="test8">Graphics Fails</label>
-             </p>
+           <br>
+           <fieldset class="form-group">
+             <label for="device_test_notes">Short Note (Up to 500 Characters)</label>
+             <textarea class="form-control" name="device_test_notes" id="device_test_notes" rows="5"></textarea>
+           </fieldset>
+           <br>
+           <label>Did the device work?</label>
+           <div class="checkbox">
+             <label>
+               <input name="group9" type="checkbox">Pass
+             </label>
+             <br>
+             <label>
+               <input name="group10" type="checkbox">Fail
+             </label>
            </div>
-         </div>
-         <div class="row">
-          <div class="input-field col s12">
-            <textarea name="device_test_notes" id="test_notes" class="materialize-textarea" length="500"></textarea>
-            <label for="test_notes">Short Note</label>
-          </div>
-         </div>
-         <div class="row">
-           <div class="col s12">
-             <p>
-               <input name="group9" type="checkbox" id="test9" />
-               <label for="test9">Pass</label>
-             </p>
-             <p>
-               <input name="group10" type="checkbox" id="test10" />
-               <label for="test10">Fail</label>
-             </p>
-           </div>
-         </div>
-         <h5 class="center-align padtop-5">Authentication Information</h5>
-         <div class="row">
-           <div class="input-field col s6">
-             <input name="tester_first_name" id="first_name" type="text" class="validate">
-             <label for="first_name">First Name</label>
-           </div>
-           <div class="input-field col s6">
-             <input name="tester_last_name" id="last_name" type="text" class="validate">
-             <label for="last_name">Last Name</label>
-           </div>
-         </div>
-         <div class="row">
-           <div class="input-field col s12">
-             <input name="tester_email" id="email" type="email" class="validate">
-             <label for="email">Email</label>
-           </div>
-         </div>
-         <div class="row padtop-5">
-           <div class="col s12">
-             <input type="submit" value="Submit Test" />
-           </div>
-         </div>
-       </form>
-     </div>
+
+           <h3 class="text-center padtop-5">Authentication Information</h3>
+           <fieldset class="form-group">
+             <label for="tester_first_name">First Name</label>
+             <input type="text" class="form-control" name="tester_first_name" placeholder="Enter text here">
+           </fieldset>
+           <fieldset class="form-group">
+             <label for="tester_last_name">Last Name</label>
+             <input type="text" class="form-control" name="tester_last_name" placeholder="Enter text here">
+           </fieldset>
+
+           <fieldset class="form-group">
+             <label for="tester_email">Email</label>
+             <input type="email" class="form-control" name="tester_email" placeholder="Enter text here">
+           </fieldset>
+           <br>
+
+           <button type="submit" class="btn btn-primary padtop-2">Submit</button>
+           <div class="padtop-5"></div>
+         </form>
+       </div>
+      </div>
     </div>
   </body>
 </html>
