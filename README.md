@@ -10,3 +10,7 @@ Below are images of the pages.
 ![Image of the devices list](images/devices_list.png)
 
 ![Image of the add a test page](images/add_test.png)
+
+![Image of the component page](images/component.png)
+
+![Image of the device page](images/device.png)
