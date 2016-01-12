@@ -27,7 +27,7 @@ def authenticateLogin(request):
 
         user = authenticate(username=username, password=password)
         if user is not None:
-            login(request, user)
+            django.contrib.auth.login(request, user)
 
     return HttpResponseRedirect(reverse('repo:index'))
 

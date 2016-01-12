@@ -2,6 +2,14 @@ from __future__ import unicode_literals
 
 from django.db import models
 
+from django.contrib.auth.models import User
+
+class Profile(models.Model):
+    """User profile.  Contains some basic configurable settings"""
+
+    user = models.OneToOneField(User, unique=True)
+    password = models.CharField(max_length=256, blank=True, default='')
+
 class Component(models.Model):
     name = models.CharField(default='', max_length=200)
     notes = models.CharField(default='', max_length=500)

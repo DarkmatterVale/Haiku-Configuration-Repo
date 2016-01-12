@@ -16,17 +16,9 @@ AUTH_LDAP_USER_SEARCH = LDAPSearch("ou=users,dc=example,dc=com",
 
 # Populate the Django user from the LDAP directory.
 AUTH_LDAP_USER_ATTR_MAP = {
-    "first_name": "givenName",
-    "last_name": "sn",
+    "username": "name",
     "email": "mail"
 }
-
-AUTH_LDAP_PROFILE_ATTR_MAP = {
-    "employee_number": "employeeNumber"
-}
-
-# This is the default, but I like to be explicit.
-AUTH_LDAP_ALWAYS_UPDATE_USER = False
 
 # Keep ModelBackend around for per-user permissions and maybe a local
 # superuser.
