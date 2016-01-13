@@ -33,11 +33,46 @@
 
     <div class="row padtop-5"></div>
     <div id="page">
-      <div class="starter-template">
+      <div class="row">
          <h1>Welcome to the Haiku's Hardware Configuration Repository!</h1>
          <br><br>
          <p class="lead">To add a configuration, select the "Add a Test" link in the navbar.<br>In addition, you can see tests and their details by clicking the other links on the navbar</p>
        </div>
+       <div class="padtop-5"></div>
+
+       <div class="pad-item-list center-list-item row">
+         <h3>5 most recent component tests uploaded</h3>
+         {% for component in all_components %}
+           <div class="collection">
+             <a href="{% url 'repo:componentDetail' component.id %}" class="collection-item">{{ component.name }}
+               {% if component.is_working == "Passed" %}
+                 <span class="new badge green"><b>Passed</b></span>
+               {% else %}
+                 <span class="new badge red"><b>Failed</b></span>
+               {% endif %}
+               <span class="new rating-badge orange"><b>Rating: {{ component.rating }}</b></span>
+             </a>
+           </div>
+         {% endfor %}
+       </div>
+       <div class="padtop-5"></div>
+
+       <div class="pad-item-list center-list-item row">
+         <h3>5 most recent device tests uploaded</h3>
+         {% for device in all_devices %}
+           <div class="collection">
+             <a href="{% url 'repo:deviceDetail' device.id %}" class="collection-item">{{ device.name }}
+               {% if device.is_working == "Passed" %}
+                 <span class="new badge green"><b>Passed</b></span>
+               {% else %}
+                 <span class="new badge red"><b>Failed</b></span>
+               {% endif %}
+               <span class="new rating-badge orange"><b>Rating: {{ device.rating }}</b></span>
+             </a>
+           </div>
+         {% endfor %}
+       </div>
+       <div class="padtop-5"></div>
     </div>
   </body>
 </html>

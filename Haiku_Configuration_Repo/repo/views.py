@@ -11,7 +11,14 @@ from .models import Component
 from .models import Device
 
 def index(request):
-    return render(request, 'repo/index.html', {})
+    all_components = Component.objects.all().order_by('-date_modified')[:5]
+    all_devices = Device.objects.all().order_by('-date_modified')[:5]
+    context = {
+        'all_devices' : all_devices,
+        'all_components' : all_components
+    }
+
+    return render(request, 'repo/index.html', context)
 
 def loginIndex(request):
     return render(request, 'repo/login.html', {})
@@ -183,3 +190,6 @@ def createTest(request):
             newDevice.save()
 
     return HttpResponseRedirect(reverse('repo:index'))
+
+def myTests(request):
+    return
