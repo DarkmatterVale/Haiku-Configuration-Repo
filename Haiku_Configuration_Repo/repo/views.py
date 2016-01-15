@@ -104,9 +104,8 @@ def createTest(request):
         component_name = request.POST['component_name']
         device_name = request.POST['device_name']
 
-        author_first_name = request.POST['tester_first_name']
-        author_last_name = request.POST['tester_last_name']
-        author_email = request.POST['tester_email']
+        author = request.user.username
+        author_email = request.user.email
 
         if component_name != '':
             rating = request.POST['component_rating']
@@ -124,8 +123,7 @@ def createTest(request):
                 rating = rating,
                 is_working = is_working,
                 notes = notes,
-                author_first_name = author_first_name,
-                author_last_name = author_last_name,
+                author = author,
                 author_email = author_email,
                 category = component_category)
             newComponent.save()
@@ -174,8 +172,7 @@ def createTest(request):
                 rating = rating,
                 is_working = is_working,
                 notes = notes,
-                author_first_name = author_first_name,
-                author_last_name = author_last_name,
+                author = author,
                 author_email = author_email,
                 cpu = device_cpu,
                 motherboard = device_motherboard,
