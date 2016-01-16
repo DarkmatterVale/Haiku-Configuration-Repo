@@ -34,15 +34,16 @@
 
     <div class="padtop-5"></div>
     <div id="page">
-      <div class="pad-item-list center-list-item row">
+      <div class="row">
         <h2>My Tests</h2>
         <h3>Below are all of the tests you have submitted. Tests <b>are</b> editable.</h3>
-        <div class="padtop-5"></div>
+      </div>
 
+      <div class="pad-item-list center-list-item row">
         <h3>All of your submitted component tests</h3>
         {% for component in all_components %}
           <div class="collection">
-            <a href="{% url 'repo:componentDetail' component.id %}" class="collection-item">{{ component.name }}
+            <a href="{% url 'repo:editComponent' component.id %}" class="collection-item">{{ component.name }}
               {% if component.is_working == "Passed" %}
                 <span class="new badge green"><b>Passed</b></span>
               {% else %}

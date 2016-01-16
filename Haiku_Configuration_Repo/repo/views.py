@@ -104,6 +104,15 @@ def componentDetail(request, component_id):
 
     return render(request, 'repo/component.html', context)
 
+def editComponent(request, component_id):
+    myComponent = get_object_or_404(Component, pk=component_id)
+    context = {
+        'component_name' : myComponent.name,
+        'component' : myComponent
+    }
+
+    return render(request, 'repo/edit_component.html', context)
+
 def addTest(request):
     return render(request, 'repo/add_test.html', {})
 
@@ -205,3 +214,19 @@ def myTests(request):
     }
 
     return render(request, 'repo/my_tests.html', context)
+
+def saveComponent(request, component_id):
+    component = get_object_or_404(Component, pk=component_id)
+    category = str(request.POST['component_category'])
+    component.notes = request.POST['component_notes']
+
+    print type(category)
+
+    if category == "":
+        pass
+    else:
+        component.category = category
+
+    component.save()
+
+    return HttpResponseRedirect(reverse('repo:index'))
