@@ -26,6 +26,7 @@
             <li><a href="{% url 'repo:deviceList' %}">Device Tests</a></li>
             <li><a href="{% url 'repo:addTest' %}">Add a Test</a></li>
             <li><a href="{% url 'repo:myTests' %}">My Tests</a></li>
+            <li><a href="{% url 'repo:logout' %}">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -34,7 +35,7 @@
     <div class="padtop-5"></div>
     <div id="page">
       <div class="pad-item-list center-list-item row">
-        <h3>5 most recent component tests uploaded</h3>
+        <h3>All of your device tests</h3>
         {% for component in all_components %}
           <div class="collection">
             <a href="{% url 'repo:componentDetail' component.id %}" class="collection-item">{{ component.name }}
@@ -51,7 +52,7 @@
       <div class="padtop-5"></div>
 
       <div class="pad-item-list center-list-item row">
-        <h3>5 most recent device tests uploaded</h3>
+        <h3>All of your device tests</h3>
         {% for device in all_devices %}
           <div class="collection">
             <a href="{% url 'repo:deviceDetail' device.id %}" class="collection-item">{{ device.name }}

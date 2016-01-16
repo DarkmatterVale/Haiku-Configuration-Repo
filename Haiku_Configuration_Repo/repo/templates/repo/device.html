@@ -27,6 +27,7 @@
             <li><a href="{% url 'repo:addTest' %}">Add a Test</a></li>
             {% if user.is_authenticated %}
               <li><a href="{% url 'repo:myTests' %}">My Tests</a></li>
+              <li><a href="{% url 'repo:logout' %}">Logout</a></li>
             {% else %}
               <li><a href="{% url 'repo:loginIndex' %}">Login</a></li>
             {% endif %}

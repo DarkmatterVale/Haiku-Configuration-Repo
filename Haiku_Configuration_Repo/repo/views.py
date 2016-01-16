@@ -1,3 +1,5 @@
+import django
+
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
@@ -35,6 +37,12 @@ def authenticateLogin(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             django.contrib.auth.login(request, user)
+
+    return HttpResponseRedirect(reverse('repo:index'))
+
+def logMeOut(request):
+    if request.user.is_authenticated():
+        logout(request)
 
     return HttpResponseRedirect(reverse('repo:index'))
 

@@ -16,4 +16,5 @@ urlpatterns = [
     url(r'^login_page', views.loginIndex, name='loginIndex'),
     url(r'^login', views.authenticateLogin, name='authenticateLogin'),
     url(r'^my_tests', views.myTests, name='myTests'),
+    url(r'^logout', views.logMeOut, name='logout'),
 ]
