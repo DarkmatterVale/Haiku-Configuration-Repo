@@ -197,4 +197,11 @@ def createTest(request):
     return HttpResponseRedirect(reverse('repo:index'))
 
 def myTests(request):
-    return
+    all_components = Component.objects.all().filter(author=request.user.username)
+    all_devices = Device.objects.all().filter(author=request.user.username)
+    context = {
+        'all_devices' : all_devices,
+        'all_components' : all_components
+    }
+
+    return render(request, 'repo/my_tests.html', context)
