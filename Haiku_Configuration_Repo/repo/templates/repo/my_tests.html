@@ -60,7 +60,7 @@
         <h3>All of your submitted device tests</h3>
         {% for device in all_devices %}
           <div class="collection">
-            <a href="{% url 'repo:deviceDetail' device.id %}" class="collection-item">{{ device.name }}
+            <a href="{% url 'repo:editDevice' device.id %}" class="collection-item">{{ device.name }}
               {% if device.is_working == "Passed" %}
                 <span class="new badge green"><b>Passed</b></span>
               {% else %}

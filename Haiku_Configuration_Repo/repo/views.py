@@ -113,6 +113,15 @@ def editComponent(request, component_id):
 
     return render(request, 'repo/edit_component.html', context)
 
+def editDevice(request, device_id):
+    myDevice = get_object_or_404(Device, pk=device_id)
+    context = {
+        'device_name' : myDevice.name,
+        'device' : myDevice
+    }
+
+    return render(request, 'repo/edit_device.html', context)
+
 def addTest(request):
     return render(request, 'repo/add_test.html', {})
 
@@ -220,13 +229,81 @@ def saveComponent(request, component_id):
     category = str(request.POST['component_category'])
     component.notes = request.POST['component_notes']
 
-    print type(category)
-
     if category == "":
         pass
     else:
         component.category = category
 
     component.save()
+
+    return HttpResponseRedirect(reverse('repo:index'))
+
+def saveDevice(request, device_id):
+    device = get_object_or_404(Device, pk=device_id)
+
+    device.notes = request.POST['device_notes']
+
+    cpu = request.POST['device_cpu']
+    motherboard = request.POST['device_motherboard']
+    hard_drive = request.POST['device_hard_drive']
+    sound = request.POST['device_sound']
+    display_name = request.POST['device_display_name']
+    display_config = request.POST['device_display_config']
+    graphics_card = request.POST['device_dedicated_graphics']
+
+    try:
+        if str(request.POST['group3']) == "on":
+            device.is_sound_working = "Passed"
+    except:
+        pass
+
+    try:
+        if str(request.POST['group5']) == "on":
+            device.is_display_working = "Passed"
+    except:
+        pass
+
+    try:
+        if str(request.POST['group7']) == "on":
+            display.graphics_card_is_working = "Passed"
+    except:
+        pass
+
+    if cpu == "":
+        pass
+    else:
+        device.cpu = cpu
+
+    if motherboard == "":
+        pass
+    else:
+        device.motherboard = motherboard
+
+    if hard_drive == "":
+        pass
+    else:
+        device.hard_dive = hard_drive
+
+    if sound == "":
+        pass
+    else:
+        device.sound = sound
+
+    if display_name == "":
+        pass
+    else:
+        device.display = display_name
+
+    if display_config == "":
+        pass
+    else:
+        device.display_configuration = display_config
+
+    if graphics_card == "":
+        pass
+    else:
+        device.graphics_card = graphics_card
+
+    device.save()
 
     return HttpResponseRedirect(reverse('repo:index'))
