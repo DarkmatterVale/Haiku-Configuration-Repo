@@ -154,6 +154,27 @@
             <label for="device_notes">Notes:</label>
             <textarea class="form-control" name="device_notes" rows="5">{{ device.notes }}</textarea>
           </fieldset>
+          <br>
+          <label>Did the device work?</label>
+          <div class="checkbox">
+            {% if device.is_working == "Passed" %}
+              <label>
+                <input name="group9" type="checkbox" checked>Pass
+              </label>
+              <br>
+              <label>
+                <input name="group10" type="checkbox">Fail
+              </label>
+            {% else %}
+              <label>
+                <input name="group9" type="checkbox">Pass
+              </label>
+              <br>
+              <label>
+                <input name="group10" type="checkbox" checked>Fail
+              </label>
+            {% endif %}
+          </div>
 
           <h3 class="text-center padtop-5">Tester Information</h3>
           <p><b>Author:</b> {{ device.author }}</p>

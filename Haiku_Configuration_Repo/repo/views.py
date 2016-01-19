@@ -234,6 +234,12 @@ def saveComponent(request, component_id):
     else:
         component.category = category
 
+    try:
+        if str(request.POST['group9']) == "on":
+            component.is_working = "Passed"
+    except:
+        component.is_working = "Failed"
+
     component.save()
 
     return HttpResponseRedirect(reverse('repo:index'))
@@ -252,22 +258,28 @@ def saveDevice(request, device_id):
     graphics_card = request.POST['device_dedicated_graphics']
 
     try:
+        if str(request.POST['group9']) == "on":
+            device.is_working = "Passed"
+    except:
+        device.is_working = "Failed"
+
+    try:
         if str(request.POST['group3']) == "on":
             device.is_sound_working = "Passed"
     except:
-        pass
+        device.is_sound_working = "Failed"
 
     try:
         if str(request.POST['group5']) == "on":
             device.is_display_working = "Passed"
     except:
-        pass
+        device.is_display_working = "Failed"
 
     try:
         if str(request.POST['group7']) == "on":
-            display.graphics_card_is_working = "Passed"
+            device.graphics_card_is_working = "Passed"
     except:
-        pass
+        device.graphics_card_is_working = "Failed"
 
     if cpu == "":
         pass
