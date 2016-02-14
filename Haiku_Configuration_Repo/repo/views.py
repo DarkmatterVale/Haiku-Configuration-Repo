@@ -11,16 +11,14 @@ from django.contrib.auth import authenticate, login, logout
 
 from .models import Component
 from .models import Device
+from view_modules import *
 
 def index(request):
-    all_components = Component.objects.all().order_by('-date_modified')[:5]
-    all_devices = Device.objects.all().order_by('-date_modified')[:5]
-    context = {
-        'all_devices' : all_devices,
-        'all_components' : all_components
-    }
+    """
+    Create the view for the index page
+    """
 
-    return render(request, 'repo/index.html', context)
+    return display_index_page(request)
 
 def loginIndex(request):
     return render(request, 'repo/login.html', {})
