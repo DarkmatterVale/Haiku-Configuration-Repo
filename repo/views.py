@@ -17,8 +17,14 @@ def index(request):
     """
     Create the view for the index page
     """
+    all_components = Component.objects.all().order_by('-date_modified')[:5]
+    all_devices = Device.objects.all().order_by('-date_modified')[:5]
+    context = {
+        'all_devices' : all_devices,
+        'all_components' : all_components
+    }
 
-    return display_index_page(request)
+    return render(request, 'repo/index.html', context)
 
 def loginIndex(request):
     return render(request, 'repo/login.html', {})
