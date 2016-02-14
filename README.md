@@ -14,3 +14,10 @@ Below are images of the pages.
 ![Image of the component page](images/component.png)
 
 ![Image of the device page](images/device.png)
+
+## Credentials
+
+For the moment, the admin credentials are:
+
+- Username: "valetolpegin"
+- Password: "haiku_is_awesome"
