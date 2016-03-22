@@ -13,10 +13,10 @@ from ..models import Component
 from ..models import Device
 
 
-def addTest(request):
+def add_test(request):
     return render(request, 'repo/add_test.html', {})
 
-def createTest(request):
+def create_test(request):
     if request.user.is_authenticated():
         component_name = request.POST['component_name']
         device_name = request.POST['device_name']
@@ -105,7 +105,7 @@ def createTest(request):
 
     return HttpResponseRedirect(reverse('repo:index'))
 
-def myTests(request):
+def my_tests(request):
     all_components = Component.objects.all().filter(author=request.user.username)
     all_devices = Device.objects.all().filter(author=request.user.username)
     context = {

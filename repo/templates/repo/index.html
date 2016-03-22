@@ -46,8 +46,8 @@
        <div class="padtop-5"></div>
 
        <div class="pad-item-list center-list-item row">
-         <h3>5 most recent component tests edited</h3>
-         {% for component in all_components %}
+        <h3>Components recently added or edited:</h3>
+         {% for component in recent_components %}
            <div class="collection">
              <a href="{% url 'repo:componentDetail' component.id %}" class="collection-item">{{ component.name }}
                {% if component.is_working == "Passed" %}
@@ -63,8 +63,8 @@
        <div class="padtop-5"></div>
 
        <div class="pad-item-list center-list-item row">
-         <h3>5 most recent device tests edited</h3>
-         {% for device in all_devices %}
+         <h3>Devices recently added or edited:</h3>
+         {% for device in recent_devices %}
            <div class="collection">
              <a href="{% url 'repo:deviceDetail' device.id %}" class="collection-item">{{ device.name }}
                {% if device.is_working == "Passed" %}

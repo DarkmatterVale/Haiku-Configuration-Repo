@@ -13,11 +13,11 @@ from ..models import Component
 from ..models import Device
 
 def display_index_page(request):
-    all_components = Component.objects.all().order_by('-date_modified')[:5]
-    all_devices = Device.objects.all().order_by('-date_modified')[:5]
+    recent_components = Component.objects.all().order_by('-date_modified')[:5]
+    recent_devices = Device.objects.all().order_by('-date_modified')[:5]
     context = {
-        'all_devices' : all_devices,
-        'all_components' : all_components
+        'recent_devices' : recent_devices,
+        'recent_components' : recent_components
     }
-
+    
     return render(request, 'repo/index.html', context)

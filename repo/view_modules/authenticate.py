@@ -13,7 +13,7 @@ from django.contrib.auth import authenticate, login, logout
 def loginIndex(request):
     return render(request, 'repo/login.html', {})
 
-def authenticateLogin(request):
+def authenticateUserLogin(request):
     username = password = ""
 
     if request.POST:
@@ -28,7 +28,7 @@ def authenticateLogin(request):
 
     return HttpResponseRedirect(reverse('repo:index'))
 
-def logMeOut(request):
+def logUserOut(request):
     if request.user.is_authenticated():
         logout(request)
 
