@@ -5,13 +5,6 @@ import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
-# Keep ModelBackend around for per-user permissions and maybe a local
-# superuser.
-AUTHENTICATION_BACKENDS = (
-    'django_auth_ldap.backend.LDAPBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
@@ -45,7 +38,7 @@ MIDDLEWARE_CLASSES = (
                       'django.middleware.security.SecurityMiddleware',
                       )
 
-ROOT_URLCONF = 'Haiku_Configuration_Repo.urls'
+ROOT_URLCONF = 'HaikuConfigurationRepo.urls'
 
 TEMPLATES = [
     {
@@ -64,7 +57,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Haiku_Configuration_Repo.wsgi.application'
+WSGI_APPLICATION = 'HaikuConfigurationRepo.wsgi.application'
 
 
 # Database
