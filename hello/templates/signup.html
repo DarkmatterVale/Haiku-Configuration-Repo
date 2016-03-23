@@ -40,10 +40,19 @@
             {% csrf_token %}
             <h2 class="form-signin-heading">Sign up</h2>
             <input type="email" name="signup_username" class="form-control" placeholder="Username" required autofocus>
+            <small class="text-muted">*Required</small>
+            <br><br>
+            
             <input type="email" name="signup_email" class="form-control" placeholder="Email Address" required>
+            <small class="text-muted">*Required</small>
+            <br><br>
+            
             <input type="password" name="signup_password" class="form-control" placeholder="Password" required>
+            <small class="text-muted">*Required</small>
+            <br><br>
             <input type="password" name="confirmation_password" class="form-control" placeholder="Confirm Password" required>
-            <br>
+            <small class="text-muted">*Required</small>
+            <br><br>
                       
             <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
             <div class="padtop-5"></div>

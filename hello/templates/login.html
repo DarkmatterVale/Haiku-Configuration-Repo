@@ -40,8 +40,12 @@
             {% csrf_token %}
             <h2 class="form-signin-heading">Please sign in</h2>
             <input type="email" name="login_email" class="form-control" placeholder="Username" required autofocus>
+            <small class="text-muted">*Required</small>
+            <br><br>
+            
             <input type="password" name="login_password" class="form-control" placeholder="Password" required>
-            <br>
+            <small class="text-muted">*Required</small>
+            <br><br>
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             <div class="padtop-5"></div>
