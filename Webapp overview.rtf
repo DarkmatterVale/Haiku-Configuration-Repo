@@ -1,0 +1,132 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1348\cocoasubrtf170
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww12320\viewh15160\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 Overview of the \'93Rating & Compatibility web app\'94\
+\
+The website will be broken down into multiple different parts, probably different tasks (as it is a very large project). Each part is described in more detail below, in no specific order.\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+Part 1) Website:\
+\'97\'97\'97\'97\'97\'97\'97\
+\
+This part of the application is what I am going to work on in this task. It consists of multiple pages, including:\
+\
+- Index page:			This gives a brief overview of what the app is & what it does\
+- Configurations page:	This page will have a list of configurations that have been tested. It will be simple, and \
+				will display basic information about each configuration test, including whether it passed, \
+				rating, and basic config information The \'93passed\'94 will be a big \'93Passed\'94 label with a \
+				green background, while fail will be a big \'93Failed\'94 in red\
+- Search page:		This page will let a user search for tests completed on a given configuration. Each test \
+				will be displayed in a similar manner to each test that is displayed in the configurations \
+				page\
+- Add a Test:			This page will let a user add a test to the database that stores the data\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 Part 2) Automagic Tester:\
+\'97\'97\'97\'97\'97\'97\'97\
+\
+This part of the application, will automatically run a script to test the hardware on a machine & generate a test report which is automatically uploaded to the server, and then added to the database.\
+\
+It is an enhancement to the \'93Add a Test\'94 page\
+\
+\
+\
+Page Demos:\
+\'97\'97\'97\'97\'97\'97\'97\
+\
+Index Page)\
+\
+Link to the homepage			    Link to \'93Config Tests\'94	Link to \'93Add\'94 page (Add a test)\
+	|						|		|	   |\
+|\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97|\
+| Configuration Monitor		       Components	Computers	Add	 | <\'97 Navbar\
+|											 |\
+| Welcome text goes here!!								 |\
+|											 | <\'97 Text\
+| Some more text goes here!!							 |\
+|											 |\
+|											 |\
+| Search bar & info goes here							 | <\'97 Search\
+|											 |\
+|											 |\
+|											 |\
+|											 |\
+|											 |\
+|											 |\
+| 											 | \
+|\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97|\
+\
+\
+Config Tests \'97 Components)\
+\
+Link to the homepage			    Link to \'93Config Tests\'94	Link to \'93Add\'94 page (Add a test)\
+	|						|		|	   |\
+|\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97|\
+| Configuration Monitor		       Components	Computers	Add	 | <\'97 Navbar\
+|											 |\
+|			         Sort by:	       Options					 | <\'97 Sort Options\
+|											 |\
+|											 |\
+| 			      Passed	  Info	   Rating				 |\
+| 			      Passed	  Info	   Rating				 | <\'97 Config Tests\
+| 			      Passed	  Info	   Rating				 |\
+| 			      Passed	  Info	   Rating				 |\
+| 			      Passed	  Info	   Rating				 |\
+| 			      Passed	  Info	   Rating				 |\
+| 			      Passed	  Info	   Rating				 |\
+| 			      Passed	  Info	   Rating				 |\
+| 			      Passed	  Info	   Rating				 |\
+|											 |\
+|\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97|\
+\
+\
+Config Tests \'97 Computers)\
+\
+Link to the homepage			    Link to \'93Config Tests\'94	Link to \'93Add\'94 page (Add a test)\
+	|						|		|	   |\
+|\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97|\
+| Configuration Monitor		       Components	Computers	Add	 | <\'97 Navbar\
+|											 |\
+|			         Sort by:	       Options					 | <\'97 Sort Options\
+|											 |\
+|											 |\
+| 			      Passed	  Info	   Rating				 |\
+| 			      Passed	  Info	   Rating				 | <\'97 Config Tests\
+| 			      Passed	  Info	   Rating				 |\
+| 			      Passed	  Info	   Rating				 |\
+| 			      Passed	  Info	   Rating				 |\
+| 			      Passed	  Info	   Rating				 |\
+| 			      Passed	  Info	   Rating				 |\
+| 			      Passed	  Info	   Rating				 |\
+| 			      Passed	  Info	   Rating				 |\
+|											 |\
+|\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97|\
+\
+\
+Add)\
+\
+Link to the homepage			    Link to \'93Config Tests\'94	Link to \'93Add\'94 page (Add a test)\
+	|						|		|	   |\
+|\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97|\
+| Configuration Monitor		       Components	Computers	Add	 | <\'97 Navbar\
+|											 |\
+|			         								 |\
+|											 |\
+|											 |\
+|											 |\
+| 											 |\
+|				Options available					 | <\'97 Options & info\
+| 											 | \
+|											 |\
+| 											 | \
+|											 |\
+| 											 | \
+|											 |\
+|											 |\
+|\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97|}

@@ -1,8 +1,0 @@
-{
-  "name": "Haiku Hardware Database",
-  "description": "A hardware testing repository for Haiku.",
-  "image": "heroku/python",
-  "repository": "https://github.com/DarkmatterVale/Haiku-Configuration-Repo",
-  "keywords": [ "python", "django", "haiku" ],
-  "addons": [ "heroku-postgresql" ]
-}
