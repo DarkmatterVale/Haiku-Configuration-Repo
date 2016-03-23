@@ -14,6 +14,9 @@ from django.contrib.auth.models import User
 def login_index(request):
     return render(request, 'login.html', {})
 
+def signup_index_view(request):
+    return render(request, 'signup.html', {})
+
 def authenticateUserLogin(request):
     username = password = ""
 

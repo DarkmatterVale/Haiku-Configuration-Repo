@@ -26,9 +26,15 @@ def index(request):
 # Authentication
 def loginIndex(request):
     """
-    Login/Signup page
+    Login page
     """
     return login_index(request)
+
+def signup_index(request):
+    """
+    Signup page
+    """
+    return signup_index_view(request)
 
 def authenticateLogin(request):
     """

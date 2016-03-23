@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^my_tests', hello.views.myTests, name='myTests'),
     
     url(r'^login_page', hello.views.loginIndex, name='loginIndex'),
+    url(r'^signup_page', hello.views.signup_index, name='signup_index'),
     url(r'^login', hello.views.authenticateLogin, name='authenticateLogin'),
     url(r'^signup', hello.views.authenticateSignUp, name='authenticateSignUp'),
     url(r'^logout', hello.views.logMeOut, name='logout'),
