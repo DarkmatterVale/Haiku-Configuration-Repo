@@ -10,7 +10,7 @@ from django.shortcuts import render_to_response
 from django.contrib.auth import authenticate, login, logout
 
 
-def loginIndex(request):
+def login_index(request):
     return render(request, 'login.html', {})
 
 def authenticateUserLogin(request):

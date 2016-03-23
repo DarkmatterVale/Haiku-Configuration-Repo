@@ -25,7 +25,10 @@ def index(request):
 
 # Authentication
 def loginIndex(request):
-    return render(request, 'repo/login.html', {})
+    """
+        Login/Signup page
+        """
+    return login_index(request)
 
 def authenticateLogin(request):
     """
