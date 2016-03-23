@@ -8,10 +8,6 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.md')) as f:
     description_file = f.read()
 
-req = open('requirements.txt')
-requirements = req.readlines()
-req.close()
-
 setup(
     name = 'Haiku_Configuration_Repo',
 
@@ -43,7 +39,17 @@ setup(
     packages = find_packages(),
 
     platforms=["any"],
-    install_requires = requirements,
+      
+    dependency_links = [
+        'https://github.com/staticdev/django-sorting/tarball/master#egg=django-sort',
+    ],
+    install_requires=[
+        'dj-database-url==0.4.0',
+        'Django==1.9.2',
+        'gunicorn==19.4.5',
+        'psycopg2==2.6.1',
+        'whitenoise==2.0.6'
+    ],
 
     keywords = [ 'Haiku' ],
 )
