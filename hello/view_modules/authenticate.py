@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
 
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 
 
 def login_index(request):
@@ -26,10 +27,20 @@ def authenticateUserLogin(request):
         if user is not None:
             django.contrib.auth.login(request, user)
 
-    return HttpResponseRedirect(reverse('hello:index'))
+    return HttpResponseRedirect(reverse('index'))
+
+def authenticate_sign_up(request):
+    username = request.POST.get('signup_username')
+    email = request.POST.get('signup_email')
+    password = request.POST.get('signup_password')
+    confirmation_password = request.POST.get('confirmation_password')
+    
+    User.objects.create_user(username, email, password)
+
+    return HttpResponseRedirect(reverse('index'))
 
 def logUserOut(request):
     if request.user.is_authenticated():
         logout(request)
 
-    return HttpResponseRedirect(reverse('hello:index'))
+    return HttpResponseRedirect(reverse('index'))

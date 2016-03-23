@@ -124,4 +124,4 @@ def save_device(request, device_id):
     
     device.save()
 
-    return HttpResponseRedirect(reverse('hello:index'))
+    return HttpResponseRedirect(reverse('index'))

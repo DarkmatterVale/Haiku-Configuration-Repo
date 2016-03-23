@@ -68,4 +68,4 @@ def save_component(request, component_id):
     
     component.save()
 
-    return HttpResponseRedirect(reverse('hello:index'))
+    return HttpResponseRedirect(reverse('index'))

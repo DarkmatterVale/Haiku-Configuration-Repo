@@ -35,14 +35,29 @@
     <div id="page">
       <div class="pad-item-list center-list-item row">
         <form class="col s12" action="{% url 'authenticateLogin' %}" method="post">
-          {% csrf_token %}
-          <h2 class="form-signin-heading">Please sign in</h2>
-          <input type="email" name="login_email" class="form-control" placeholder="Username" required autofocus>
-          <input type="password" name="login_password" class="form-control" placeholder="Password" required>
-          <br>
+            {% csrf_token %}
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <input type="email" name="login_email" class="form-control" placeholder="Username" required autofocus>
+            <input type="password" name="login_password" class="form-control" placeholder="Password" required>
+            <br>
 
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-          <div class="padtop-5"></div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <div class="padtop-5"></div>
+        </form>
+      </div> <!-- /container -->
+      
+      <div class="pad-item-list center-list-item row">
+        <form class="col s12" action="{% url 'authenticateSignUp' %}" method="post">
+            {% csrf_token %}
+            <h2 class="form-signin-heading">Sign up</h2>
+            <input type="email" name="signup_username" class="form-control" placeholder="Username" required autofocus>
+            <input type="email" name="signup_email" class="form-control" placeholder="Email Address" required>
+            <input type="password" name="signup_password" class="form-control" placeholder="Password" required>
+            <input type="password" name="confirmation_password" class="form-control" placeholder="Confirm Password" required>
+            <br>
+                      
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+            <div class="padtop-5"></div>
         </form>
       </div> <!-- /container -->
     </div>
