@@ -1,0 +1,8 @@
+{
+  "name": "Haiku Hardware Database",
+  "description": "A web app hardware-test-database for Haiku",
+  "image": "",
+  "repository": "https://github.com/DarkmatterVale/Haiku-Configuration-Repo",
+  "keywords": [ "Haiku" ],
+  "addons": [ "heroku-postgresql" ]
+}

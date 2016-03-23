@@ -1,23 +1,44 @@
-# Haiku-Configuration-Repo
-A place to find information about whether your hardware configuration will work with Haiku
+# python-getting-started
 
-Below are images of the pages.
+A barebones Python app, which can easily be deployed to Heroku.
 
-![Image of the index page](images/index.png)
+This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
 
-![Image of the components list](images/components_list.png)
+## Running Locally
 
-![Image of the devices list](images/devices_list.png)
+Make sure you have Python [installed properly](http://install.python-guide.org).  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/) and [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
 
-![Image of the add a test page](images/add_test.png)
+```sh
+$ git clone git@github.com:heroku/python-getting-started.git
+$ cd python-getting-started
 
-![Image of the component page](images/component.png)
+$ pip install -r requirements.txt
 
-![Image of the device page](images/device.png)
+$ createdb python_getting_started
 
-## Credentials
+$ python manage.py migrate
+$ python manage.py collectstatic
 
-For the moment, the admin credentials are:
+$ heroku local
+```
 
-- Username: "valetolpegin"
-- Password: "haiku_is_awesome"
+Your app should now be running on [localhost:5000](http://localhost:5000/).
+
+## Deploying to Heroku
+
+```sh
+$ heroku create
+$ git push heroku master
+
+$ heroku run python manage.py migrate
+$ heroku open
+```
+or
+
+[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+## Documentation
+
+For more information about using Python on Heroku, see these Dev Center articles:
+
+- [Python on Heroku](https://devcenter.heroku.com/categories/python)

@@ -1,0 +1,41 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'shijin4.css' %}">
+
+    <title>Haiku's Configuration Repository</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'hello:index' %}">Haiku's Configuration Repo</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'hello:componentList' %}" class="active">Component Tests</a></li>
+            <li><a href="{% url 'hello:deviceList' %}">Device Tests</a></li>
+            <li><a href="{% url 'hello:addTest' %}">Add a Test</a></li>
+            <li><a href="{% url 'hello:loginIndex' %}">Login</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="padtop-5"></div>
+    <div id="page">
+      <div class="pad-item-list center-list-item row">
+        <h2 class="text-center">Logging out...</h2>
+      </div> <!-- /container -->
+    </div>
+  </body>
+</html>

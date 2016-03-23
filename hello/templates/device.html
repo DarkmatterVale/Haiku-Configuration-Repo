@@ -1,0 +1,88 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'shijin4.css' %}">
+
+    <title>Haiku's Configuration Repository</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'hello:index' %}">Haiku's Configuration Repo</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'hello:componentList' %}" class="active">Component Tests</a></li>
+            <li><a href="{% url 'hello:deviceList' %}">Device Tests</a></li>
+            <li><a href="{% url 'hello:addTest' %}">Add a Test</a></li>
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'hello:myTests' %}">My Tests</a></li>
+              <li><a href="{% url 'hello:logout' %}">Logout</a></li>
+            {% else %}
+              <li><a href="{% url 'hello:loginIndex' %}">Login</a></li>
+            {% endif %}
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="padtop-5"></div>
+    <div id="page">
+      <div class="pad-item-list center-list-item row">
+        <h2 class="text-center">{{ device_name }}</h2>
+        <h3 class="text-center padtop-5">Tests</h3>
+        {% for device in all_devices %}
+          <div class="collection">
+            <p class="collection-item">{{ device.name }}
+              {% if device.is_working == "Passed" %}
+                <span class="new badge green"><b>Passed</b></span>
+              {% else %}
+                <span class="new badge red"><b>Failed</b></span>
+              {% endif %}
+              <span class="new rating-badge orange"><b>Rating: {{ device.rating }}</b></span>
+            </a>
+          </div>
+
+          <h3 class="text-center padtop-5">Device Information</h3>
+          <p><b>CPU:</b> {{ device.cpu }}</p>
+          <p><b>Motherboard:</b> {{ device.motherboard }}</p>
+          <p><b>Hard Drive:</b> {{ device.hard_drive }}</p>
+          {% if device.is_sound_working == "Passed" %}
+            <p><b>Sound (works):</b> {{ device.sound }}</p>
+          {% else %}
+            <p><b>Sound (doesn't work):</b> {{ device.sound }}</p>
+          {% endif %}
+          {% if device.is_sound_working == "Passed" %}
+            <p><b>Display (works):</b> {{ device.display }}</p>
+            <p><b>Display Configuration (works):</b> {{ device.display_configuration }}</p>
+          {% else %}
+            <p><b>Display (doesn't work):</b> {{ device.display }}</p>
+            <p><b>Display Configuration (doesn't work):</b> {{ device.display_configuration }}</p>
+          {% endif %}
+          {% if device.is_sound_working == "Passed" %}
+            <p><b>Dedicated Graphics Card (works):</b> {{ device.graphics_card }}</p>
+          {% else %}
+            <p><b>Dedicated Graphics Card (doesn't work):</b> {{ device.graphics_card }}</p>
+          {% endif %}
+          <br>
+          <p><b>Notes:</b> {{ device.notes }}</p>
+
+          <h3 class="text-center padtop-5">Tester Information</h3>
+          <p><b>Author:</b> {{ device.author }}</p>
+          <p><b>Author's Email:</b> {{ device.author_email }}</p>
+        {% endfor %}
+      </div>
+      <div class="padtop-5"></div>
+    </div>
+  </body>
+</html>
