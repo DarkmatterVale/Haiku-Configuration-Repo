@@ -103,7 +103,7 @@ def create_test(request):
                 graphics_card_is_working = is_dedicated_graphics_working)
             newDevice.save()
 
-    return HttpResponseRedirect(reverse('hello:index'))
+    return HttpResponseRedirect(reverse('index'))
 
 def my_tests(request):
     all_components = Component.objects.all().filter(author=request.user.username)
