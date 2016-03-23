@@ -24,9 +24,17 @@
           <ul class="nav navbar-nav">
             <li><a href="{% url 'componentList' %}" class="active">Component Tests</a></li>
             <li><a href="{% url 'deviceList' %}">Device Tests</a></li>
-            <li><a href="{% url 'addTest' %}">Add a Test</a></li>
-            <li><a href="{% url 'myTests' %}">My Tests</a></li>
-            <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'addTest' %}">Add a Test</a></li>
+                <li><a href="{% url 'myTests' %}">My Tests</a></li>
+            {% endif %}
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+              <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% else %}
+              <li><a href="{% url 'loginIndex' %}">Login</a></li>
+            {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
       </div>
