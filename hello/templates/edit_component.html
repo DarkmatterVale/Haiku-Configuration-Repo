@@ -18,18 +18,18 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="{% url 'hello:index' %}">Haiku's Configuration Repo</a>
+          <a class="navbar-brand" href="{% url 'index' %}">Haiku's Configuration Repo</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="{% url 'hello:componentList' %}" class="active">Component Tests</a></li>
-            <li><a href="{% url 'hello:deviceList' %}">Device Tests</a></li>
-            <li><a href="{% url 'hello:addTest' %}">Add a Test</a></li>
+            <li><a href="{% url 'componentList' %}" class="active">Component Tests</a></li>
+            <li><a href="{% url 'deviceList' %}">Device Tests</a></li>
+            <li><a href="{% url 'addTest' %}">Add a Test</a></li>
             {% if user.is_authenticated %}
-              <li><a href="{% url 'hello:myTests' %}">My Tests</a></li>
-              <li><a href="{% url 'hello:logout' %}">Logout</a></li>
+              <li><a href="{% url 'myTests' %}">My Tests</a></li>
+              <li><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}
-              <li><a href="{% url 'hello:loginIndex' %}">Login</a></li>
+              <li><a href="{% url 'loginIndex' %}">Login</a></li>
             {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
@@ -53,7 +53,7 @@
           </a>
         </div>
 
-        <form class="col s12" action="{% url 'hello:saveComponent' component.id %}" method="post">
+        <form class="col s12" action="{% url 'saveComponent' component.id %}" method="post">
           {% csrf_token %}
           <h3 class="text-center padtop-5">Component Information</h3>
           <fieldset class="form-group">

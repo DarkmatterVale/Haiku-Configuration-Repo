@@ -18,18 +18,18 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="{% url 'hello:index' %}">Haiku's Configuration Repo</a>
+          <a class="navbar-brand" href="{% url 'index' %}">Haiku's Configuration Repo</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="{% url 'hello:componentList' %}" class="active">Component Tests</a></li>
-            <li><a href="{% url 'hello:deviceList' %}">Device Tests</a></li>
-            <li><a href="{% url 'hello:addTest' %}">Add a Test</a></li>
+            <li><a href="{% url 'componentList' %}" class="active">Component Tests</a></li>
+            <li><a href="{% url 'deviceList' %}">Device Tests</a></li>
+            <li><a href="{% url 'addTest' %}">Add a Test</a></li>
             {% if user.is_authenticated %}
-              <li><a href="{% url 'hello:myTests' %}">My Tests</a></li>
-              <li><a href="{% url 'hello:logout' %}">Logout</a></li>
+              <li><a href="{% url 'myTests' %}">My Tests</a></li>
+              <li><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}
-              <li><a href="{% url 'hello:loginIndex' %}">Login</a></li>
+              <li><a href="{% url 'loginIndex' %}">Login</a></li>
             {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
@@ -45,7 +45,7 @@
 
       <div class="padtop-2"></div>
       <div class="row">
-         <form action="{% url 'hello:sortComponents' %}" method="post">
+         <form action="{% url 'sortComponents' %}" method="post">
            {% csrf_token %}
            <fieldset class="form-group">
              <input type="email" class="form-control" name="name_to_sort" placeholder="Sort Name">
@@ -57,7 +57,7 @@
       <div class="pad-item-list center-list-item row">
         {% for component in all_components %}
           <div class="collection">
-            <a href="{% url 'hello:componentDetail' component.id %}" class="collection-item">{{ component.name }}
+            <a href="{% url 'componentDetail' component.id %}" class="collection-item">{{ component.name }}
               {% if component.is_working == "Passed" %}
                 <span class="new badge green"><b>Passed</b></span>
               {% else %}
