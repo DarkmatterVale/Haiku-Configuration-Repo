@@ -17,7 +17,7 @@ setup(
 
     version = '0.0.1',
 
-    description = 'Hardware database for Haiku,
+    description = 'Hardware database for Haiku',
     long_description = description_file,
 
     url = 'https://github.com/DarkmatterVale/Haiku-Configuration-Repo',
