@@ -52,7 +52,7 @@
         <form class="col s12" action="{% url 'authenticateSignUp' %}" method="post">
             {% csrf_token %}
             <h2 class="form-signin-heading">Sign up</h2>
-            <input type="email" name="signup_username" class="form-control" placeholder="Username" required autofocus>
+            <input type="text" name="signup_username" class="form-control" placeholder="Username" required autofocus>
             <small class="text-muted">*Required</small>
             <br><br>
             
