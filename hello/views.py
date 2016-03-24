@@ -24,67 +24,67 @@ def index(request):
 
 
 # Authentication
-def loginIndex(request):
+def login_page(request):
     """
     Login page
     """
     return login_index(request)
 
-def signup_index(request):
+def signup_page(request):
     """
     Signup page
     """
     return signup_index_view(request)
 
-def authenticateLogin(request):
+def authenticate_login(request):
     """
     Log a user in to the web app
     """
-    return authenticateUserLogin(request)
+    return authenticate_user_login_view(request)
 
-def authenticateSignUp(request):
+def authenticate_signup(request):
     """
     Sign a user up
     """
     return authenticate_sign_up(request)
 
-def logMeOut(request):
+def logout(request):
     """
     Log a user out of the web app
     """
-    return logUserOut(request)
+    return log_user_out_view(request)
 
 
 # Component
-def componentList(request):
+def list_all_components(request):
     """
     List all of the components that are in the database
     """
-    return listComponents(request)
+    return list_all_components_view(request)
 
-def sortComponents(request):
+def sort_all_components(request):
     """
     Sorts all components for a component with a given name
     """
-    return sortAllComponents(request)
+    return sort_all_components_view(request)
 
-def componentDetail(request, component_id):
+def component_details(request, component_id):
     """
     Displays the details of a specific component
     """
-    return detailsOfComponent(request, component_id)
+    return component_details_view(request, component_id)
 
-def editComponent(request, component_id):
+def edit_component(request, component_id):
     """
     Allows a user to edit a specific test
     """
-    return editAComponent(request, component_id)
+    return edit_component_view(request, component_id)
 
-def saveComponent(request, component_id):
+def save_component(request, component_id):
     """
     Save a component
     """
-    return save_component(request, component_id)
+    return save_component_view(request, component_id)
 
 
 # Device
@@ -92,31 +92,31 @@ def deviceList(request):
     """
     List all devices
     """
-    return listDevices(request)
+    return list_all_devices_view(request)
 
 def sortDevices(request):
     """
     Sort the devices based on name
     """
-    return sort_devices(request)
+    return sort_devices_view(request)
 
 def deviceDetail(request, device_id):
     """
     Displays the device's details
     """
-    return device_details(request, device_id)
+    return device_details_view(request, device_id)
 
 def editDevice(request, device_id):
     """
     Allows a user to edit a specific test
     """
-    return edit_device(request, device_id)
+    return edit_device_view(request, device_id)
 
 def saveDevice(request, device_id):
     """
     Save a device
     """
-    return save_device(request, device_id)
+    return save_device_view(request, device_id)
 
 
 # Test
@@ -124,16 +124,16 @@ def addTest(request):
     """
     Allows a user to add a test (if they have authenticated)
     """
-    return add_test(request)
+    return add_test_view(request)
 
 def createTest(request):
     """
     Creates a test
     """
-    return create_test(request)
+    return create_test_view(request)
 
 def myTests(request):
     """
     Displays all of the user's submitted tests
     """
-    return my_tests(request)
+    return my_tests_view(request)

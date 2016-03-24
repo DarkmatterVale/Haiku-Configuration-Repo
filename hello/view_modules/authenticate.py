@@ -17,7 +17,7 @@ def login_index(request):
 def signup_index_view(request):
     return render(request, 'signup.html', {})
 
-def authenticateUserLogin(request):
+def authenticate_user_login_view(request):
     username = password = ""
 
     if request.POST:
@@ -42,7 +42,7 @@ def authenticate_sign_up(request):
 
     return HttpResponseRedirect(reverse('index'))
 
-def logUserOut(request):
+def log_user_out_view(request):
     if request.user.is_authenticated():
         logout(request)
 

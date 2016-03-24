@@ -10,11 +10,11 @@ urlpatterns = [
     url(r'^$', hello.views.index, name='index'),
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^component_list', hello.views.componentList, name='componentList'),
-    url(r'^components/(?P<component_id>[0-9]+)/$', hello.views.componentDetail, name='componentDetail'),
-    url(r'^edit_component/(?P<component_id>[0-9]+)/$', hello.views.editComponent, name='editComponent'),
-    url(r'^sort_components', hello.views.sortComponents, name='sortComponents'),
-    url(r'^save_component/(?P<component_id>[0-9]+)/$', hello.views.saveComponent, name='saveComponent'),
+    url(r'^component_list', hello.views.list_all_components, name='componentList'),
+    url(r'^components/(?P<component_id>[0-9]+)/$', hello.views.component_details, name='componentDetail'),
+    url(r'^edit_component/(?P<component_id>[0-9]+)/$', hello.views.edit_component, name='editComponent'),
+    url(r'^sort_components', hello.views.sort_all_components, name='sortComponents'),
+    url(r'^save_component/(?P<component_id>[0-9]+)/$', hello.views.save_component, name='saveComponent'),
                
     url(r'^devices/(?P<device_id>[0-9]+)/$', hello.views.deviceDetail, name='deviceDetail'),
     url(r'^edit_device/(?P<device_id>[0-9]+)/$', hello.views.editDevice, name='editDevice'),
@@ -26,9 +26,9 @@ urlpatterns = [
     url(r'^create_test', hello.views.createTest, name='createTest'),
     url(r'^my_tests', hello.views.myTests, name='myTests'),
     
-    url(r'^login_page', hello.views.loginIndex, name='loginIndex'),
-    url(r'^signup_page', hello.views.signup_index, name='signup_index'),
-    url(r'^login', hello.views.authenticateLogin, name='authenticateLogin'),
-    url(r'^signup', hello.views.authenticateSignUp, name='authenticateSignUp'),
-    url(r'^logout', hello.views.logMeOut, name='logout'),
+    url(r'^login_page', hello.views.login_page, name='loginIndex'),
+    url(r'^signup_page', hello.views.signup_page, name='signup_index'),
+    url(r'^login', hello.views.authenticate_login, name='authenticateLogin'),
+    url(r'^signup', hello.views.authenticate_signup, name='authenticateSignUp'),
+    url(r'^logout', hello.views.logout, name='logout'),
 ]

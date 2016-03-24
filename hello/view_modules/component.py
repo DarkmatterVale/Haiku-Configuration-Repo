@@ -12,13 +12,13 @@ from django.contrib.auth import authenticate, login, logout
 from ..models import Component
 
 
-def listComponents(request):
+def list_all_components_view(request):
     all_components = Component.objects.all()
     context = { 'all_components' : all_components }
 
     return render(request, 'component_list.html', context)
 
-def sortAllComponents(request):
+def sort_all_components_view(request):
     sort_name = request.POST['name_to_sort']
     
     # sorting based on name
@@ -32,7 +32,7 @@ def sortAllComponents(request):
     
     return render(request, 'component_list.html', context)
 
-def detailsOfComponent(request, component_id):
+def component_details_view(request, component_id):
     myComponent = get_object_or_404(Component, pk=component_id)
     context = {
         'component_name' : myComponent.name,
@@ -41,7 +41,7 @@ def detailsOfComponent(request, component_id):
 
     return render(request, 'component.html', context)
 
-def editAComponent(request, component_id):
+def edit_component_view(request, component_id):
     myComponent = get_object_or_404(Component, pk=component_id)
     context = {
         'component_name' : myComponent.name,
@@ -50,7 +50,7 @@ def editAComponent(request, component_id):
 
     return render(request, 'edit_component.html', context)
 
-def save_component(request, component_id):
+def save_component_view(request, component_id):
     component = get_object_or_404(Component, pk=component_id)
     category = str(request.POST['component_category'])
     component.notes = request.POST['component_notes']

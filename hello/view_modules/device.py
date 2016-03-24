@@ -12,13 +12,13 @@ from django.contrib.auth import authenticate, login, logout
 from ..models import Device
 
 
-def listDevices(request):
+def list_all_devices_view(request):
     all_devices = Device.objects.all()
     context = {'all_devices' : all_devices}
 
     return render(request, 'device_list.html', context)
 
-def sort_devices(request):
+def sort_devices_view(request):
     sort_name = request.POST['name_to_sort']
 
     # sorting based on name
@@ -32,7 +32,7 @@ def sort_devices(request):
 
     return render(request, 'device_list.html', context)
 
-def device_details(request, device_id):
+def device_details_view(request, device_id):
     myDevice = get_object_or_404(Device, pk=device_id)
     context = {
         'device_name' : myDevice.name,
@@ -41,7 +41,7 @@ def device_details(request, device_id):
 
     return render(request, 'device.html', context)
 
-def edit_device(request, device_id):
+def edit_device_view(request, device_id):
     myDevice = get_object_or_404(Device, pk=device_id)
     context = {
         'device_name' : myDevice.name,
@@ -50,7 +50,7 @@ def edit_device(request, device_id):
     
     return render(request, 'edit_device.html', context)
 
-def save_device(request, device_id):
+def save_device_view(request, device_id):
     device = get_object_or_404(Device, pk=device_id)
     
     device.notes = request.POST['device_notes']
