@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
 
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 from ..models import Component
 
@@ -66,6 +67,10 @@ def save_component_view(request, component_id):
     except:
         component.is_working = "Failed"
     
-    component.save()
+    try:
+        component.save()
+        messages.success(request, 'Successfully saved edits for component')
+    except:
+        messages.error(request, 'Could not save edits for component')
 
     return HttpResponseRedirect(reverse('index'))

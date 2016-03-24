@@ -9,6 +9,7 @@ from django.shortcuts import render_to_response
 
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 
 def login_index(request):
@@ -29,7 +30,10 @@ def authenticate_user_login_view(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             django.contrib.auth.login(request, user)
-
+            messages.success(request, 'Successfully logged in')
+        else:
+            messages.error(request, 'Could not authenticate...Please try again')
+    
     return HttpResponseRedirect(reverse('index'))
 
 def authenticate_sign_up(request):
@@ -39,11 +43,16 @@ def authenticate_sign_up(request):
     confirmation_password = request.POST.get('confirmation_password')
     
     User.objects.create_user(username, email, password)
+    messages.success(request, 'Successfully signed up; please log in to verify account has been created')
 
     return HttpResponseRedirect(reverse('index'))
 
 def log_user_out_view(request):
     if request.user.is_authenticated():
-        logout(request)
+        try:
+            logout(request)
+            messages.success(request, 'Successfully logged out')
+        except:
+            messages.error(request, 'Could not log out')
 
     return HttpResponseRedirect(reverse('index'))

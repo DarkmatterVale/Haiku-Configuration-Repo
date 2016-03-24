@@ -43,6 +43,19 @@
 
     <div class="padtop-5"></div>
     <div id="page">
+        <div class="row">
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <div class="alert alert-danger" role="alert">
+                {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                <div class="alert alert-success" role="alert">
+                    {% endif %}
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
       <div class="row">
         <h2>Welcome to the components list!</h2>
         <h3>All tests that have been run on individual hardware components will be displayed below</h3>

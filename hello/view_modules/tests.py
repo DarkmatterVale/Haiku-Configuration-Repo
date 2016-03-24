@@ -36,14 +36,18 @@ def create_test_view(request):
             except:
                 pass
 
-            newComponent = Component(name = component_name,
-                rating = rating,
-                is_working = is_working,
-                notes = notes,
-                author = author,
-                author_email = author_email,
-                category = component_category)
-            newComponent.save()
+            try:
+                newComponent = Component(name = component_name,
+                                         rating = rating,
+                                         is_working = is_working,
+                                         notes = notes,
+                                         author = author,
+                                         author_email = author_email,
+                                         category = component_category)
+                newComponent.save()
+                messages.success(request, 'Successfully created a new test')
+            except:
+                messages.error(request, 'Could not create a new test...please try again')
 
         if device_name != '':
             rating = request.POST['device_rating']
@@ -85,23 +89,27 @@ def create_test_view(request):
             except:
                 pass
 
-            newDevice = Device(name = device_name,
-                rating = rating,
-                is_working = is_working,
-                notes = notes,
-                author = author,
-                author_email = author_email,
-                cpu = device_cpu,
-                motherboard = device_motherboard,
-                hard_drive = device_hard_drive,
-                sound = device_sound,
-                is_sound_working = is_sound_working,
-                display = device_display_name,
-                display_configuration = device_display_config,
-                is_display_working = is_display_working,
-                graphics_card = device_dedicated_graphics,
-                graphics_card_is_working = is_dedicated_graphics_working)
-            newDevice.save()
+            try:
+                newDevice = Device(name = device_name,
+                                   rating = rating,
+                                   is_working = is_working,
+                                   notes = notes,
+                                   author = author,
+                                   author_email = author_email,
+                                   cpu = device_cpu,
+                                   motherboard = device_motherboard,
+                                   hard_drive = device_hard_drive,
+                                   sound = device_sound,
+                                   is_sound_working = is_sound_working,
+                                   display = device_display_name,
+                                   display_configuration = device_display_config,
+                                   is_display_working = is_display_working,
+                                   graphics_card = device_dedicated_graphics,
+                                   graphics_card_is_working = is_dedicated_graphics_working)
+                newDevice.save()
+                messages.success(request, 'Successfully created a new test')
+            except:
+                messages.error(request, 'Could not create a new test...please try again')
 
     return HttpResponseRedirect(reverse('index'))
 

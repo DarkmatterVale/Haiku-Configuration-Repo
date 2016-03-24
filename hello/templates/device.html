@@ -43,6 +43,19 @@
 
     <div class="padtop-5"></div>
     <div id="page">
+        <div class="row">
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <div class="alert alert-danger" role="alert">
+                {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                <div class="alert alert-success" role="alert">
+                    {% endif %}
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
       <div class="pad-item-list center-list-item row">
         <h2 class="text-center">{{ device_name }}</h2>
         <h3 class="text-center padtop-5">Tests</h3>

@@ -44,6 +44,19 @@
     <div class="padtop-5"></div>
     <div id="page">
       <div class="row">
+        {% if messages %}
+            {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <div class="alert alert-danger" role="alert">
+                {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div class="alert alert-success" role="alert">
+                {% endif %}
+            {{ message }}
+        </div>
+            {% endfor %}
+        {% endif %}
+      </div>
+      <div class="row">
         <h2>Submit your test below</h2>
         <h3>*For authentication purposes, you <b>must</b> provide a valid email address and name</h3>
       </div>

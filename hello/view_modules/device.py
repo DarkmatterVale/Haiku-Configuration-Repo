@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
 
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 from ..models import Device
 
@@ -121,7 +122,11 @@ def save_device_view(request, device_id):
         pass
     else:
         device.graphics_card = graphics_card
-    
-    device.save()
+
+    try:
+        device.save()
+        messages.success(request, 'Successfully saved edits to desktop/notebook')
+    except:
+        messages.error(request, 'Could not save edits for desktop/notebook')
 
     return HttpResponseRedirect(reverse('index'))

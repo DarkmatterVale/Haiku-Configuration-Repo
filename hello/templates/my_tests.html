@@ -43,6 +43,19 @@
 
     <div class="padtop-5"></div>
     <div id="page">
+        <div class="row">
+            {% if messages %}
+            {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+            <div class="alert alert-danger" role="alert">
+                {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                <div class="alert alert-success" role="alert">
+                    {% endif %}
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
       <div class="row">
         <h2>My Tests</h2>
         <h3>Below are all of the tests you have submitted. Tests <b>are</b> editable.</h3>
