@@ -27,6 +27,8 @@ urlpatterns = [
     url(r'^my_tests', hello.views.myTests, name='myTests'),
     url(r'^add_component', hello.views.add_component_test, name='add_component'),
     url(r'^add_device', hello.views.add_device_test, name='add_device'),
+    url(r'^remove_component/(?P<component_id>[0-9]+)/$', hello.views.delete_component, name='delete_component'),
+    url(r'^remove_device/(?P<device_id>[0-9]+)/$', hello.views.delete_device, name='delete_device'),
     
     url(r'^login_page', hello.views.login_page, name='loginIndex'),
     url(r'^signup_page', hello.views.signup_page, name='signup_index'),

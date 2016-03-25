@@ -86,6 +86,12 @@ def save_component(request, component_id):
     """
     return save_component_view(request, component_id)
 
+def delete_component(request, component_id):
+    """
+        Delete a component from the database
+        """
+    return delete_component_view(request, component_id)
+
 
 # Device
 def deviceList(request):
@@ -117,6 +123,12 @@ def saveDevice(request, device_id):
     Save a device
     """
     return save_device_view(request, device_id)
+
+def delete_device(request, device_id):
+    """
+    Delete a device from the database
+    """
+    return delete_device_view(request, device_id)
 
 
 # Test

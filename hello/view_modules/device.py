@@ -19,6 +19,15 @@ def list_all_devices_view(request):
 
     return render(request, 'device_list.html', context)
 
+def delete_device_view(request, device_id):
+    try:
+        Device.objects.filter(id=device_id).delete()
+        messages.success(request, 'Successfully deleted test')
+    except:
+        messages.error(request, 'Could not delete test')
+
+    return HttpResponseRedirect(reverse('index'))
+
 def sort_devices_view(request):
     sort_name = request.POST['name_to_sort']
 

@@ -19,6 +19,15 @@ def list_all_components_view(request):
 
     return render(request, 'component_list.html', context)
 
+def delete_component_view(request, component_id):
+    try:
+        Component.objects.filter(id=component_id).delete()
+        messages.success(request, 'Successfully deleted test')
+    except:
+        messages.error(request, 'Could not delete test')
+    
+    return HttpResponseRedirect(reverse('index'))
+
 def sort_all_components_view(request):
     sort_name = request.POST['name_to_sort']
     
