@@ -75,7 +75,7 @@
           {% csrf_token %}
           <h3 class="text-center padtop-5">Component Information</h3>
           <fieldset class="form-group">
-            <label for="component_category">Component Category:</label>
+            <label for="component_category">Component category:</label>
             <input type="text" class="form-control" name="component_category" placeholder="{{ component.category }}">
           </fieldset>
           <br>
@@ -107,7 +107,6 @@
 
           <h3 class="text-center padtop-5">Tester Information</h3>
           <p><b>Author:</b> {{ component.author }}</p>
-          <p><b>Author's Email:</b> {{ component.author_email }}</p>
 
           <div class="padtop-5"></div>
           <button type="submit" class="btn btn-primary padtop-2">Submit</button>
