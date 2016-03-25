@@ -126,6 +126,18 @@ def addTest(request):
     """
     return add_test_view(request)
 
+def add_component_test(request):
+    """
+    Allows the user to send a component test form
+    """
+    return add_component_test_view(request)
+
+def add_device_test(request):
+    """
+    Allows the user to send a device test form
+    """
+    return add_device_test_view(request)
+
 def createTest(request):
     """
     Creates a test

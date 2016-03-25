@@ -18,7 +18,7 @@ Below are images of the pages.
 ## Deploying to Heroku
 
 ```sh
-$ heroku create
+$ heroku create --stack cedar
 $ git push heroku master
 
 $ heroku run python manage.py migrate

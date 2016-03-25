@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
 
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 from ..models import Component
 from ..models import Device
@@ -16,10 +17,23 @@ from ..models import Device
 def add_test_view(request):
     return render(request, 'add_test.html', {})
 
+def add_component_test_view(request):
+    return render(request, 'add_test_component_form.html', {})
+
+def add_device_test_view(request):
+    return render(request, 'add_test_device_form.html', {})
+
 def create_test_view(request):
     if request.user.is_authenticated():
-        component_name = request.POST['component_name']
-        device_name = request.POST['device_name']
+        try:
+            component_name = request.POST['component_name']
+        except:
+            component_name = ''
+        
+        try:
+            device_name = request.POST['device_name']
+        except:
+            device_name = ''
 
         author = request.user.username
         author_email = request.user.email

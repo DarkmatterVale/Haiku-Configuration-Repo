@@ -23,7 +23,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="{% url 'componentList' %}" class="active">Component Tests</a></li>
-            <li><a href="{% url 'deviceList' %}">Device Tests</a></li>
+            <li><a href="{% url 'deviceList' %}">Desktop/Notebook Tests</a></li>
             {% if user.is_authenticated %}
                 <li><a href="{% url 'addTest' %}">Add a Test</a></li>
                 <li><a href="{% url 'myTests' %}">My Tests</a></li>
