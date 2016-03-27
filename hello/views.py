@@ -54,6 +54,12 @@ def logout(request):
     """
     return log_user_out_view(request)
 
+def my_account(request):
+    """
+    Load page containing account info
+    """
+    return my_account_view(request)
+
 
 # Component
 def list_all_components(request):

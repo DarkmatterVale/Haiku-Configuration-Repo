@@ -35,4 +35,5 @@ urlpatterns = [
     url(r'^login', hello.views.authenticate_login, name='authenticateLogin'),
     url(r'^signup', hello.views.authenticate_signup, name='authenticateSignUp'),
     url(r'^logout', hello.views.logout, name='logout'),
+    url(r'^my_account', hello.views.my_account, name='my_account'),
 ]

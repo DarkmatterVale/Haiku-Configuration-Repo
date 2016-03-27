@@ -18,6 +18,9 @@ def login_index(request):
 def signup_index_view(request):
     return render(request, 'signup.html', {})
 
+def my_account_view(request):
+    return render(request, 'my_account.html', {})
+
 def authenticate_user_login_view(request):
     username = password = ""
 
