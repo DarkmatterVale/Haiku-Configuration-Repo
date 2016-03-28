@@ -57,22 +57,47 @@
                 {% endfor %}
                 {% endif %}
             </div>
-      <div class="pad-item-list center-list-item row">
-        <form class="col s12" action="{% url 'authenticateLogin' %}" method="post">
-            {% csrf_token %}
+        
+        
+        <div class="pad-item-list center-list-item row">
             <h2 class="form-signin-heading">My Account</h2>
-            <input type="email" name="login_email" class="form-control" placeholder="Username" required autofocus>
-            <small class="text-muted">*Required</small>
-            <br><br>
-            
-            <input type="password" name="login_password" class="form-control" placeholder="Password" required>
-            <small class="text-muted">*Required</small>
-            <br><br>
-
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
             <div class="padtop-5"></div>
-        </form>
-      </div> <!-- /container -->
+            
+            <form class="col s12" action="{% url 'edit_account' %}" method="post">
+                {% csrf_token %}
+                
+                <div style="border: 1px solid grey; padding: 2rem;">
+                    <fieldset class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" class="form-control" placeholder="{{ current_user.username }}" disabled>
+                    </fieldset>
+                    <br>
+                
+                    <fieldset class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" placeholder="{{ current_user.email }}" disabled>
+                    </fieldset>
+                </div>
+                <br><br>
+            
+                <h3>Change your password</h3>
+                <div style="border: 1px solid grey; padding: 2rem;">
+                    <fieldset class="form-group">
+                        <label for="new_password">New password</label>
+                        <input type="password" name="new_password" id="new_password" class="form-control" placeholder="">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label for="new_password_conf">Confirm new password</label>
+                        <input type="password" name="new_password_conf" id="new_password_conf" class="form-control" placeholder="">
+                    </fieldset>
+                </div>
+                <div class="padtop-5"></div>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Save settings</button>
+            </form>
+            
+            <div class="padtop-5"></div>
+        </div> <!-- /container -->
     </div>
   </body>
 </html>

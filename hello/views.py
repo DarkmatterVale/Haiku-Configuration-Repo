@@ -60,6 +60,12 @@ def my_account(request):
     """
     return my_account_view(request)
 
+def edit_account(request):
+    """
+    Give the user the functionality to alter the settings of their account
+    """
+    return edit_account_view(request)
+
 
 # Component
 def list_all_components(request):

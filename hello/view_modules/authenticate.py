@@ -19,7 +19,27 @@ def signup_index_view(request):
     return render(request, 'signup.html', {})
 
 def my_account_view(request):
-    return render(request, 'my_account.html', {})
+    context = {
+        'current_user' : request.user
+    }
+    
+    return render(request, 'my_account.html', context)
+
+def edit_account_view(request):
+    try:
+        password = request.POST.get('new_password')
+        password_confirmation = request.POST.get('new_password_conf')
+    
+        if password == password_confirmation:
+            current_user = request.user
+            current_user.set_password(password)
+            current_user.save()
+
+        messages.success(request, 'Saved account changes successfully')
+    except:
+        messages.error(request, 'Could not save account changes...Please try again')
+
+    return HttpResponseRedirect(reverse('index'))
 
 def authenticate_user_login_view(request):
     username = password = ""
