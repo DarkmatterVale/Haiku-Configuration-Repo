@@ -43,6 +43,7 @@ def create_test_view(request):
             is_working = "Failed"
             notes = request.POST['component_test_notes']
             component_category = request.POST['component_category']
+            manufacturer = request.POST['component_manufacturer']
 
             try:
                 if str(request.POST['group1']) == "on":
@@ -57,7 +58,8 @@ def create_test_view(request):
                                          notes = notes,
                                          author = author,
                                          author_email = author_email,
-                                         category = component_category)
+                                         category = component_category,
+                                         manufacturer = manufacturer)
                 newComponent.save()
                 messages.success(request, 'Successfully created a new test')
             except:
@@ -78,6 +80,16 @@ def create_test_view(request):
             is_display_working = "Failed"
             device_dedicated_graphics = request.POST['device_dedicated_graphics']
             is_dedicated_graphics_working = request.POST['device_dedicated_graphics']
+            manufacturer = request.POST['device_manufacturer']
+            
+            lan_chipset = request.POST['device_lan_network_chipset']
+            wlan_chipset = request.POST['device_wlan_network_chipset']
+
+            optical_drive_works = "Failed"
+            card_reader_works = "Failed"
+
+            usb2_works = "Failed"
+            usb3_works = "Failed"
 
             try:
                 if str(request.POST['group9']) == "on":
@@ -102,6 +114,30 @@ def create_test_view(request):
                     is_dedicated_graphics_working = "Passed"
             except:
                 pass
+            
+            try:
+                if str(request.POST['device_usb2_pass']) == "on":
+                    usb2_works = "Passed"
+            except:
+                pass
+
+            try:
+                if str(request.POST['device_usb3_pass']) == "on":
+                    usb3_works = "Passed"
+            except:
+                pass
+
+            try:
+                if str(request.POST['device_optical_drive_pass']) == "on":
+                    optical_drive_works = "Passed"
+            except:
+                pass
+
+            try:
+                if str(request.POST['device_card_reader_pass']) == "on":
+                    card_reader_works = "Passed"
+            except:
+                pass
 
             try:
                 newDevice = Device(name = device_name,
@@ -119,7 +155,14 @@ def create_test_view(request):
                                    display_configuration = device_display_config,
                                    is_display_working = is_display_working,
                                    graphics_card = device_dedicated_graphics,
-                                   graphics_card_is_working = is_dedicated_graphics_working)
+                                   graphics_card_is_working = is_dedicated_graphics_working,
+                                   manufacturer = manufacturer,
+                                   does_usb2_work = usb2_works,
+                                   does_usb3_work = usb3_works,
+                                   lan_network_chipset = lan_chipset,
+                                   wlan_network_chipset = wlan_chipset,
+                                   does_optical_drive_work = optical_drive_works,
+                                   does_card_reader_work = card_reader_works)
                 newDevice.save()
                 messages.success(request, 'Successfully created a new test')
             except:

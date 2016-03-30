@@ -76,6 +76,11 @@
           {% csrf_token %}
           <h3 class="text-center padtop-5">Desktop/Notebook Information</h3>
           <fieldset class="form-group">
+              <label for="device_manufacturer">Manufacturer</label>
+              <input type="text" class="form-control" name="device_manufacturer" placeholder="{{ device.manufacturer }}">
+          </fieldset>
+          <br>
+          <fieldset class="form-group">
             <label for="device_cpu">CPU:</label>
             <input type="text" class="form-control" name="device_cpu" placeholder="{{ device.cpu }}">
           </fieldset>
@@ -116,33 +121,139 @@
           </div>
           <br>
           <fieldset class="form-group">
-            <label for="device_display_name">Device display name</label>
-            <input type="text" class="form-control" name="device_display_name" placeholder="{{ device.display }}">
+              <label for="device_lan_network_chipset">Desktop/Notebook LAN network chipset</label>
+              <input type="text" class="form-control" name="device_lan_network_chipset" placeholder="{{ device.lan_network_chipset }}">
           </fieldset>
+          <br>
+          <fieldset class="form-group">
+              <label for="device_wlan_network_chipset">Desktop/Notebook WLAN network chipset</label>
+              <input type="text" class="form-control" name="device_wlan_network_chipset" placeholder="{{ device.wlan_network_chipset }}">
+          </fieldset>
+          <br>
+          <fieldset class="form-group">
+              <label>Do the USB2.0 ports work?</label>
+              {% if device.does_usb2_work == "Passed" %}
+              <div class="checkbox">
+                  <label>
+                      <input name="device_usb2_pass" type="checkbox" checked>Pass
+                  </label>
+                  <br>
+                  <label>
+                      <input name="device_usb2_fail" type="checkbox">Fail
+                  </label>
+              </div>
+              {% else %}
+              <div class="checkbox">
+                  <label>
+                      <input name="device_usb2_pass" type="checkbox">Pass
+                  </label>
+                  <br>
+                  <label>
+                      <input name="device_usb2_fail" type="checkbox" checked>Fail
+                  </label>
+              </div>
+              {% endif %}
+          </fieldset>
+          <br>
+          <fieldset class="form-group">
+              <label>Do the USB3.0 ports work?</label>
+              {% if device.does_usb3_work == "Passed" %}
+              <div class="checkbox">
+                  <label>
+                      <input name="device_usb3_pass" type="checkbox" checked>Pass
+                  </label>
+                  <br>
+                  <label>
+                      <input name="device_usb3_fail" type="checkbox">Fail
+                  </label>
+              </div>
+              {% else %}
+              <div class="checkbox">
+                  <label>
+                      <input name="device_usb3_pass" type="checkbox">Pass
+                  </label>
+                  <br>
+                  <label>
+                      <input name="device_usb3_fail" type="checkbox" checked>Fail
+                  </label>
+              </div>
+              {% endif %}
+          </fieldset>
+          <br>
+          <fieldset class="form-group">
+              <label>Does the card reader (SD, CF, MMC, etc) work?</label>
+              {% if device.does_card_reader_work == "Passed" %}
+              <div class="checkbox">
+                  <label>
+                      <input name="device_card_reader_pass" type="checkbox" checked>Pass
+                  </label>
+                  <br>
+                  <label>
+                      <input name="device_card_reader_fail" type="checkbox">Fail
+                  </label>
+              </div>
+              {% else %}
+              <div class="checkbox">
+                  <label>
+                      <input name="device_card_reader_pass" type="checkbox">Pass
+                  </label>
+                  <br>
+                  <label>
+                      <input name="device_card_reader_fail" type="checkbox" checked>Fail
+                  </label>
+              </div>
+              {% endif %}
+          </fieldset>
+          <br>
+          <fieldset class="form-group">
+              <label>Does the optical drive work?</label>
+              <div class="checkbox">
+                  {% if device.does_optical_drive_work == "Passed" %}
+                  <label>
+                      <input name="device_optical_drive_pass" type="checkbox" checked>Pass
+                  </label>
+                  <br>
+                  <label>
+                      <input name="device_optical_drive_fail" type="checkbox">Fail
+                  </label>
+                  {% else %}
+                  <label>
+                      <input name="device_optical_drive_pass" type="checkbox">Pass
+                  </label>
+                  <br>
+                  <label>
+                      <input name="device_optical_drive_fail" type="checkbox" checked>Fail
+                  </label>
+                  {% endif %}
+              </div>
+          </fieldset>
+          <br>
           <fieldset class="form-group">
             <label for="device_display_config">Device display configuration</label>
             <input type="text" class="form-control" name="device_display_config" placeholder="{{ device.display_configuration }}">
           </fieldset>
-          <label>Does the display work?</label>
-          <div class="checkbox">
-            {% if device.is_display_working == "Passed" %}
-              <label>
-                <input name="group5" type="checkbox" checked>Pass
-              </label>
-              <br>
-              <label>
-                <input name="group6" type="checkbox">Fail
-              </label>
-            {% else %}
-              <label>
-                <input name="group5" type="checkbox">Pass
-              </label>
-              <br>
-              <label>
-                <input name="group6" type="checkbox" checked>Fail
-              </label>
-            {% endif %}
-          </div>
+          <fieldset class="form-group">
+              <label>Does the display work?</label>
+              <div class="checkbox">
+                  {% if device.is_display_working == "Passed" %}
+                  <label>
+                      <input name="group5" type="checkbox" checked>Pass
+                  </label>
+                  <br>
+                  <label>
+                      <input name="group6" type="checkbox">Fail
+                  </label>
+                  {% else %}
+                  <label>
+                      <input name="group5" type="checkbox">Pass
+                  </label>
+                  <br>
+                  <label>
+                      <input name="group6" type="checkbox" checked>Fail
+                  </label>
+                  {% endif %}
+              </div>
+          </fieldset>
           <br>
           <fieldset class="form-group">
             <label for="device_dedicated_graphics">Device graphics card</label>
@@ -199,7 +310,7 @@
           <p><b>Author:</b> {{ device.author }}</p>
 
           <div class="padtop-5"></div>
-          <button type="submit" class="btn btn-primary padtop-2">Submit</button>
+          <button type="submit" class="btn btn-primary padtop-2">Save</button>
           <a href="{% url 'delete_device' device.id %}" class="btn btn-primary" role="button">Delete Desktop/Notebook test</a>
         </form>
       </div>

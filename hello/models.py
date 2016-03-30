@@ -7,6 +7,8 @@ class Component(models.Model):
     notes = models.CharField(default='', max_length=500)
     is_working = models.CharField(default='', max_length=10)
     rating = models.IntegerField()
+    manufacturer = models.CharField(default='', max_length=100)
+    
     category = models.CharField(default='', max_length=100)
     
     author = models.CharField(default='', max_length=100)
@@ -20,6 +22,7 @@ class Device(models.Model):
     notes = models.CharField(default='', max_length=500)
     is_working = models.CharField(default='', max_length=10)
     rating = models.IntegerField()
+    manufacturer = models.CharField(default='', max_length=100)
     
     author = models.CharField(default='', max_length=100)
     author_email = models.CharField(default='', max_length=100)
@@ -37,3 +40,10 @@ class Device(models.Model):
     is_display_working = models.CharField(default='', max_length=10)
     graphics_card = models.CharField(default='', max_length=100)
     graphics_card_is_working = models.CharField(default='', max_length=10)
+
+    lan_network_chipset = models.CharField(default='', max_length=100)
+    wlan_network_chipset = models.CharField(default='', max_length=100)
+    does_usb2_work = models.CharField(default='', max_length=10)
+    does_usb3_work = models.CharField(default='', max_length=10)
+    does_optical_drive_work = models.CharField(default='', max_length=10)
+    does_card_reader_work = models.CharField(default='', max_length=10)

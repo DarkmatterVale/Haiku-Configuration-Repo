@@ -57,50 +57,70 @@
                 {% endfor %}
                 {% endif %}
             </div>
-      <div class="pad-item-list center-list-item row">
-        <h2 class="text-center">{{ device_name }}</h2>
-        <h3 class="text-center padtop-5">Tests</h3>
-        {% for device in all_devices %}
-          <div class="collection">
-            <p class="collection-item">{{ device.name }}
-              {% if device.is_working == "Passed" %}
+        <div class="pad-item-list center-list-item row">
+            <h2 class="text-center">{{ device.name }}</h2>
+            <h3 class="text-center padtop-5">Similar Tests (TO BE IMPLEMENTED)</h3>
+            <div class="collection">
+                <p class="collection-item">{{ device.name }}
+                {% if device.is_working == "Passed" %}
                 <span class="new badge green"><b>Passed</b></span>
-              {% else %}
+                {% else %}
                 <span class="new badge red"><b>Failed</b></span>
-              {% endif %}
-              <span class="new rating-badge orange"><b>Rating: {{ device.rating }}</b></span>
-            </a>
-          </div>
+                {% endif %}
+                <span class="new rating-badge orange"><b>Rating: {{ device.rating }}</b></span>
+            </div>
 
-          <h3 class="text-center padtop-5">Device Information</h3>
-          <p><b>CPU:</b> {{ device.cpu }}</p>
-          <p><b>Motherboard:</b> {{ device.motherboard }}</p>
-          <p><b>Hard drive:</b> {{ device.hard_drive }}</p>
-          {% if device.is_sound_working == "Passed" %}
+            <h3 class="text-center padtop-5">Device Information</h3>
+            <p><b>Manufacturer:</b> {{ device.manufacturer }}</p>
+            <p><b>CPU:</b> {{ device.cpu }}</p>
+            <p><b>Motherboard:</b> {{ device.motherboard }}</p>
+            <p><b>Hard drive:</b> {{ device.hard_drive }}</p>
+            <p><b>LAN network chipset:</b> {{ device.lan_network_chipset }}</p>
+            <p><b>WLAN network chipset:</b> {{ device.wlan_network_chipset }}</p>
+            {% if device.does_usb2_work == "Passed" %}
+            <p><b>USB2.0:</b> Work</p>
+            {% else %}
+            <p><b>USB2.0:</b> Do not work</p>
+            {% endif %}
+            {% if device.does_usb3_work == "Passed" %}
+            <p><b>USB3.0:</b> Work</p>
+            {% else %}
+            <p><b>USB3.0:</b> Do not work</p>
+            {% endif %}
+            {% if device.does_optical_drive_work == "Passed" %}
+            <p><b>Optical drive:</b> Works</p>
+            {% else %}
+            <p><b>Optical drive:</b> Does not work</p>
+            {% endif %}
+            {% if device.does_card_reader_work == "Passed" %}
+            <p><b>Card reader:</b> Works</p>
+            {% else %}
+            <p><b>Card reader:</b> Does not work</p>
+            {% endif %}
+            {% if device.is_sound_working == "Passed" %}
             <p><b>Sound (works):</b> {{ device.sound }}</p>
-          {% else %}
+            {% else %}
             <p><b>Sound (doesn't work):</b> {{ device.sound }}</p>
-          {% endif %}
-          {% if device.is_sound_working == "Passed" %}
+            {% endif %}
+            {% if device.is_sound_working == "Passed" %}
             <p><b>Display (works):</b> {{ device.display }}</p>
             <p><b>Display configuration (works):</b> {{ device.display_configuration }}</p>
-          {% else %}
+            {% else %}
             <p><b>Display (doesn't work):</b> {{ device.display }}</p>
             <p><b>Display configuration (doesn't work):</b> {{ device.display_configuration }}</p>
-          {% endif %}
-          {% if device.is_sound_working == "Passed" %}
+            {% endif %}
+            {% if device.is_sound_working == "Passed" %}
             <p><b>Dedicated graphics card (works):</b> {{ device.graphics_card }}</p>
-          {% else %}
+            {% else %}
             <p><b>Dedicated graphics card (doesn't work):</b> {{ device.graphics_card }}</p>
-          {% endif %}
-          <br>
-          <p><b>Notes:</b> {{ device.notes }}</p>
+            {% endif %}
+            <br>
+            <p><b>Notes:</b> {{ device.notes }}</p>
 
-          <h3 class="text-center padtop-5">Tester Information</h3>
-          <p><b>Author:</b> {{ device.author }}</p>
-        {% endfor %}
-      </div>
-      <div class="padtop-5"></div>
+            <h3 class="text-center padtop-5">Tester Information</h3>
+            <p><b>Author:</b> {{ device.author }}</p>
+        </div>
+        <div class="padtop-5"></div>
     </div>
   </body>
 </html>

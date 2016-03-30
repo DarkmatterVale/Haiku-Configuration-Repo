@@ -25,17 +25,17 @@
             <li><a href="{% url 'componentList' %}" class="active">Component Tests</a></li>
             <li><a href="{% url 'deviceList' %}">Desktop/Notebook Tests</a></li>
             {% if user.is_authenticated %}
-                <li><a href="{% url 'addTest' %}">Add a Test</a></li>
-                <li><a href="{% url 'myTests' %}">My Tests</a></li>
+            <li><a href="{% url 'addTest' %}">Add a Test</a></li>
+            <li><a href="{% url 'myTests' %}">My Tests</a></li>
             {% endif %}
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
-                <li><a href="{% url 'my_account' %}">My Account</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'my_account' %}">My Account</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}
-                <li><a href="{% url 'loginIndex' %}">Login</a></li>
-                <li><a href="{% url 'signup_index' %}">Sign Up</a></li>
+            <li><a href="{% url 'loginIndex' %}">Login</a></li>
+            <li><a href="{% url 'signup_index' %}">Sign Up</a></li>
             {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
@@ -49,38 +49,37 @@
             {% for message in messages %}
             {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
             <div class="alert alert-danger" role="alert">
-                {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-                <div class="alert alert-success" role="alert">
-                    {% endif %}
-                    {{ message }}
-                </div>
-                {% endfor %}
-                {% endif %}
+            {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class="alert alert-success" role="alert">
+            {% endif %}
+                {{ message }}
             </div>
-      <div class="pad-item-list center-list-item row">
-        <h2 class="text-center">{{ component_name }}</h2>
-        <h3 class="text-center padtop-5">Tests</h3>
-        {% for component in all_components %}
-          <div class="collection">
-            <p class="collection-item">{{ component.name }}
-              {% if component.is_working == "Passed" %}
+            {% endfor %}
+            {% endif %}
+        </div>
+        <div class="pad-item-list center-list-item row">
+            <h2 class="text-center">{{ component.name }}</h2>
+            <h3 class="text-center padtop-5">Similar Tests (TO BE IMPLEMENTED)</h3>
+            <div class="collection">
+                <p class="collection-item">{{ component.name }}
+                {% if component.is_working == "Passed" %}
                 <span class="new badge green"><b>Passed</b></span>
-              {% else %}
+                {% else %}
                 <span class="new badge red"><b>Failed</b></span>
-              {% endif %}
-              <span class="new rating-badge orange"><b>Rating: {{ component.rating }}</b></span>
-            </a>
-          </div>
-          <h3 class="text-center padtop-5">Component Information</h3>
-          <p><b>Component category:</b> {{ component.category }}</p>
-          <br>
-          <p><b>Notes:</b> {{ component.notes }}</p>
+                {% endif %}
+                <span class="new rating-badge orange"><b>Rating: {{ component.rating }}</b></span>
+            </div>
+            <h3 class="text-center padtop-5">Component Information</h3>
+            <p><b>Manufacturer:</b> {{ component.manufacturer }}</p>
+            <p><b>Component category:</b> {{ component.category }}</p>
+            <br>
+            <p><b>Notes:</b> {{ component.notes }}</p>
 
-          <h3 class="text-center padtop-5">Tester Information</h3>
-          <p><b>Author:</b> {{ component.author }}</p>
-        {% endfor %}
-      </div>
-      <div class="padtop-5"></div>
+            <h3 class="text-center padtop-5">Tester Information</h3>
+            <p><b>Author:</b> {{ component.author }}</p>
+        </div>
+        
+        <div class="padtop-5"></div>
     </div>
   </body>
 </html>

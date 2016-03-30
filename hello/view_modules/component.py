@@ -46,7 +46,7 @@ def component_details_view(request, component_id):
     myComponent = get_object_or_404(Component, pk=component_id)
     context = {
         'component_name' : myComponent.name,
-        'all_components' : [myComponent]
+        'component' : myComponent
     }
 
     return render(request, 'component.html', context)
@@ -64,12 +64,14 @@ def save_component_view(request, component_id):
     component = get_object_or_404(Component, pk=component_id)
     category = str(request.POST['component_category'])
     component.notes = request.POST['component_notes']
+    manufacturer = request.POST['component_manufacturer']
     
-    if category == "":
-        pass
-    else:
+    if category != "":
         component.category = category
-    
+
+    if manufacturer != "":
+        component.manufacturer = manufacturer
+
     try:
         if str(request.POST['group9']) == "on":
             component.is_working = "Passed"

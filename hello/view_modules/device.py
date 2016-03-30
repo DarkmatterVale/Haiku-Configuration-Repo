@@ -46,7 +46,7 @@ def device_details_view(request, device_id):
     myDevice = get_object_or_404(Device, pk=device_id)
     context = {
         'device_name' : myDevice.name,
-        'all_devices' : [myDevice]
+        'device' : myDevice
     }
 
     return render(request, 'device.html', context)
@@ -69,9 +69,9 @@ def save_device_view(request, device_id):
     motherboard = request.POST['device_motherboard']
     hard_drive = request.POST['device_hard_drive']
     sound = request.POST['device_sound']
-    display_name = request.POST['device_display_name']
     display_config = request.POST['device_display_config']
     graphics_card = request.POST['device_dedicated_graphics']
+    manufacturer = request.POST['device_manufacturer']
     
     try:
         if str(request.POST['group9']) == "on":
@@ -96,41 +96,52 @@ def save_device_view(request, device_id):
             device.graphics_card_is_working = "Passed"
     except:
         device.graphics_card_is_working = "Failed"
-    
-    if cpu == "":
-        pass
-    else:
+
+    try:
+        if str(request.POST['device_usb2_pass']) == "on":
+            device.does_usb2_work = "Passed"
+    except:
+        device.does_usb2_work = "Failed"
+        
+    try:
+        if str(request.POST['device_usb3_pass']) == "on":
+            device.does_usb3_work = "Passed"
+    except:
+        device.does_usb3_work = "Failed"
+        
+    try:
+        if str(request.POST['device_optical_drive_pass']) == "on":
+            device.does_optical_drive_work = "Passed"
+            print("OPTICAL DRIVE WORKS")
+    except:
+        device.does_optical_drive_work = "Failed"
+        
+    try:
+        if str(request.POST['device_card_reader_pass']) == "on":
+            device.does_card_reader_work = "Passed"
+    except:
+        device.does_card_reader_work = "Failed"
+
+    if cpu != "":
         device.cpu = cpu
     
-    if motherboard == "":
-        pass
-    else:
+    if motherboard != "":
         device.motherboard = motherboard
     
-    if hard_drive == "":
-        pass
-    else:
+    if hard_drive != "":
         device.hard_dive = hard_drive
     
-    if sound == "":
-        pass
-    else:
+    if sound != "":
         device.sound = sound
     
-    if display_name == "":
-        pass
-    else:
-        device.display = display_name
-    
-    if display_config == "":
-        pass
-    else:
+    if display_config != "":
         device.display_configuration = display_config
     
-    if graphics_card == "":
-        pass
-    else:
+    if graphics_card != "":
         device.graphics_card = graphics_card
+
+    if manufacturer != "":
+        device.manufacturer = manufacturer
 
     try:
         device.save()

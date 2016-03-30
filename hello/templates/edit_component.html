@@ -81,6 +81,11 @@
           </fieldset>
           <br>
           <fieldset class="form-group">
+              <label for="component_manufacturer">Manufacturer:</label>
+              <input type="text" class="form-control" name="component_manufacturer" placeholder="{{ component.manufacturer }}">
+                  </fieldset>
+          <br>
+          <fieldset class="form-group">
             <label for="component_notes">Notes:</label>
             <textarea class="form-control" name="component_notes" rows="5">{{ component.notes }}</textarea>
           </fieldset>
@@ -110,8 +115,8 @@
           <p><b>Author:</b> {{ component.author }}</p>
 
           <div class="padtop-5"></div>
-          <button type="submit" class="btn btn-primary padtop-2">Submit</button>
-          <a href="{% url 'delete_component' component.id %}" class="btn btn-primary" role="button">Delete Component test</a>
+          <button type="submit" class="btn btn-primary padtop-2">Save</button>
+          <a href="{% url 'delete_component' component.id %}" class="btn btn-primary" role="button">Delete test</a>
         </form>
       </div>
       <div class="padtop-5"></div>
