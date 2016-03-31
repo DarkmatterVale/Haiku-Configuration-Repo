@@ -32,6 +32,10 @@ a {
 	max-width: 965px;
 	margin-left: auto;
 	margin-right: auto;
+  background-color: white;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-bottom: 5%;
 }
 
 @media (min-width:768px) {

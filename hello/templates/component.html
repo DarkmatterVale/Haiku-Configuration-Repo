@@ -59,16 +59,6 @@
         </div>
         <div class="pad-item-list center-list-item row">
             <h2 class="text-center">{{ component.name }}</h2>
-            <h3 class="text-center padtop-5">Similar Tests (TO BE IMPLEMENTED)</h3>
-            <div class="collection">
-                <p class="collection-item">{{ component.name }}
-                {% if component.is_working == "Passed" %}
-                <span class="new badge green"><b>Passed</b></span>
-                {% else %}
-                <span class="new badge red"><b>Failed</b></span>
-                {% endif %}
-                <span class="new rating-badge orange"><b>Rating: {{ component.rating }}</b></span>
-            </div>
             <h3 class="text-center padtop-5">Component Information</h3>
             <p><b>Manufacturer:</b> {{ component.manufacturer }}</p>
             <p><b>Component category:</b> {{ component.category }}</p>

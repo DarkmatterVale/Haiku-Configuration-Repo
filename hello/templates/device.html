@@ -49,28 +49,24 @@
             {% for message in messages %}
             {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
             <div class="alert alert-danger" role="alert">
-                {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-                <div class="alert alert-success" role="alert">
-                    {% endif %}
-                    {{ message }}
-                </div>
-                {% endfor %}
-                {% endif %}
+            {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class="alert alert-success" role="alert">
+            {% endif %}
+                {{ message }}
             </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+        
+        <div class="padtop-5"></div>
+        <h1 class="text-center"><b>Haiku on <i>{{ device.name }}</i></b></h1>
+        
         <div class="pad-item-list center-list-item row">
-            <h2 class="text-center">{{ device.name }}</h2>
-            <h3 class="text-center padtop-5">Similar Tests (TO BE IMPLEMENTED)</h3>
-            <div class="collection">
-                <p class="collection-item">{{ device.name }}
-                {% if device.is_working == "Passed" %}
-                <span class="new badge green"><b>Passed</b></span>
-                {% else %}
-                <span class="new badge red"><b>Failed</b></span>
-                {% endif %}
-                <span class="new rating-badge orange"><b>Rating: {{ device.rating }}</b></span>
-            </div>
+            <h2 class="padtop-5"><u><b>Hardware Summary</b></u></h2>
+            <br>
 
-            <h3 class="text-center padtop-5">Device Information</h3>
+            <h2 class="padtop-5"><u><b>Hardware Details</b></u></h3>
+            <br>
             <p><b>Manufacturer:</b> {{ device.manufacturer }}</p>
             <p><b>CPU:</b> {{ device.cpu }}</p>
             <p><b>Motherboard:</b> {{ device.motherboard }}</p>
@@ -117,7 +113,8 @@
             <br>
             <p><b>Notes:</b> {{ device.notes }}</p>
 
-            <h3 class="text-center padtop-5">Tester Information</h3>
+            <h2 class="padtop-5"><b><u>Tester Information</b></u></h2>
+            <br>
             <p><b>Author:</b> {{ device.author }}</p>
         </div>
         <div class="padtop-5"></div>
