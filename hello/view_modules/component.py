@@ -54,8 +54,8 @@ def component_details_view(request, component_id):
 def edit_component_view(request, component_id):
     myComponent = get_object_or_404(Component, pk=component_id)
     context = {
-        'component_name' : myComponent.name,
-        'component' : myComponent
+        'component' : myComponent,
+        'loop' : range(0,11)
     }
 
     return render(request, 'edit_component.html', context)

@@ -54,8 +54,8 @@ def device_details_view(request, device_id):
 def edit_device_view(request, device_id):
     myDevice = get_object_or_404(Device, pk=device_id)
     context = {
-        'device_name' : myDevice.name,
-        'device' : myDevice
+        'device' : myDevice,
+        'loop' : range(0,11)
     }
     
     return render(request, 'edit_device.html', context)
