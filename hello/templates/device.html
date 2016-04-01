@@ -25,17 +25,17 @@
             <li><a href="{% url 'componentList' %}" class="active">Component Tests</a></li>
             <li><a href="{% url 'deviceList' %}">Desktop/Notebook Tests</a></li>
             {% if user.is_authenticated %}
-                <li><a href="{% url 'addTest' %}">Add a Test</a></li>
-                <li><a href="{% url 'myTests' %}">My Tests</a></li>
+            <li><a href="{% url 'addTest' %}">Add a Test</a></li>
+            <li><a href="{% url 'myTests' %}">My Tests</a></li>
             {% endif %}
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
-                <li><a href="{% url 'my_account' %}">My Account</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'my_account' %}">My Account</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}
-                <li><a href="{% url 'loginIndex' %}">Login</a></li>
-                <li><a href="{% url 'signup_index' %}">Sign Up</a></li>
+            <li><a href="{% url 'loginIndex' %}">Login</a></li>
+            <li><a href="{% url 'signup_index' %}">Sign Up</a></li>
             {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
@@ -62,56 +62,186 @@
         <h1 class="text-center"><b>Haiku on <i>{{ device.name }}</i></b></h1>
         
         <div class="pad-item-list center-list-item row">
-            <h2 class="padtop-5"><u><b>Hardware Summary</b></u></h2>
+            <h2 class="padtop-5"><u><b>Summary</b></u></h2>
             <br>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td>Name</td>
+                    <td>{{ device.name }}</td>
+                </tr>
+                <tr>
+                    <td>Manufacturer</td>
+                    {% if device.manufacturer != "" %}
+                    <td>{{ device.manufacturer }}</td>
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+            </table>
 
-            <h2 class="padtop-5"><u><b>Hardware Details</b></u></h3>
+            <h2 class="padtop-5"><u><b>Details</b></u></h3>
             <br>
-            <p><b>Manufacturer:</b> {{ device.manufacturer }}</p>
-            <p><b>CPU:</b> {{ device.cpu }}</p>
-            <p><b>Motherboard:</b> {{ device.motherboard }}</p>
-            <p><b>Hard drive:</b> {{ device.hard_drive }}</p>
-            <p><b>LAN network chipset:</b> {{ device.lan_network_chipset }}</p>
-            <p><b>WLAN network chipset:</b> {{ device.wlan_network_chipset }}</p>
-            {% if device.does_usb2_work == "Passed" %}
-            <p><b>USB2.0:</b> Work</p>
-            {% else %}
-            <p><b>USB2.0:</b> Do not work</p>
-            {% endif %}
-            {% if device.does_usb3_work == "Passed" %}
-            <p><b>USB3.0:</b> Work</p>
-            {% else %}
-            <p><b>USB3.0:</b> Do not work</p>
-            {% endif %}
-            {% if device.does_optical_drive_work == "Passed" %}
-            <p><b>Optical drive:</b> Works</p>
-            {% else %}
-            <p><b>Optical drive:</b> Does not work</p>
-            {% endif %}
-            {% if device.does_card_reader_work == "Passed" %}
-            <p><b>Card reader:</b> Works</p>
-            {% else %}
-            <p><b>Card reader:</b> Does not work</p>
-            {% endif %}
-            {% if device.is_sound_working == "Passed" %}
-            <p><b>Sound (works):</b> {{ device.sound }}</p>
-            {% else %}
-            <p><b>Sound (doesn't work):</b> {{ device.sound }}</p>
-            {% endif %}
-            {% if device.is_sound_working == "Passed" %}
-            <p><b>Display (works):</b> {{ device.display }}</p>
-            <p><b>Display configuration (works):</b> {{ device.display_configuration }}</p>
-            {% else %}
-            <p><b>Display (doesn't work):</b> {{ device.display }}</p>
-            <p><b>Display configuration (doesn't work):</b> {{ device.display_configuration }}</p>
-            {% endif %}
-            {% if device.is_sound_working == "Passed" %}
-            <p><b>Dedicated graphics card (works):</b> {{ device.graphics_card }}</p>
-            {% else %}
-            <p><b>Dedicated graphics card (doesn't work):</b> {{ device.graphics_card }}</p>
-            {% endif %}
-            <br>
-            <p><b>Notes:</b> {{ device.notes }}</p>
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <td>Manufacturer</td>
+                    {% if device.manufacturer != "" %}
+                    <td>{{ device.manufacturer }}</td>
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>CPU</td>
+                    {% if device.cpu != "" %}
+                    <td>{{ device.cpu }}</td>
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>Motherboard</td>
+                    {% if device.motherboard != "" %}
+                    <td>{{ device.motherboard }}</td>
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>Hard drive</td>
+                    {% if device.hard_drive != "" %}
+                    <td>{{ device.hard_drive }}</td>
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>LAN network chipset</td>
+                    {% if device.lan_network_chipset != "" %}
+                    <td>{{ device.lan_network_chipset }}</td>
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>WLAN network chipset</td>
+                    {% if device.wlan_network_chipset != "" %}
+                    <td>{{ device.wlan_network_chipset }}</td>
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if device.does_usb2_work != "" %}
+                    {% if device.does_usb2_work == "Failed" %}
+                    <td class="danger">USB 2.0</td>
+                    <td class="danger">{{ device.does_usb2_work }}</td>
+                    {% else %}
+                    <td class="success">USB 2.0</td>
+                    <td class="success">{{ device.does_usb2_work }}</td>
+                    {% endif %}
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if device.does_usb3_work != "" %}
+                    {% if device.does_usb3_work == "Failed" %}
+                    <td class="danger">USB 3.0</td>
+                    <td class="danger">{{ device.does_usb3_work }}</td>
+                    {% else %}
+                    <td class="success">USB 3.0</td>
+                    <td class="success">{{ device.does_usb3_work }}</td>
+                    {% endif %}
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if device.does_optical_drive_work != "" %}
+                    {% if device.does_optical_drive_work == "Failed" %}
+                    <td class="danger">Optical drive</td>
+                    <td class="danger">{{ device.does_optical_drive_work }}</td>
+                    {% else %}
+                    <td class="success">Optical drive</td>
+                    <td class="success">{{ device.does_optical_drive_work }}</td>
+                    {% endif %}
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if device.does_card_reader_work != "" %}
+                    {% if device.does_card_reader_work == "Failed" %}
+                    <td class="danger">Card reader</td>
+                    <td class="danger">{{ device.does_card_reader_work }}</td>
+                    {% else %}
+                    <td class="success">Card reader</td>
+                    <td class="success">{{ device.does_card_reader_work }}</td>
+                    {% endif %}
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if device.is_sound_working != "" %}
+                    {% if device.is_sound_working == "Failed" %}
+                    <td class="danger">Sound</td>
+                    <td class="danger">{{ device.sound }}</td>
+                    {% else %}
+                    <td class="success">Sound</td>
+                    <td class="success">{{ device.sound }}</td>
+                    {% endif %}
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if device.is_display_working != "" %}
+                    {% if device.is_display_working == "Failed" %}
+                    <td class="danger">Display</td>
+                    <td class="danger">{{ device.display }}</td>
+                    {% else %}
+                    <td class="success">Display</td>
+                    <td class="success">{{ device.display }}</td>
+                    {% endif %}
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if device.is_display_working != "" %}
+                    {% if device.is_display_working == "Failed" %}
+                    <td class="danger">Display configuration</td>
+                    <td class="danger">{{ device.display_configuration }}</td>
+                    {% else %}
+                    <td class="success">Display configuration</td>
+                    <td class="success">{{ device.display_configuration }}</td>
+                    {% endif %}
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    {% if device.graphics_card_is_working != "" %}
+                    {% if device.graphics_card_is_working == "Failed" %}
+                    <td class="danger">Graphics card/chipset</td>
+                    <td class="danger">{{ device.graphics_card }}</td>
+                    {% else %}
+                    <td class="success">Graphics card/chipset</td>
+                    <td class="success">{{ device.graphics_card }}</td>
+                    {% endif %}
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>Notes</td>
+                    {% if device.notes != "" %}
+                    <td>{{ device.notes }}</td>
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+            </table>
 
             <h2 class="padtop-5"><b><u>Tester Information</b></u></h2>
             <br>

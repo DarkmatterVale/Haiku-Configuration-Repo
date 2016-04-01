@@ -57,16 +57,60 @@
             {% endfor %}
             {% endif %}
         </div>
+            
+        <div class="padtop-5"></div>
+        <h1 class="text-center"><b><i>{{ component.name }}</i></b></h1>
+        
         <div class="pad-item-list center-list-item row">
-            <h2 class="text-center">{{ component.name }}</h2>
-            <h3 class="text-center padtop-5">Component Information</h3>
-            <p><b>Manufacturer:</b> {{ component.manufacturer }}</p>
-            <p><b>Component category:</b> {{ component.category }}</p>
+            <h2 class="padtop-5"><u><b>Summary</b></u></h2>
             <br>
-            <p><b>Notes:</b> {{ component.notes }}</p>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Manufacturer</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <td>{{ component.name }}</td>
+                    {% if component.manufacturer != "" %}
+                    <td>{{ component.manufacturer }}</td>
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+            </table>
+            
+            <h2 class="padtop-5"><u><b>Details</b></u></h3>
+            <br>
+            <table class="table table-bordered">
+                <tr>
+                    <td>Manufacturer</td>
+                    {% if component.manufacturer != "" %}
+                    <td>{{ component.manufacturer }}</td>
+                    {% else %}
+                    <td>Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>Category</td>
+                    <td>{{ component.category }}</td>
+                </tr>
+                <tr>
+                    <td>Notes</td>
+                    <td>{{ component.notes }}</td>
+                </tr>
+            </table>
 
-            <h3 class="text-center padtop-5">Tester Information</h3>
-            <p><b>Author:</b> {{ component.author }}</p>
+            <h2 class="padtop-5"><u><b>Tester Information</b></u></h3>
+            <br>
+            <table class="table table-bordered">
+                <tr>
+                    <td>Author</td>
+                    <td>{{ component.author }}</td>
+                </tr>
+            </table>
         </div>
         
         <div class="padtop-5"></div>
