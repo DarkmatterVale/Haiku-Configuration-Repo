@@ -25,18 +25,19 @@
             <li><a href="{% url 'componentList' %}" class="active">Component Tests</a></li>
             <li><a href="{% url 'deviceList' %}">Desktop/Notebook Tests</a></li>
             {% if user.is_authenticated %}
-                <li><a href="{% url 'addTest' %}">Add a Test</a></li>
-                <li><a href="{% url 'myTests' %}">My Tests</a></li>
+            <li><a href="{% url 'addTest' %}">Add a Test</a></li>
+            <li><a href="{% url 'myTests' %}">My Tests</a></li>
             {% endif %}
           </ul>
           <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
-                <li><a href="{% url 'my_account' %}">My Account</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
+            <li><a href="{% url 'my_account' %}">My Account</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
             {% else %}
-                <li><a href="{% url 'loginIndex' %}">Login</a></li>
-                <li><a href="{% url 'signup_index' %}">Sign Up</a></li>
+            <li><a href="{% url 'loginIndex' %}">Login</a></li>
+            <li><a href="{% url 'signup_index' %}">Sign Up</a></li>
             {% endif %}
+            <li><a href="https://github.com/DarkmatterVale/Haiku-Configuration-Repo/issues">Feedback</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -46,17 +47,19 @@
     <div id="page">
       <div class="row">
           {% if messages %}
-            {% for message in messages %}
-            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-            <div class="alert alert-danger" role="alert">
-            {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-            <div class="alert alert-success" role="alert">
-            {% endif %}
-                {{ message }}
-            </div>
-            {% endfor %}
+          <br>
+          {% for message in messages %}
+          {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+          <div class="alert alert-danger" role="alert">
+          {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+          <div class="alert alert-success" role="alert">
+          {% endif %}
+          {{ message }}
+          </div>
+          {% endfor %}
           {% endif %}
       </div>
+        
       <div class="padtop-5"></div>
       <h1 class="text-center"><b>Haiku's Hardware Configuration Repository</b></h1>
       <h3 class="text-center">A single location to find Haiku hardware compatibility information</h3>

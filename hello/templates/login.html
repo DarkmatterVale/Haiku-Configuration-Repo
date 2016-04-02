@@ -28,6 +28,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{% url 'loginIndex' %}">Login</a></li>
             <li><a href="{% url 'signup_index' %}">Sign Up</a></li>
+            <li><a href="https://github.com/DarkmatterVale/Haiku-Configuration-Repo/issues">Feedback</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -37,6 +38,7 @@
     <div id="page">
         <div class="row">
             {% if messages %}
+            <br>
             {% for message in messages %}
             {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
             <div class="alert alert-danger" role="alert">
@@ -52,7 +54,7 @@
         <form class="col s12" action="{% url 'authenticateLogin' %}" method="post">
             {% csrf_token %}
             <h2 class="form-signin-heading">Please sign in</h2>
-            <input type="email" name="login_email" class="form-control" placeholder="Username" required autofocus>
+            <input type="text" name="login_email" class="form-control" placeholder="Username" required autofocus>
             <small class="text-muted">*Required</small>
             <br><br>
             
