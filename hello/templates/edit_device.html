@@ -58,19 +58,7 @@
                 {% endif %}
             </div>
       <div class="pad-item-list center-list-item row">
-        <h2 class="text-center">Editing -- {{ device_name }}</h2>
-        <h3 class="text-center padtop-5">Tests</h3>
-
-        <div class="collection">
-          <p class="collection-item">{{ device.name }}
-            {% if device.is_working == "Passed" %}
-              <span class="new badge green"><b>Passed</b></span>
-            {% else %}
-              <span class="new badge red"><b>Failed</b></span>
-            {% endif %}
-            <span class="new rating-badge orange"><b>Rating: {{ device.rating }}</b></span>
-          </a>
-        </div>
+        <h2 class="text-center">Editing -- {{ device.name }}</h2>
 
         <form class="col s12" action="{% url 'saveDevice' device.id %}" method="post">
           {% csrf_token %}
