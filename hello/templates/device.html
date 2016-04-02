@@ -66,67 +66,81 @@
             <br>
             <table class="table table-striped table-bordered">
                 <tr>
-                    <td>Name</td>
-                    <td>{{ device.name }}</td>
+                    <td class="info">Name</td>
+                    <td class="info">{{ device.name }}</td>
                 </tr>
                 <tr>
-                    <td>Manufacturer</td>
+                    <td class="info">Manufacturer</td>
                     {% if device.manufacturer != "" %}
-                    <td>{{ device.manufacturer }}</td>
+                    <td class="info">{{ device.manufacturer }}</td>
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
+                </tr>
+                <tr>
+                    {% if device.is_working == "Passed" %}
+                    <td class="success">Did the desktop/notebook work?</td>
+                    <td class="success">{{ device.is_working }}</td>
+                    {% else %}
+                    <td class="success">Did the desktop/notebook work?</td>
+                    <td class="success">Failed</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td class="warning">Rating</td>
+                    <td class="warning">{{ device.rating }}</td>
+                </tr>
             </table>
 
             <h2 class="padtop-5"><u><b>Details</b></u></h3>
             <br>
             <table class="table table-striped table-bordered">
                 <tr>
-                    <td>Manufacturer</td>
+                    <td class="info">Manufacturer</td>
                     {% if device.manufacturer != "" %}
-                    <td>{{ device.manufacturer }}</td>
+                    <td class="info">{{ device.manufacturer }}</td>
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
                 </tr>
                 <tr>
-                    <td>CPU</td>
+                    <td class="info">CPU</td>
                     {% if device.cpu != "" %}
-                    <td>{{ device.cpu }}</td>
+                    <td class="info">{{ device.cpu }}</td>
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
                 </tr>
                 <tr>
-                    <td>Motherboard</td>
+                    <td class="info">Motherboard</td>
                     {% if device.motherboard != "" %}
-                    <td>{{ device.motherboard }}</td>
+                    <td class="info">{{ device.motherboard }}</td>
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
                 </tr>
                 <tr>
-                    <td>Hard drive</td>
+                    <td class="info">Hard drive</td>
                     {% if device.hard_drive != "" %}
-                    <td>{{ device.hard_drive }}</td>
+                    <td class="info">{{ device.hard_drive }}</td>
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
                 </tr>
                 <tr>
-                    <td>LAN network chipset</td>
+                    <td class="info">LAN network chipset</td>
                     {% if device.lan_network_chipset != "" %}
-                    <td>{{ device.lan_network_chipset }}</td>
+                    <td class="info">{{ device.lan_network_chipset }}</td>
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
                 </tr>
                 <tr>
-                    <td>WLAN network chipset</td>
+                    <td class="info">WLAN network chipset</td>
                     {% if device.wlan_network_chipset != "" %}
-                    <td>{{ device.wlan_network_chipset }}</td>
+                    <td class="info">{{ device.wlan_network_chipset }}</td>
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
                 </tr>
                 <tr>
@@ -234,18 +248,23 @@
                     {% endif %}
                 </tr>
                 <tr>
-                    <td>Notes</td>
+                    <td class="info">Notes</td>
                     {% if device.notes != "" %}
-                    <td>{{ device.notes }}</td>
+                    <td class="info">{{ device.notes }}</td>
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
                 </tr>
             </table>
 
             <h2 class="padtop-5"><b><u>Tester Information</b></u></h2>
             <br>
-            <p><b>Author:</b> {{ device.author }}</p>
+            <table class="table table-bordered">
+                <tr>
+                    <td class="info">Author</td>
+                    <td class="info">{{ device.author }}</td>
+                </tr>
+            </table>
         </div>
         <div class="padtop-5"></div>
     </div>

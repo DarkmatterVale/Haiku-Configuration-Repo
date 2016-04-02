@@ -65,20 +65,30 @@
             <h2 class="padtop-5"><u><b>Summary</b></u></h2>
             <br>
             <table class="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Manufacturer</th>
-                    </tr>
-                </thead>
-                
                 <tr>
-                    <td>{{ component.name }}</td>
+                    <td class="info">Name</td>
+                    <td class="info">{{ component.name }}</td>
+                </tr>
+                <tr>
+                    <td class="info">Manufacturer</td>
                     {% if component.manufacturer != "" %}
-                    <td>{{ component.manufacturer }}</td>
+                    <td class="info">{{ component.manufacturer }}</td>
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
+                </tr>
+                <tr>
+                    {% if component.is_working == "Passed" %}
+                    <td class="success">Did the component work?</td>
+                    <td class="success">{{ component.is_working }}</td>
+                    {% else %}
+                    <td class="success">Did the component work?</td>
+                    <td class="success">Failed</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td class="warning">Rating</td>
+                    <td class="warning">{{ component.rating }}</td>
                 </tr>
             </table>
             
@@ -86,20 +96,20 @@
             <br>
             <table class="table table-bordered">
                 <tr>
-                    <td>Manufacturer</td>
+                    <td class="info">Manufacturer</td>
                     {% if component.manufacturer != "" %}
-                    <td>{{ component.manufacturer }}</td>
+                    <td class="info">{{ component.manufacturer }}</td>
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
                 </tr>
                 <tr>
-                    <td>Category</td>
-                    <td>{{ component.category }}</td>
+                    <td class="info">Category</td>
+                    <td class="info">{{ component.category }}</td>
                 </tr>
                 <tr>
-                    <td>Notes</td>
-                    <td>{{ component.notes }}</td>
+                    <td class="info">Notes</td>
+                    <td class="info">{{ component.notes }}</td>
                 </tr>
             </table>
 
@@ -107,8 +117,8 @@
             <br>
             <table class="table table-bordered">
                 <tr>
-                    <td>Author</td>
-                    <td>{{ component.author }}</td>
+                    <td class="info">Author</td>
+                    <td class="info">{{ component.author }}</td>
                 </tr>
             </table>
         </div>
