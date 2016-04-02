@@ -72,6 +72,8 @@ def save_device_view(request, device_id):
     display_config = request.POST['device_display_config']
     graphics_card = request.POST['device_dedicated_graphics']
     manufacturer = request.POST['device_manufacturer']
+    lan_chipset = request.POST['device_lan_network_chipset']
+    wlan_chipset = request.POST['device_wlan_network_chipset']
     
     try:
         if str(request.POST['group9']) == "on":
@@ -142,6 +144,12 @@ def save_device_view(request, device_id):
 
     if manufacturer != "":
         device.manufacturer = manufacturer
+
+    if lan_chipset != "":
+        device.lan_network_chipset = lan_chipset
+
+    if wlan_chipset != "":
+        device.wlan_network_chipset = wlan_chipset
 
     try:
         device.save()
