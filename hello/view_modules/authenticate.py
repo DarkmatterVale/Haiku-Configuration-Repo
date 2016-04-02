@@ -45,7 +45,7 @@ def authenticate_user_login_view(request):
     username = password = ""
 
     if request.POST:
-        username = request.POST.get('login_email')
+        username = request.POST.get('login_username')
         password = request.POST.get('login_password')
 
         logout(request)

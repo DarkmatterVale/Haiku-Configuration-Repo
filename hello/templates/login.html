@@ -54,7 +54,7 @@
         <form class="col s12" action="{% url 'authenticateLogin' %}" method="post">
             {% csrf_token %}
             <h2 class="form-signin-heading">Please sign in</h2>
-            <input type="text" name="login_email" class="form-control" placeholder="Username" required autofocus>
+            <input type="text" name="login_username" class="form-control" placeholder="Username" required autofocus>
             <small class="text-muted">*Required</small>
             <br><br>
             
