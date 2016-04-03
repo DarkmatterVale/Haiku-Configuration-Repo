@@ -44,6 +44,8 @@ def create_test_view(request):
             notes = request.POST['component_test_notes']
             component_category = request.POST['component_category']
             manufacturer = request.POST['component_manufacturer']
+            haiku_revision = request.POST['component_haiku_revision']
+            haiku_architecture = request.POST['component_haiku_architecture']
 
             try:
                 if str(request.POST['group1']) == "on":
@@ -59,7 +61,9 @@ def create_test_view(request):
                                          author = author,
                                          author_email = author_email,
                                          category = component_category,
-                                         manufacturer = manufacturer)
+                                         manufacturer = manufacturer,
+                                         haiku_revision = haiku_revision,
+                                         haiku_architecture = haiku_architecture)
                 newComponent.save()
                 messages.success(request, 'Successfully created a new test')
             except:
@@ -84,6 +88,9 @@ def create_test_view(request):
             
             lan_chipset = request.POST['device_lan_network_chipset']
             wlan_chipset = request.POST['device_wlan_network_chipset']
+            
+            haiku_revision = request.POST['component_haiku_revision']
+            haiku_architecture = request.POST['component_haiku_architecture']
 
             optical_drive_works = "Failed"
             card_reader_works = "Failed"
@@ -162,7 +169,9 @@ def create_test_view(request):
                                    lan_network_chipset = lan_chipset,
                                    wlan_network_chipset = wlan_chipset,
                                    does_optical_drive_work = optical_drive_works,
-                                   does_card_reader_work = card_reader_works)
+                                   does_card_reader_work = card_reader_works,
+                                   haiku_revision = haiku_revision,
+                                   haiku_architecture = haiku_architecture)
                 newDevice.save()
                 messages.success(request, 'Successfully created a new test')
             except:

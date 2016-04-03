@@ -74,6 +74,8 @@ def save_device_view(request, device_id):
     manufacturer = request.POST['device_manufacturer']
     lan_chipset = request.POST['device_lan_network_chipset']
     wlan_chipset = request.POST['device_wlan_network_chipset']
+    haiku_revision = request.POST['device_haiku_revision']
+    haiku_architecture = request.POST['device_haiku_architecture']
     
     try:
         if str(request.POST['group9']) == "on":
@@ -150,6 +152,12 @@ def save_device_view(request, device_id):
 
     if wlan_chipset != "":
         device.wlan_network_chipset = wlan_chipset
+
+    if haiku_architecture != "":
+        device.haiku_arch = haiku_architecture
+
+    if haiku_revision != "":
+        device.haiku_revision = haiku_revision
 
     try:
         device.save()

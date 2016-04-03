@@ -17,8 +17,8 @@ class Component(models.Model):
     date_created = models.DateTimeField('date created', auto_now=True)
     date_modified = models.DateTimeField('date modified', auto_now=True)
 
-    #haiku_revision = models.CharField(default='', max_length=100)
-    #haiku_arch = models.CharField(default='', max_length=10)
+    haiku_revision = models.CharField(default='', max_length=100)
+    haiku_arch = models.CharField(default='', max_length=10)
 
 class Device(models.Model):
     name = models.CharField(default='', max_length=200)
@@ -51,5 +51,5 @@ class Device(models.Model):
     does_optical_drive_work = models.CharField(default='', max_length=10)
     does_card_reader_work = models.CharField(default='', max_length=10)
 
-    #haiku_revision = models.CharField(default='', max_length=100)
-    #haiku_arch = models.CharField(default='', max_length=10)
+    haiku_revision = models.CharField(default='', max_length=100)
+    haiku_arch = models.CharField(default='', max_length=10)

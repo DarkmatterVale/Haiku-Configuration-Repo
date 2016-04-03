@@ -79,6 +79,16 @@
           </div>
           <br>
           <fieldset class="form-group">
+              <label for="device_haiku_revision">Haiku Revision</label>
+              <input type="text" class="form-control" name="device_haiku_revision" value="{{ device.haiku_revision }}">
+          </fieldset>
+          <br>
+          <fieldset class="form-group">
+              <label for="device_haiku_architecture">Haiku Architecture</label>
+              <input type="text" class="form-control" name="device_haiku_architecture" value="{{ device.haiku_arch }}">
+          </fieldset>
+          <br>
+          <fieldset class="form-group">
               <label for="device_manufacturer">Manufacturer</label>
               <input type="text" class="form-control" name="device_manufacturer" value="{{ device.manufacturer }}">
           </fieldset>

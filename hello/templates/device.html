@@ -92,6 +92,22 @@
                     <td class="warning">Rating</td>
                     <td class="warning">{{ device.rating }}</td>
                 </tr>
+                <tr>
+                    <td class="info">Haiku revision</td>
+                    {% if device.haiku_revision != "" %}
+                    <td class="info">{{ device.haiku_revision }}</td>
+                    {% else %}
+                    <td class="info">Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td class="info">Haiku architecture</td>
+                    {% if device.haiku_arch != "" %}
+                    <td class="info">{{ device.haiku_arch }}</td>
+                    {% else %}
+                    <td class="info">Not specified</td>
+                    {% endif %}
+                </tr>
             </table>
 
             <h2 class="padtop-5"><u><b>Details</b></u></h3>
