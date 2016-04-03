@@ -53,3 +53,5 @@ class Device(models.Model):
 
     haiku_revision = models.CharField(default='', max_length=100)
     haiku_arch = models.CharField(default='', max_length=10)
+
+    category = models.CharField(default='', max_length=100)

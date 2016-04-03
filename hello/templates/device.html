@@ -122,6 +122,14 @@
                     {% endif %}
                 </tr>
                 <tr>
+                    <td class="info">Category (desktop or notebook)</td>
+                    {% if device.category != "" %}
+                    <td class="info">{{ device.category }}</td>
+                    {% else %}
+                    <td class="info">Not specified</td>
+                    {% endif %}
+                </tr>
+                <tr>
                     <td class="info">CPU</td>
                     {% if device.cpu != "" %}
                     <td class="info">{{ device.cpu }}</td>

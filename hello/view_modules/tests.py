@@ -85,6 +85,7 @@ def create_test_view(request):
             device_dedicated_graphics = request.POST['device_dedicated_graphics']
             is_dedicated_graphics_working = request.POST['device_dedicated_graphics']
             manufacturer = request.POST['device_manufacturer']
+            category = request.POST['device_category']
             
             lan_chipset = request.POST['device_lan_network_chipset']
             wlan_chipset = request.POST['device_wlan_network_chipset']
@@ -171,7 +172,8 @@ def create_test_view(request):
                                    does_optical_drive_work = optical_drive_works,
                                    does_card_reader_work = card_reader_works,
                                    haiku_revision = haiku_revision,
-                                   haiku_architecture = haiku_architecture)
+                                   haiku_architecture = haiku_architecture,
+                                   category = category)
                 newDevice.save()
                 messages.success(request, 'Successfully created a new test')
             except:
