@@ -68,17 +68,10 @@ def save_component_view(request, component_id):
     haiku_revision = request.POST['component_haiku_revision']
     haiku_architecture = request.POST['component_haiku_architecture']
     
-    if category != "":
-        component.category = category
-
-    if manufacturer != "":
-        component.manufacturer = manufacturer
-
-    if haiku_revision != "":
-        component.haiku_revision = haiku_revision
-
-    if haiku_architecture != "":
-        component.haiku_arch = haiku_architecture
+    component.category = category
+    component.manufacturer = manufacturer
+    component.haiku_revision = haiku_revision
+    component.haiku_arch = haiku_architecture
 
     try:
         if str(request.POST['group9']) == "on":

@@ -116,7 +116,6 @@ def save_device_view(request, device_id):
     try:
         if str(request.POST['device_optical_drive_pass']) == "on":
             device.does_optical_drive_work = "Passed"
-            print("OPTICAL DRIVE WORKS")
     except:
         device.does_optical_drive_work = "Failed"
         
@@ -126,38 +125,17 @@ def save_device_view(request, device_id):
     except:
         device.does_card_reader_work = "Failed"
 
-    if cpu != "":
-        device.cpu = cpu
-    
-    if motherboard != "":
-        device.motherboard = motherboard
-    
-    if hard_drive != "":
-        device.hard_dive = hard_drive
-    
-    if sound != "":
-        device.sound = sound
-    
-    if display_config != "":
-        device.display_configuration = display_config
-    
-    if graphics_card != "":
-        device.graphics_card = graphics_card
-
-    if manufacturer != "":
-        device.manufacturer = manufacturer
-
-    if lan_chipset != "":
-        device.lan_network_chipset = lan_chipset
-
-    if wlan_chipset != "":
-        device.wlan_network_chipset = wlan_chipset
-
-    if haiku_architecture != "":
-        device.haiku_arch = haiku_architecture
-
-    if haiku_revision != "":
-        device.haiku_revision = haiku_revision
+    device.cpu = cpu
+    device.motherboard = motherboard
+    device.hard_dive = hard_drive
+    device.sound = sound
+    device.display_configuration = display_config
+    device.graphics_card = graphics_card
+    device.manufacturer = manufacturer
+    device.lan_network_chipset = lan_chipset
+    device.wlan_network_chipset = wlan_chipset
+    device.haiku_arch = haiku_architecture
+    device.haiku_revision = haiku_revision
 
     try:
         device.save()
