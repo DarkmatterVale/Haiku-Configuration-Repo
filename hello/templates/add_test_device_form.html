@@ -23,7 +23,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="{% url 'componentList' %}" class="active">Component Tests</a></li>
-            <li><a href="{% url 'deviceList' %}">Desktop/Notebook Tests</a></li>
+            <li><a href="{% url 'deviceList' %}">System Tests</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'addTest' %}">Add a Test</a></li>
             <li><a href="{% url 'myTests' %}">My Tests</a></li>
@@ -64,7 +64,7 @@
       <h1 class="text-center"><b>Submit a test</b></h1>
 
         <div class="row center-list-item padtop-5">
-            <h3 class="text-center padtop-5">Desktop/Notebook Test Form</h3>
+            <h3 class="text-center padtop-5">System Test Form</h3>
             <form class="col s12 form-horizontal" action="{% url 'createTest' %}" method="post">
                 {% csrf_token %}
 
@@ -106,27 +106,27 @@
            </fieldset>
            <br>
            <fieldset class="form-group">
-             <label for="device_cpu">Desktop/Notebook CPU</label>
+             <label for="device_cpu">CPU</label>
              <input type="text" class="form-control" name="device_cpu" placeholder="Enter text here">
            </fieldset>
            <br>
            <fieldset class="form-group">
-             <label for="device_motherboard">Desktop/Notebook motherboard</label>
+             <label for="device_motherboard">Motherboard</label>
              <input type="text" class="form-control" name="device_motherboard" placeholder="Enter text here">
            </fieldset>
            <br>
            <fieldset class="form-group">
-             <label for="device_hard_drive">Desktop/Notebook hard drive</label>
+             <label for="device_hard_drive">Hard drive</label>
              <input type="text" class="form-control" name="device_hard_drive" placeholder="Enter text here">
            </fieldset>
            <br>
            <fieldset class="form-group">
-               <label for="device_lan_network_chipset">Desktop/Notebook LAN network chipset</label>
+               <label for="device_lan_network_chipset">LAN network chipset</label>
                <input type="text" class="form-control" name="device_lan_network_chipset" placeholder="Enter text here">
            </fieldset>
            <br>
            <fieldset class="form-group">
-               <label for="device_wlan_network_chipset">Desktop/Notebook WLAN network chipset</label>
+               <label for="device_wlan_network_chipset">WLAN network chipset</label>
                <input type="text" class="form-control" name="device_wlan_network_chipset" placeholder="Enter text here">
            </fieldset>
            <br>
@@ -183,7 +183,7 @@
            </fieldset>
            <br>
            <fieldset class="form-group">
-             <label for="device_sound">Desktop/Notebook sound</label>
+             <label for="device_sound">Sound</label>
              <input type="text" class="form-control" name="device_sound" placeholder="Enter text here">
            </fieldset>
            <fieldset class="form-group">
@@ -243,7 +243,7 @@
            </fieldset>
            <br>
            <fieldset class="form-group">
-               <label>Does the desktop/notebook work on a whole?</label>
+               <label>Does the system work on a whole?</label>
                <div class="checkbox">
                    <label>
                        <input name="group9" type="checkbox">Pass

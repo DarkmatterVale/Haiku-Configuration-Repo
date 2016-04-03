@@ -23,7 +23,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="{% url 'componentList' %}" class="active">Component Tests</a></li>
-            <li><a href="{% url 'deviceList' %}">Desktop/Notebook Tests</a></li>
+            <li><a href="{% url 'deviceList' %}">System Tests</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'addTest' %}">Add a Test</a></li>
             <li><a href="{% url 'myTests' %}">My Tests</a></li>
@@ -82,7 +82,7 @@
       <div class="padtop-5"></div>
 
       <div class="pad-item-list center-list-item row">
-        <h3>All of your submitted device tests</h3>
+        <h3>All of your submitted system tests</h3>
         {% for device in all_devices %}
           <div class="collection">
             <a href="{% url 'editDevice' device.id %}" class="collection-item">{{ device.name }}

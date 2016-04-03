@@ -23,7 +23,7 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="{% url 'componentList' %}" class="active">Component Tests</a></li>
-            <li><a href="{% url 'deviceList' %}">Desktop/Notebook Tests</a></li>
+            <li><a href="{% url 'deviceList' %}">System Tests</a></li>
             {% if user.is_authenticated %}
             <li><a href="{% url 'addTest' %}">Add a Test</a></li>
             <li><a href="{% url 'myTests' %}">My Tests</a></li>
@@ -68,7 +68,7 @@
         <br><br>
         <h3 class="text-center">OR</h3>
         <br><br>
-        <a href="{% url 'add_device' %}" class="btn btn-primary btn-lg btn-block" role="button">Submit a Desktop/Notebook test</a>
+        <a href="{% url 'add_device' %}" class="btn btn-primary btn-lg btn-block" role="button">Submit a System test</a>
         
         <div class="padtop-5"></div>
       </div>
