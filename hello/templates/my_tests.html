@@ -59,13 +59,15 @@
                 {% endfor %}
                 {% endif %}
             </div>
-      <div class="row">
-        <h2>My Tests</h2>
-        <h3>Below are all of the tests you have submitted. Tests <b>are</b> editable.</h3>
-      </div>
+    
+      <div class="padtop-5"></div>
+      <h1 class="text-center"><b>My Tests</b></h1>
+      <h3 class="text-center">Below are all of the tests you have submitted; select a test to edit it</h3>
+      <div class="padtop-5"></div>
 
       <div class="pad-item-list center-list-item row">
-        <h3>All of your submitted component tests</h3>
+          <h2><u><b>Component Tests</b></u></h2>
+          <br>
         {% for component in all_components %}
           <div class="collection">
             <a href="{% url 'editComponent' component.id %}" class="collection-item">{{ component.name }}
@@ -82,7 +84,8 @@
       <div class="padtop-5"></div>
 
       <div class="pad-item-list center-list-item row">
-        <h3>All of your submitted system tests</h3>
+          <h2><u><b>System Tests</b></u></h2>
+          <br>
         {% for device in all_devices %}
           <div class="collection">
             <a href="{% url 'editDevice' device.id %}" class="collection-item">{{ device.name }}
