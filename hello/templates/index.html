@@ -61,26 +61,27 @@
       </div>
         
       <div class="padtop-5"></div>
-      <h1 class="text-center"><b>Haiku's Hardware Configuration Repository</b></h1>
-      <h3 class="text-center">A single location to find Haiku hardware compatibility information</h3>
-      <div class="padtop-5"></div>
+        <h1 class="text-center"><b>Haiku's Hardware Configuration Repository</b></h1>
+        <h3 class="text-center">A single location to find Haiku hardware compatibility information</h3>
+        <div class="padtop-5"></div>
 
-       <div class="pad-item-list center-list-item row">
-        <h3>Components recently added or edited:</h3>
-         {% for component in recent_components %}
-           <div class="collection">
-             <a href="{% url 'componentDetail' component.id %}" class="collection-item">{{ component.name }}
-               {% if component.is_working == "Passed" %}
-                 <span class="new badge green"><b>Passed</b></span>
-               {% else %}
-                 <span class="new badge red"><b>Failed</b></span>
-               {% endif %}
-               <span class="new rating-badge orange"><b>Rating: {{ component.rating }}</b></span>
-             </a>
-           </div>
-         {% endfor %}
-       </div>
-       <div class="padtop-5"></div>
+        <div class="pad-item-list center-list-item row">
+            <h3>Components recently added or edited:</h3>
+            {% for component in recent_components %}
+            <div class="collection">
+                <a href="{% url 'componentDetail' component.id %}" class="collection-item">{{ component.name }}
+                    <span class="new rating-badge orange"><b>Rating: {{ component.rating }}</b></span>
+                    {% if component.is_working == "Passed" %}
+                    <span class="new badge green"><b>Passed</b></span>
+                    {% else %}
+                    <span class="new badge red"><b>Failed</b></span>
+                    {% endif %}
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="padtop-5"></div>
 
        <div class="pad-item-list center-list-item row">
          <h3>Systems recently added or edited:</h3>

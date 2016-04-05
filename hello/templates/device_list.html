@@ -80,12 +80,12 @@
         {% for device in all_devices %}
           <div class="collection">
             <a href="{% url 'deviceDetail' device.id %}" class="collection-item">{{ device.name }}
-              {% if device.is_working == "Passed" %}
+                <span class="new rating-badge orange"><b>Rating: {{ device.rating }}</b></span>
+                {% if device.is_working == "Passed" %}
                 <span class="new badge green"><b>Passed</b></span>
-              {% else %}
+                {% else %}
                 <span class="new badge red"><b>Failed</b></span>
-              {% endif %}
-              <span class="new rating-badge orange"><b>Rating: {{ device.rating }}</b></span>
+                {% endif %}
             </a>
           </div>
         {% endfor %}

@@ -64,7 +64,7 @@ nav .large-font {
   margin-right: 13%;
 }
 
-span.badge {
+span.rating-badge {
   min-width: 3rem;
   padding: 0 6px;
   text-align: center;
@@ -72,7 +72,7 @@ span.badge {
   line-height: inherit;
   color: #757575;
   position: absolute;
-  right: 11%;
+  right: 9rem;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -82,15 +82,16 @@ span.badge {
     color: #fff;
     background-color: #26a69a;
     border-radius: 2px; }
-span.rating-badge {
-  min-width: 3rem;
+span.badge {
+  min-width: 6rem;
+  max-width: 6rem;
   padding: 0 6px;
   text-align: center;
   font-size: 1rem;
   line-height: inherit;
   color: #757575;
   position: absolute;
-  right: 15px;
+  right: 2rem;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
