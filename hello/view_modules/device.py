@@ -77,6 +77,7 @@ def save_device_view(request, device_id):
     haiku_revision = request.POST['device_haiku_revision']
     haiku_architecture = request.POST['device_haiku_architecture']
     category = request.POST['device_category']
+    rating = request.POST['device_rating']
     
     try:
         if str(request.POST['group9']) == "on":
@@ -138,6 +139,7 @@ def save_device_view(request, device_id):
     device.haiku_arch = haiku_architecture
     device.haiku_revision = haiku_revision
     device.category = category
+    device.rating = rating
 
     try:
         device.save()

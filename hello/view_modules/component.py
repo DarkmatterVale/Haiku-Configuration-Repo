@@ -62,17 +62,21 @@ def edit_component_view(request, component_id):
 
 def save_component_view(request, component_id):
     component = get_object_or_404(Component, pk=component_id)
+    
     category = str(request.POST['component_category'])
-    component.notes = request.POST['component_notes']
+    notes = request.POST['component_notes']
     manufacturer = request.POST['component_manufacturer']
     haiku_revision = request.POST['component_haiku_revision']
     haiku_architecture = request.POST['component_haiku_architecture']
+    rating = request.POST['component_rating']
     
+    component.rating = rating
     component.category = category
     component.manufacturer = manufacturer
     component.haiku_revision = haiku_revision
     component.haiku_arch = haiku_architecture
-
+    component.notes = notes
+    
     try:
         if str(request.POST['group9']) == "on":
             component.is_working = "Passed"

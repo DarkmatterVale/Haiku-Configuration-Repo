@@ -71,23 +71,18 @@
                 <div style="border: 1px solid grey; padding: 3rem;">
                     <div class="form-group">
                         <label for="component_rating">Rating</label>
-                        <select class="form-control" id="component_rating" name="component_rating">
-                            <option value="0" selected>0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
+                        <select class="form-control" name="component_rating">
+                            <option value="" disabled selected>Choose an Option</option>
+                            <option value="0 - Doesn't work at all">0 - Doesn't work at all</option>
+                            <option value="1 - Works occasionally">Works occasionally</option>
+                            <option value="2 - Works OK (works for every day tasks, but not perfectly)">2 - Works OK (works for every day tasks, but not perfectly)</option>
+                            <option value="3 - Works well (works very well, but not every single feature is supported)">3 - Works well (works very well, but not every single feature is supported)</option>
+                            <option value="4 - Works perfectly (every feature is supported)">4 - Works perfectly (every feature is supported)</option>
                         </select>
                     </div>
                     <br>
                     <fieldset class="form-group">
-                        <label for="component_test_notes">Short Note (Up to 500 Characters)</label>
+                        <label for="component_test_notes">Short note (Up to 500 Characters)</label>
                         <textarea class="form-control" name="component_test_notes" rows="5"></textarea>
                     </fieldset>
                     <br>

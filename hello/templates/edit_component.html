@@ -51,88 +51,121 @@
             {% for message in messages %}
             {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
             <div class="alert alert-danger" role="alert">
-                {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
-                <div class="alert alert-success" role="alert">
-                    {% endif %}
-                    {{ message }}
-                </div>
-                {% endfor %}
-                {% endif %}
-            </div>
-      <div class="pad-item-list center-list-item row">
-        <h2 class="text-center">Editing -- {{ component.name }}</h2>
-
-        <form class="col s12" action="{% url 'saveComponent' component.id %}" method="post">
-          {% csrf_token %}
-          <h3 class="text-center padtop-5">Component Information</h3>
-          <div class="form-group">
-              <label for="component_rating">Rating</label>
-              <select class="form-control" id="component_rating" name="component_rating">
-                  {% for i in loop %}
-                  {% if component.rating == i %}
-                  <option value="{{ i }}" selected>{{ i }}</option>
-                  {% else %}
-                  <option value="{{ i }}">{{ i }}</option>
-                  {% endif %}
-                  {% endfor %}
-              </select>
-          </div>
-          <br>
-          <fieldset class="form-group">
-              <label for="component_haiku_revision">Haiku Revision</label>
-              <input type="text" class="form-control" name="component_haiku_revision" value="{{ component.haiku_revision }}">
-          </fieldset>
-          <br>
-          <fieldset class="form-group">
-              <label for="component_haiku_architecture">Haiku Architecture</label>
-              <input type="text" class="form-control" name="component_haiku_architecture" value="{{ component.haiku_arch }}">
-          </fieldset>
-          <br>
-          <fieldset class="form-group">
-            <label for="component_category">Component category:</label>
-            <input type="text" class="form-control" name="component_category" value="{{ component.category }}">
-          </fieldset>
-          <br>
-          <fieldset class="form-group">
-              <label for="component_manufacturer">Manufacturer:</label>
-              <input type="text" class="form-control" name="component_manufacturer" value="{{ component.manufacturer }}">
-                  </fieldset>
-          <br>
-          <fieldset class="form-group">
-            <label for="component_notes">Notes:</label>
-            <textarea class="form-control" name="component_notes" rows="5">{{ component.notes }}</textarea>
-          </fieldset>
-          <br>
-          <label>Did the component work?</label>
-          <div class="checkbox">
-            {% if component.is_working == "Passed" %}
-              <label>
-                <input name="group9" type="checkbox" checked>Pass
-              </label>
-              <br>
-              <label>
-                <input name="group10" type="checkbox">Fail
-              </label>
-            {% else %}
-              <label>
-                <input name="group9" type="checkbox">Pass
-              </label>
-              <br>
-              <label>
-                <input name="group10" type="checkbox" checked>Fail
-              </label>
+            {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+            <div class="alert alert-success" role="alert">
             {% endif %}
-          </div>
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+            
+        <div class="pad-item-list center-list-item row">
+            <h2 class="text-center">Editing -- {{ component.name }}</h2>
 
-          <h3 class="text-center padtop-5">Tester Information</h3>
-          <p><b>Author:</b> {{ component.author }}</p>
+            <form class="col s12" action="{% url 'saveComponent' component.id %}" method="post">
+                {% csrf_token %}
+                
+                <h3>Component Performance</h3>
+                <div style="border: 1px solid grey; padding: 3rem;">
+                    <div class="form-group">
+                        <label for="component_rating">Rating</label>
+                        <select class="form-control" name="component_rating">
+                            <option value="" disabled>Choose an Option</option>
+                            {% if component.rating == "0 - Doesn't work at all" %}
+                            <option value="0 - Doesn't work at all" selected>0 - Doesn't work at all</option>
+                            {% else %}
+                            <option value="0 - Doesn't work at all">0 - Doesn't work at all</option>
+                            {% endif %}
+                            {% if component.rating == "1 - Works occasionally" %}
+                            <option value="1 - Works occasionally" selected>1 - Works occasionally</option>
+                            {% else %}
+                            <option value="1 - Works occasionally">1 - Works occasionally</option>
+                            {% endif %}
+                            {% if component.rating == "2 - Works OK (works for every day tasks, but not perfectly)" %}
+                            <option value="2 - Works OK (works for every day tasks, but not perfectly)" selected>2 - Works OK (works for every day tasks, but not perfectly)</option>
+                            {% else %}
+                            <option value="2 - Works OK (works for every day tasks, but not perfectly)">2 - Works OK (works for every day tasks, but not perfectly)</option>
+                            {% endif %}
+                            {% if component.rating == "3 - Works well (works very well, but not every single  feature is supported)" %}
+                            <option value="3 - Works well (works very well, but not every single feature is supported)" selected>3 - Works well (works very well, but not every single feature is supported)</option>
+                            {% else %}
+                            <option value="3 - Works well (works very well, but not every single feature is supported)">3 - Works well (works very well, but not every single feature is supported)</option>
+                            {% endif %}
+                            {% if component.rating == "4 - Works perfectly (every feature is supported)" %}
+                            <option value="4 - Works perfectly (every feature is supported)" selected>4 - Works perfectly (every feature is supported)</option>
+                            {% else %}
+                            <option value="4 - Works perfectly (every feature is supported)">4 - Works perfectly (every feature is supported)</option>
+                            {% endif %}
+                        </select>
+                    </div>
+                    <br>
+                    
+                    <fieldset class="form-group">
+                        <label for="component_notes">Short note (Up to 500 Characters)</label>
+                        <textarea class="form-control" name="component_notes" rows="5">{{ component.notes }}</textarea>
+                    </fieldset>
+                    <br>
+                    
+                    <label>Did the component work?</label>
+                    <div class="checkbox">
+                        {% if component.is_working == "Passed" %}
+                        <label>
+                            <input name="group9" type="checkbox" checked>Pass
+                        </label>
+                        <br>
+                        <label>
+                            <input name="group10" type="checkbox">Fail
+                        </label>
+                        {% else %}
+                        <label>
+                            <input name="group9" type="checkbox">Pass
+                        </label>
+                        <br>
+                        <label>
+                            <input name="group10" type="checkbox" checked>Fail
+                        </label>
+                        {% endif %}
+                    </div>
+                </div>
+                <br>
 
-          <div class="padtop-5"></div>
-          <button type="submit" class="btn btn-primary padtop-2">Save</button>
-          <a href="{% url 'delete_component' component.id %}" class="btn btn-primary" role="button">Delete test</a>
-        </form>
-      </div>
-      <div class="padtop-5"></div>
+                <h3>Component Details</h3>
+                <div style="border: 1px solid grey; padding: 3rem;">
+                    <fieldset class="form-group">
+                        <label for="component_category">Component category</label>
+                        <input type="text" class="form-control" name="component_category" value="{{ component.category }}">
+                    </fieldset>
+                    <br>
+                    
+                    <fieldset class="form-group">
+                        <label for="component_manufacturer">Manufacturer</label>
+                        <input type="text" class="form-control" name="component_manufacturer" value="{{ component.manufacturer }}">
+                    </fieldset>
+                </div>
+                <br>
+
+                <h3>Haiku-related information</h3>
+                <div style="border: 1px solid grey; padding: 3rem;">
+                    <fieldset class="form-group">
+                        <label for="component_haiku_revision">Haiku Revision</label>
+                        <input type="text" class="form-control" name="component_haiku_revision" value="{{ component.haiku_revision }}">
+                    </fieldset>
+                    <br>
+                    
+                    <fieldset class="form-group">
+                        <label for="component_haiku_architecture">Haiku Architecture</label>
+                        <input type="text" class="form-control" name="component_haiku_architecture" value="{{ component.haiku_arch }}">
+                    </fieldset>
+                </div>
+                <br>
+
+                <div class="padtop-5"></div>
+                <button type="submit" class="btn btn-primary padtop-2">Save</button>
+                <a href="{% url 'delete_component' component.id %}" class="btn btn-primary" role="button">Delete test</a>
+            </form>
+        </div>
+        <div class="padtop-5"></div>
     </div>
   </body>
 </html>

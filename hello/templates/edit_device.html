@@ -67,14 +67,33 @@
           <h3 class="text-center padtop-5">System Information</h3>
           <div class="form-group">
               <label for="component_rating">Rating</label>
-              <select class="form-control" id="component_rating" name="component_rating">
-                  {% for i in loop %}
-                  {% if device.rating == i %}
-                  <option value="{{ i }}" selected>{{ i }}</option>
+              <select class="form-control" name="component_rating">
+                  <option value="" disabled>Choose an Option</option>
+                  {% if device.rating == "0 - Doesn't work at all" %}
+                  <option value="0 - Doesn't work at all" selected>0 - Doesn't work at all</option>
                   {% else %}
-                  <option value="{{ i }}">{{ i }}</option>
+                  <option value="0 - Doesn't work at all">0 - Doesn't work at all</option>
                   {% endif %}
-                  {% endfor %}
+                  {% if device.rating == "1 - Works occasionally" %}
+                  <option value="1 - Works occasionally" selected>Works occasionally</option>
+                  {% else %}
+                  <option value="1 - Works occasionally">Works occasionally</option>
+                  {% endif %}
+                  {% if device.rating == "2 - Works OK (works for every day tasks, but not perfectly)" %}
+                  <option value="2 - Works OK (works for every day tasks, but not perfectly)" selected>2 - Works OK (works for every day tasks, but not perfectly)</option>
+                  {% else %}
+                  <option value="2 - Works OK (works for every day tasks, but not perfectly)">2 - Works OK (works for every day tasks, but not perfectly)</option>
+                  {% endif %}
+                  {% if device.rating == "3 - Works well (works very well, but not every single feature is supported)" %}
+                  <option value="3 - Works well (works very well, but not every single feature is supported)" selected>3 - Works well (works very well, but not every single feature is supported)</option>
+                  {% else %}
+                  <option value="3 - Works well (works very well, but not every single feature is supported)">3 - Works well (works very well, but not every single feature is supported)</option>
+                  {% endif %}
+                  {% if device.rating == "4 - Works perfectly (every feature is supported)" %}
+                  <option value="4 - Works perfectly (every feature is supported)" selected>4 - Works perfectly (every feature is supported)</option>
+                  {% else %}
+                  <option value="4 - Works perfectly (every feature is supported)">4 - Works perfectly (every feature is supported)</option>
+                  {% endif %}
               </select>
           </div>
           <br>

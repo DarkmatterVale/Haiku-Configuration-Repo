@@ -6,7 +6,7 @@ class Component(models.Model):
     name = models.CharField(default='', max_length=200)
     notes = models.CharField(default='', max_length=500)
     is_working = models.CharField(default='', max_length=10)
-    rating = models.IntegerField()
+    rating = models.CharField(default='', max_length=100)
     manufacturer = models.CharField(default='', max_length=100)
     
     category = models.CharField(default='', max_length=100)
@@ -24,7 +24,7 @@ class Device(models.Model):
     name = models.CharField(default='', max_length=200)
     notes = models.CharField(default='', max_length=500)
     is_working = models.CharField(default='', max_length=10)
-    rating = models.IntegerField()
+    rating = models.CharField(default='', max_length=100)
     manufacturer = models.CharField(default='', max_length=100)
     
     author = models.CharField(default='', max_length=100)
