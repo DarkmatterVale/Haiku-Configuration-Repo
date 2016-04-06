@@ -23,22 +23,32 @@ def add_component_test_view(request):
 def add_device_test_view(request):
     return render(request, 'add_test_device_form.html', {})
 
+def satisfy_component_test_requirements(data):
+    means_for_failing = ""
+
+    for element in data:
+        if element == means_for_failing:
+            return False
+
+    return True
+
 def create_test_view(request):
     if request.user.is_authenticated():
         try:
             component_name = request.POST['component_name']
+            is_component = True
         except:
-            component_name = ''
+            is_component = False
         
         try:
             device_name = request.POST['device_name']
+            is_device = True
         except:
-            device_name = ''
+            is_device = False
 
         author = request.user.username
-        author_email = request.user.email
 
-        if component_name != '':
+        if is_component == True:
             rating = request.POST['component_rating']
             is_working = "Failed"
             notes = request.POST['component_test_notes']
@@ -46,6 +56,18 @@ def create_test_view(request):
             manufacturer = request.POST['component_manufacturer']
             haiku_revision = request.POST['component_haiku_revision']
             haiku_architecture = request.POST['component_haiku_architecture']
+            
+            component_data = [
+                component_category,
+                manufacturer,
+                haiku_revision,
+                haiku_architecture
+            ]
+            
+            if satisfy_component_test_requirements(component_data) == False:
+                messages.error(request, 'Fields that were required were not filled out...please try again')
+                
+                return HttpResponseRedirect(reverse('index'))
 
             try:
                 if str(request.POST['group1']) == "on":
@@ -63,13 +85,14 @@ def create_test_view(request):
                                          category = component_category,
                                          manufacturer = manufacturer,
                                          haiku_revision = haiku_revision,
-                                         haiku_architecture = haiku_architecture)
+                                         haiku_arch = haiku_architecture)
                 newComponent.save()
+    
                 messages.success(request, 'Successfully created a new test')
             except:
                 messages.error(request, 'Could not create a new test...please try again')
 
-        if device_name != '':
+        if is_device == True:
             rating = request.POST['device_rating']
             is_working = "Failed"
             notes = request.POST['device_test_notes']
