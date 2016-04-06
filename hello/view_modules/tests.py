@@ -23,7 +23,7 @@ def add_component_test_view(request):
 def add_device_test_view(request):
     return render(request, 'add_test_device_form.html', {})
 
-def satisfy_component_test_requirements(data):
+def satisfy_test_requirements(data):
     means_for_failing = ""
 
     for element in data:
@@ -64,7 +64,7 @@ def create_test_view(request):
                 haiku_architecture
             ]
             
-            if satisfy_component_test_requirements(component_data) == False:
+            if satisfy_test_requirements(component_data) == False:
                 messages.error(request, 'Fields that were required were not filled out...please try again')
                 
                 return HttpResponseRedirect(reverse('index'))
@@ -94,81 +94,86 @@ def create_test_view(request):
 
         if is_device == True:
             rating = request.POST['device_rating']
-            is_working = "Failed"
             notes = request.POST['device_test_notes']
 
             device_cpu = request.POST['device_cpu']
             device_motherboard = request.POST['device_motherboard']
             device_hard_drive = request.POST['device_hard_drive']
             device_sound = request.POST['device_sound']
-            is_sound_working = "Failed"
             device_display_name = request.POST['device_display_name']
             device_display_config = request.POST['device_display_config']
-            is_display_working = "Failed"
             device_dedicated_graphics = request.POST['device_dedicated_graphics']
             is_dedicated_graphics_working = request.POST['device_dedicated_graphics']
             manufacturer = request.POST['device_manufacturer']
             category = request.POST['device_category']
-            
             lan_chipset = request.POST['device_lan_network_chipset']
             wlan_chipset = request.POST['device_wlan_network_chipset']
+            haiku_revision = request.POST['device_haiku_revision']
+            haiku_architecture = request.POST['device_haiku_architecture']
             
-            haiku_revision = request.POST['component_haiku_revision']
-            haiku_architecture = request.POST['component_haiku_architecture']
-
-            optical_drive_works = "Failed"
-            card_reader_works = "Failed"
-
-            usb2_works = "Failed"
-            usb3_works = "Failed"
+            device_data = [
+                rating,
+                haiku_revision,
+                haiku_architecture,
+                manufacturer,
+                device_cpu,
+                device_motherboard,
+                device_hard_drive,
+                category
+            ]
+            
+            if satisfy_test_requirements(device_data) == False:
+                messages.error(request, 'Fields that were required were not filled out...please try again')
+                
+                return HttpResponseRedirect(reverse('index'))
 
             try:
                 if str(request.POST['group9']) == "on":
                     is_working = "Passed"
             except:
-                pass
+                is_working = ""
 
             try:
                 if str(request.POST['group3']) == "on":
                     is_sound_working = "Passed"
             except:
-                pass
+                is_sound_working = ""
 
             try:
                 if str(request.POST['group5']) == "on":
                     is_display_working = "Passed"
             except:
-                pass
+                is_display_working = ""
 
             try:
                 if str(request.POST['group7']) == "on":
                     is_dedicated_graphics_working = "Passed"
             except:
-                pass
+                is_dedicated_graphics_working = ""
             
             try:
                 if str(request.POST['device_usb2_pass']) == "on":
                     usb2_works = "Passed"
             except:
-                pass
+                usb2_works = ""
 
             try:
                 if str(request.POST['device_usb3_pass']) == "on":
                     usb3_works = "Passed"
             except:
-                pass
+                usb3_works = ""
 
             try:
                 if str(request.POST['device_optical_drive_pass']) == "on":
                     optical_drive_works = "Passed"
             except:
-                pass
+                optical_drive_works = ""
 
             try:
                 if str(request.POST['device_card_reader_pass']) == "on":
                     card_reader_works = "Passed"
             except:
-                pass
+                card_reader_works = ""
 
             try:
                 newDevice = Device(name = device_name,
