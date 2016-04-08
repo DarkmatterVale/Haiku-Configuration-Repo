@@ -84,13 +84,13 @@
                     <td class="success">Did the desktop/notebook work?</td>
                     <td class="success">{{ device.is_working }}</td>
                     {% else %}
-                    <td class="success">Did the desktop/notebook work?</td>
-                    <td class="success">Failed</td>
+                    <td class="danger">Did the desktop/notebook work?</td>
+                    <td class="danger">Failed</td>
                     {% endif %}
                 </tr>
                 <tr>
-                    <td class="warning">Rating</td>
-                    <td class="warning">{{ device.rating }}</td>
+                    <td class="info">Rating</td>
+                    <td class="info">{{ device.rating }}</td>
                 </tr>
                 <tr>
                     <td class="info">Haiku revision</td>
@@ -170,7 +170,7 @@
                     {% endif %}
                 </tr>
                 <tr>
-                    {% if device.does_usb2_work != "" %}
+                    {% if device.does_usb2_work != "Not Specified" %}
                     {% if device.does_usb2_work == "Failed" %}
                     <td class="danger">USB 2.0</td>
                     <td class="danger">{{ device.does_usb2_work }}</td>
@@ -179,11 +179,12 @@
                     <td class="success">{{ device.does_usb2_work }}</td>
                     {% endif %}
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">USB 2.0</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
                 </tr>
                 <tr>
-                    {% if device.does_usb3_work != "" %}
+                    {% if device.does_usb3_work != "Not Specified" %}
                     {% if device.does_usb3_work == "Failed" %}
                     <td class="danger">USB 3.0</td>
                     <td class="danger">{{ device.does_usb3_work }}</td>
@@ -192,11 +193,12 @@
                     <td class="success">{{ device.does_usb3_work }}</td>
                     {% endif %}
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">USB 3.0</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
                 </tr>
                 <tr>
-                    {% if device.does_optical_drive_work != "" %}
+                    {% if device.does_optical_drive_work != "Not Specified" %}
                     {% if device.does_optical_drive_work == "Failed" %}
                     <td class="danger">Optical drive</td>
                     <td class="danger">{{ device.does_optical_drive_work }}</td>
@@ -205,11 +207,12 @@
                     <td class="success">{{ device.does_optical_drive_work }}</td>
                     {% endif %}
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">Optical drive</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
                 </tr>
                 <tr>
-                    {% if device.does_card_reader_work != "" %}
+                    {% if device.does_card_reader_work != "Not Specified" %}
                     {% if device.does_card_reader_work == "Failed" %}
                     <td class="danger">Card reader</td>
                     <td class="danger">{{ device.does_card_reader_work }}</td>
@@ -218,11 +221,12 @@
                     <td class="success">{{ device.does_card_reader_work }}</td>
                     {% endif %}
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">Card reader</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
                 </tr>
                 <tr>
-                    {% if device.is_sound_working != "" %}
+                    {% if device.is_sound_working != "Not Specified" %}
                     {% if device.is_sound_working == "Failed" %}
                     <td class="danger">Sound</td>
                     <td class="danger">{{ device.sound }}</td>
@@ -231,11 +235,12 @@
                     <td class="success">{{ device.sound }}</td>
                     {% endif %}
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">Sound</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
                 </tr>
                 <tr>
-                    {% if device.is_display_working != "" %}
+                    {% if device.is_display_working != "Not Specified" %}
                     {% if device.is_display_working == "Failed" %}
                     <td class="danger">Display</td>
                     <td class="danger">{{ device.display }}</td>
@@ -244,24 +249,26 @@
                     <td class="success">{{ device.display }}</td>
                     {% endif %}
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">Display</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
                 </tr>
                 <tr>
-                    {% if device.is_display_working != "" %}
+                    {% if device.is_display_working != "Not Specified" %}
                     {% if device.is_display_working == "Failed" %}
                     <td class="danger">Display configuration</td>
                     <td class="danger">{{ device.display_configuration }}</td>
                     {% else %}
-                    <td class="success">Display configuration</td>
+                    <td class="success">Display resolution</td>
                     <td class="success">{{ device.display_configuration }}</td>
                     {% endif %}
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">Display resolution</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
                 </tr>
                 <tr>
-                    {% if device.graphics_card_is_working != "" %}
+                    {% if device.graphics_card_is_working != "Not Specified" %}
                     {% if device.graphics_card_is_working == "Failed" %}
                     <td class="danger">Graphics card/chipset</td>
                     <td class="danger">{{ device.graphics_card }}</td>
@@ -270,7 +277,8 @@
                     <td class="success">{{ device.graphics_card }}</td>
                     {% endif %}
                     {% else %}
-                    <td>Not specified</td>
+                    <td class="info">Graphics card/chipset</td>
+                    <td class="info">Not specified</td>
                     {% endif %}
                 </tr>
                 <tr>

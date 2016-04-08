@@ -50,7 +50,7 @@ def create_test_view(request):
 
         if is_component == True:
             rating = request.POST['component_rating']
-            is_working = "Failed"
+            is_working = "Not Specified"
             notes = request.POST['component_test_notes']
             component_category = request.POST['component_category']
             manufacturer = request.POST['component_manufacturer']
@@ -73,7 +73,11 @@ def create_test_view(request):
                 if str(request.POST['group1']) == "on":
                     is_working = "Passed"
             except:
-                pass
+                try:
+                    if str(request.POST['group2']) == "on":
+                        is_working = "Failed"
+                except:
+                    pass
 
             try:
                 newComponent = Component(name = component_name,
@@ -126,54 +130,86 @@ def create_test_view(request):
                 messages.error(request, 'Fields that were required were not filled out...please try again')
                 
                 return HttpResponseRedirect(reverse('index'))
-
+            
             try:
                 if str(request.POST['group9']) == "on":
                     is_working = "Passed"
             except:
-                is_working = ""
+                try:
+                    if str(request.POST['group10']) == "on":
+                        is_working = "Failed"
+                except:
+                    is_working = "Not Specified"
 
             try:
                 if str(request.POST['group3']) == "on":
                     is_sound_working = "Passed"
             except:
-                is_sound_working = ""
+                try:
+                    if str(request.POST['group4']) == "on":
+                        is_sound_working = "Failed"
+                except:
+                    is_sound_working = "Not Specified"
 
             try:
                 if str(request.POST['group5']) == "on":
                     is_display_working = "Passed"
             except:
-                is_display_working = ""
+                try:
+                    if str(request.POST['group6']) == "on":
+                        is_display_working = "Failed"
+                except:
+                    is_display_working = "Not Specified"
 
             try:
                 if str(request.POST['group7']) == "on":
                     is_dedicated_graphics_working = "Passed"
             except:
-                is_dedicated_graphics_working = ""
-            
+                try:
+                    if str(request.POST['group8']) == "on":
+                        is_dedicated_graphics_working = "Failed"
+                except:
+                    is_dedicated_graphics_working = "Not Specified"
+
             try:
                 if str(request.POST['device_usb2_pass']) == "on":
                     usb2_works = "Passed"
             except:
-                usb2_works = ""
+                try:
+                    if str(request.POST['device_usb2_fail']) == "on":
+                        usb2_works = "Failed"
+                except:
+                    usb2_works = "Not Specified"
 
             try:
                 if str(request.POST['device_usb3_pass']) == "on":
                     usb3_works = "Passed"
             except:
-                usb3_works = ""
+                try:
+                    if str(request.POST['device_usb3_fail']) == "on":
+                        usb3_works = "Failed"
+                except:
+                    usb3_works = "Not Specified"
 
             try:
                 if str(request.POST['device_optical_drive_pass']) == "on":
                     optical_drive_works = "Passed"
             except:
-                optical_drive_works = ""
+                try:
+                    if str(request.POST['device_optical_drive_fail']) == "on":
+                        optical_drive_works = "Failed"
+                except:
+                    optical_drive_works = "Not Specified"
 
             try:
                 if str(request.POST['device_card_reader_pass']) == "on":
                     card_reader_works = "Passed"
             except:
-                card_reader_works = ""
+                try:
+                    if str(request.POST['device_card_reader_fail']) == "on":
+                        card_reader_works = "Failed"
+                except:
+                    card_reader_works = "Not Specified"
 
             try:
                 newDevice = Device(name = device_name,

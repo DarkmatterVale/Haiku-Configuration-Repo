@@ -76,7 +76,7 @@
               {% else %}
                 <span class="new badge red"><b>Failed</b></span>
               {% endif %}
-              <span class="new rating-badge orange"><b>Rating: {{ component.rating }}</b></span>
+              <span class="new rating-badge orange"><b>Rating: {{ component.rating|slice:"1" }}</b></span>
             </a>
           </div>
         {% endfor %}
@@ -94,7 +94,7 @@
               {% else %}
                 <span class="new badge red"><b>Failed</b></span>
               {% endif %}
-              <span class="new rating-badge orange"><b>Rating: {{ device.rating }}</b></span>
+              <span class="new rating-badge orange"><b>Rating: {{ device.rating|slice:"1" }}</b></span>
             </a>
           </div>
         {% endfor %}

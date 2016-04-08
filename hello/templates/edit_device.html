@@ -146,7 +146,7 @@
               <label>
                 <input name="group4" type="checkbox">Fail
               </label>
-            {% else %}
+            {% elif device.is_sound_working == "Failed" %}
               <label>
                 <input name="group3" type="checkbox">Pass
               </label>
@@ -154,6 +154,14 @@
               <label>
                 <input name="group4" type="checkbox" checked>Fail
               </label>
+            {% else %}
+                <label>
+                    <input name="group3" type="checkbox">Pass
+                </label>
+                <br>
+                <label>
+                    <input name="group4" type="checkbox">Fail
+                </label>
             {% endif %}
           </div>
           <br>
@@ -179,7 +187,7 @@
                       <input name="device_usb2_fail" type="checkbox">Fail
                   </label>
               </div>
-              {% else %}
+              {% elif device.does_usb2_work == "Failed" %}
               <div class="checkbox">
                   <label>
                       <input name="device_usb2_pass" type="checkbox">Pass
@@ -189,6 +197,14 @@
                       <input name="device_usb2_fail" type="checkbox" checked>Fail
                   </label>
               </div>
+              {% else %}
+                <label>
+                    <input name="device_usb2_pass" type="checkbox">Pass
+                </label>
+                <br>
+                <label>
+                    <input name="device_usb2_fail" type="checkbox">Fail
+                </label>
               {% endif %}
           </fieldset>
           <br>
@@ -204,7 +220,7 @@
                       <input name="device_usb3_fail" type="checkbox">Fail
                   </label>
               </div>
-              {% else %}
+              {% elif device.does_usb3_work == "Failed" %}
               <div class="checkbox">
                   <label>
                       <input name="device_usb3_pass" type="checkbox">Pass
@@ -214,6 +230,14 @@
                       <input name="device_usb3_fail" type="checkbox" checked>Fail
                   </label>
               </div>
+              {% else %}
+                <label>
+                    <input name="device_usb3_pass" type="checkbox">Pass
+                </label>
+                <br>
+                <label>
+                    <input name="device_usb3_fail" type="checkbox">Fail
+                </label>
               {% endif %}
           </fieldset>
           <br>
@@ -229,7 +253,7 @@
                       <input name="device_card_reader_fail" type="checkbox">Fail
                   </label>
               </div>
-              {% else %}
+              {% elif device.does_card_reader_work == "Failed" %}
               <div class="checkbox">
                   <label>
                       <input name="device_card_reader_pass" type="checkbox">Pass
@@ -239,6 +263,14 @@
                       <input name="device_card_reader_fail" type="checkbox" checked>Fail
                   </label>
               </div>
+              {% else %}
+                <label>
+                    <input name="device_card_reader_pass" type="checkbox">Pass
+                </label>
+                <br>
+                <label>
+                    <input name="device_card_reader_fail" type="checkbox">Fail
+                </label>
               {% endif %}
           </fieldset>
           <br>
@@ -253,7 +285,7 @@
                   <label>
                       <input name="device_optical_drive_fail" type="checkbox">Fail
                   </label>
-                  {% else %}
+                  {% elif device.does_optical_drive_work == "Failed" %}
                   <label>
                       <input name="device_optical_drive_pass" type="checkbox">Pass
                   </label>
@@ -261,6 +293,14 @@
                   <label>
                       <input name="device_optical_drive_fail" type="checkbox" checked>Fail
                   </label>
+                  {% else %}
+                    <label>
+                        <input name="device_optical_drive_pass" type="checkbox">Pass
+                    </label>
+                    <br>
+                    <label>
+                        <input name="device_optical_drive_fail" type="checkbox">Fail
+                    </label>
                   {% endif %}
               </div>
           </fieldset>
@@ -280,13 +320,21 @@
                   <label>
                       <input name="group6" type="checkbox">Fail
                   </label>
-                  {% else %}
+                  {% elif device.is_display_working == "Failed" %}
                   <label>
                       <input name="group5" type="checkbox">Pass
                   </label>
                   <br>
                   <label>
                       <input name="group6" type="checkbox" checked>Fail
+                  </label>
+                  {% else %}
+                  <label>
+                      <input name="group5" type="checkbox">Pass
+                  </label>
+                  <br>
+                  <label>
+                      <input name="group6" type="checkbox">Fail
                   </label>
                   {% endif %}
               </div>
@@ -306,13 +354,21 @@
               <label>
                 <input name="group8" type="checkbox">Fail
               </label>
-            {% else %}
+            {% elif device.graphics_card_is_working %}
               <label>
                 <input name="group7" type="checkbox">Pass
               </label>
               <br>
               <label>
                 <input name="group8" type="checkbox" checked>Fail
+              </label>
+            {% else %}
+              <label>
+                  <input name="group7" type="checkbox">Pass
+              </label>
+              <br>
+              <label>
+                  <input name="group8" type="checkbox">Fail
               </label>
             {% endif %}
           </div>
@@ -332,7 +388,7 @@
               <label>
                 <input name="group10" type="checkbox">Fail
               </label>
-            {% else %}
+            {% elif device.is_working == "Failed" %}
               <label>
                 <input name="group9" type="checkbox">Pass
               </label>
@@ -340,11 +396,16 @@
               <label>
                 <input name="group10" type="checkbox" checked>Fail
               </label>
+            {% else %}
+              <label>
+                  <input name="group9" type="checkbox">Pass
+              </label>
+              <br>
+              <label>
+                  <input name="group10" type="checkbox">Fail
+              </label>
             {% endif %}
           </div>
-
-          <h3 class="text-center padtop-5">Tester Information</h3>
-          <p><b>Author:</b> {{ device.author }}</p>
 
           <div class="padtop-5"></div>
           <button type="submit" class="btn btn-primary padtop-2">Save</button>

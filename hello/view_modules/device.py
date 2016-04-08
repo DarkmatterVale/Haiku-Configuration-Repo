@@ -83,49 +83,81 @@ def save_device_view(request, device_id):
         if str(request.POST['group9']) == "on":
             device.is_working = "Passed"
     except:
-        device.is_working = "Failed"
+        try:
+            if str(request.POST['group10']) == "on":
+                device.is_working = "Failed"
+        except:
+            device.is_working = "Not Specified"
     
     try:
         if str(request.POST['group3']) == "on":
             device.is_sound_working = "Passed"
     except:
-        device.is_sound_working = "Failed"
+        try:
+            if str(request.POST['group4']) == "on":
+                device.is_sound_working = "Failed"
+        except:
+            device.is_sound_working = "Not Specified"
     
     try:
         if str(request.POST['group5']) == "on":
             device.is_display_working = "Passed"
     except:
-        device.is_display_working = "Failed"
+        try:
+            if str(request.POST['group6']) == "on":
+                device.is_display_working = "Failed"
+        except:
+            device.is_display_working = "Not Specified"
     
     try:
         if str(request.POST['group7']) == "on":
             device.graphics_card_is_working = "Passed"
     except:
-        device.graphics_card_is_working = "Failed"
+        try:
+            if str(request.POST['group8']) == "on":
+                device.graphics_card_is_working = "Failed"
+        except:
+            device.graphics_card_is_working = "Not Specified"
 
     try:
         if str(request.POST['device_usb2_pass']) == "on":
             device.does_usb2_work = "Passed"
     except:
-        device.does_usb2_work = "Failed"
+        try:
+            if str(request.POST['device_usb2_fail']) == "on":
+                device.does_usb2_work = "Failed"
+        except:
+            device.does_usb2_work = "Not Specified"
         
     try:
         if str(request.POST['device_usb3_pass']) == "on":
             device.does_usb3_work = "Passed"
     except:
-        device.does_usb3_work = "Failed"
+        try:
+            if str(request.POST['device_usb3_fail']) == "on":
+                device.does_usb3_work = "Failed"
+        except:
+            device.does_usb3_work = "Not Specified"
         
     try:
         if str(request.POST['device_optical_drive_pass']) == "on":
             device.does_optical_drive_work = "Passed"
     except:
-        device.does_optical_drive_work = "Failed"
+        try:
+            if str(request.POST['device_optical_drive_fail']) == "on":
+                device.does_optical_drive_work = "Failed"
+        except:
+            device.does_optical_drive_work = "Not Specified"
         
     try:
         if str(request.POST['device_card_reader_pass']) == "on":
             device.does_card_reader_work = "Passed"
     except:
-        device.does_card_reader_work = "Failed"
+        try:
+            if str(request.POST['device_card_reader_fail']) == "on":
+                device.does_card_reader_work = "Failed"
+        except:
+            device.does_card_reader_work = "Not Specified"
 
     device.cpu = cpu
     device.motherboard = motherboard

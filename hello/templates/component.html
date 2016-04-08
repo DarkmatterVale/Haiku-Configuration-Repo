@@ -83,14 +83,17 @@
                     {% if component.is_working == "Passed" %}
                     <td class="success">Did the component work?</td>
                     <td class="success">{{ component.is_working }}</td>
+                    {% elif component.is_working == "Failed" %}
+                    <td class="danger">Did the component work?</td>
+                    <td class="danger">Failed</td>
                     {% else %}
-                    <td class="success">Did the component work?</td>
-                    <td class="success">Failed</td>
+                    <td class="warning">Did the component work?</td>
+                    <td class="warning">Not Specified</td>
                     {% endif %}
                 </tr>
                 <tr>
-                    <td class="warning">Rating</td>
-                    <td class="warning">{{ component.rating }}</td>
+                    <td class="info">Rating</td>
+                    <td class="info">{{ component.rating }}</td>
                 </tr>
                 <tr>
                     <td class="info">Haiku revision</td>
