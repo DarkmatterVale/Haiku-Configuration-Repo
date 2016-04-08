@@ -45,7 +45,7 @@
 
     <div class="padtop-5"></div>
     <div id="page">
-      <div class="row">
+        <div class="row">
         {% if messages %}
             <br>
             {% for message in messages %}
@@ -58,211 +58,225 @@
         </div>
             {% endfor %}
         {% endif %}
-      </div>
+        </div>
       
-      <div class="padtop-5"></div>
-        <h1 class="text-center"><b>Submit a test</b></h1>
-        <div class="row center-list-item padtop-5">
-            <h3 class="text-center padtop-5">System Test Form</h3>
-            <form class="col s12 form-horizontal" action="{% url 'createTest' %}" method="post">
-                {% csrf_token %}
-
-            <fieldset class="form-group">
-                <label for="device_rating">Rating</label>
-                <select class="form-control" name="device_rating">
-                    <option value="" selected>Choose an Option</option>
-                    <option value="0 - Doesn't work at all">0 - Doesn't work at all</option>
-                    <option value="1 - Works occasionally">Works occasionally</option>
-                    <option value="2 - Works OK (works for every day tasks, but not perfectly)">2 - Works OK (works for every day tasks, but not perfectly)</option>
-                    <option value="3 - Works well (works very well, but not every single feature is supported)">3 - Works well (works very well, but not every single feature is supported)</option>
-                    <option value="4 - Works perfectly (every feature is supported)">4 - Works perfectly (every feature is supported)</option>
-                </select>
-            </fieldset>
-            <br>
-           <fieldset class="form-group">
-               <label for="device_haiku_revision">Haiku Revision</label>
-               <input type="text" class="form-control" name="device_haiku_revision" placeholder="Enter text here">
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-               <label for="device_category">Category (desktop or notebook)</label>
-               <input type="text" class="form-control" name="device_category" placeholder="Enter text here">
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-               <label for="device_haiku_architecture">Haiku Architecture</label>
-               <input type="text" class="form-control" name="device_haiku_architecture" placeholder="Enter text here">
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-               <label for="device_name">Model</label>
-               <input type="text" class="form-control" name="device_name" placeholder="Enter text here">
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-               <label for="device_manufacturer">Manufacturer</label>
-               <input type="text" class="form-control" name="device_manufacturer" placeholder="Enter text here">
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-             <label for="device_cpu">CPU</label>
-             <input type="text" class="form-control" name="device_cpu" placeholder="Enter text here">
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-             <label for="device_motherboard">Motherboard</label>
-             <input type="text" class="form-control" name="device_motherboard" placeholder="Enter text here">
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-             <label for="device_hard_drive">Hard drive</label>
-             <input type="text" class="form-control" name="device_hard_drive" placeholder="Enter text here">
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-               <label for="device_lan_network_chipset">LAN network chipset</label>
-               <input type="text" class="form-control" name="device_lan_network_chipset" placeholder="Enter text here">
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-               <label for="device_wlan_network_chipset">WLAN network chipset</label>
-               <input type="text" class="form-control" name="device_wlan_network_chipset" placeholder="Enter text here">
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-               <label>Do the USB2.0 ports work?</label>
-               <div class="checkbox">
-                   <label>
-                       <input name="device_usb2_pass" type="checkbox">Pass
-                   </label>
-                   <br>
-                   <label>
-                       <input name="device_usb2_fail" type="checkbox">Fail
-                   </label>
-               </div>
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-               <label>Do the USB3.0 ports work?</label>
-               <div class="checkbox">
-                   <label>
-                       <input name="device_usb3_pass" type="checkbox">Pass
-                   </label>
-                   <br>
-                   <label>
-                       <input name="device_usb3_fail" type="checkbox">Fail
-                   </label>
-               </div>
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-               <label>Does the card reader (SD, CF, MMC, etc) work?</label>
-               <div class="checkbox">
-                   <label>
-                       <input name="device_card_reader_pass" type="checkbox">Pass
-                   </label>
-                   <br>
-                   <label>
-                       <input name="device_card_reader_fail" type="checkbox">Fail
-                   </label>
-               </div>
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-               <label>Does the optical drive work?</label>
-               <div class="checkbox">
-                   <label>
-                       <input name="device_optical_drive_pass" type="checkbox">Pass
-                   </label>
-                   <br>
-                   <label>
-                       <input name="device_optical_drive_fail" type="checkbox">Fail
-                   </label>
-               </div>
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-             <label for="device_sound">Sound</label>
-             <input type="text" class="form-control" name="device_sound" placeholder="Enter text here">
-           </fieldset>
-           <fieldset class="form-group">
-               <label>Does the sound work?</label>
-               <div class="checkbox">
-                   <label>
-                       <input name="group3" type="checkbox">Pass
-                   </label>
-                   <br>
-                   <label>
-                       <input name="group4" type="checkbox">Fail
-                   </label>
-               </div>
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-             <label for="device_display_name">Monitor model</label>
-             <input type="text" class="form-control" name="device_display_name" placeholder="Enter text here">
-           </fieldset>
-           <fieldset class="form-group">
-             <label for="device_display_config">Monitor configuration (i.e. 1024x1960)</label>
-             <input type="text" class="form-control" name="device_display_config" placeholder="Enter text here">
-           </fieldset>
-           <fieldset class="form-group">
-               <label>Does the display work?</label>
-               <div class="checkbox">
-                   <label>
-                       <input name="group5" type="checkbox">Pass
-                   </label>
-                   <br>
-                   <label>
-                       <input name="group6" type="checkbox">Fail
-                   </label>
-               </div>
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-             <label for="device_dedicated_graphics">Graphics card/chipset</label>
-             <input type="text" class="form-control" name="device_dedicated_graphics" placeholder="Enter text here">
-           </fieldset>
-           <fieldset class="form-group">
-               <label>Does the graphics card/chipset work?</label>
-               <div class="checkbox">
-                   <label>
-                       <input name="group7" type="checkbox">Pass
-                   </label>
-                   <br>
-                   <label>
-                       <input name="group8" type="checkbox">Fail
-                   </label>
-               </div>
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-             <label for="device_test_notes">Short note (up to 500 characters)</label>
-             <textarea class="form-control" name="device_test_notes" rows="5"></textarea>
-           </fieldset>
-           <br>
-           <fieldset class="form-group">
-               <label>Does the system work on a whole?</label>
-               <div class="checkbox">
-                   <label>
-                       <input name="group9" type="checkbox">Pass
-                   </label>
-                   <br>
-                   <label>
-                       <input name="group10" type="checkbox">Fail
-                   </label>
-               </div>
-           </fieldset>
-           <br>
+        <div class="padtop-5"></div>
+            <h1 class="text-center"><b>Submit a test -- System test form</b></h1>
+            
+            <div class="row center-list-item padtop-5">
+                <form class="col s12 form-horizontal" action="{% url 'createTest' %}" method="post">
+                    {% csrf_token %}
+                    
+                    <h3>System Performance</h3>
+                    <div style="border: 1px solid grey; padding: 3rem;">
+                        <fieldset class="form-group">
+                            <label for="device_rating">Rating</label>
+                            <select class="form-control" name="device_rating">
+                                <option value="" selected>Choose an Option</option>
+                                <option value="0 - Doesn't work at all">0 - Doesn't work at all</option>
+                                <option value="1 - Works occasionally">Works occasionally</option>
+                                <option value="2 - Works OK (works for every day tasks, but not perfectly)">2 - Works OK (works for every day tasks, but not perfectly)</option>
+                                <option value="3 - Works well (works very well, but not every single feature is supported)">3 - Works well (works very well, but not every single feature is supported)</option>
+                                <option value="4 - Works perfectly (every feature is supported)">4 - Works perfectly (every feature is supported)</option>
+                            </select>
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label>Do the USB2.0 ports work?</label>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="device_usb2_pass" type="checkbox">Pass
+                                </label>
+                                <br>
+                                <label>
+                                    <input name="device_usb2_fail" type="checkbox">Fail
+                                </label>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label>Do the USB3.0 ports work?</label>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="device_usb3_pass" type="checkbox">Pass
+                                </label>
+                                <br>
+                                <label>
+                                    <input name="device_usb3_fail" type="checkbox">Fail
+                                </label>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label>Does the card reader (SD, CF, MMC, etc) work?</label>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="device_card_reader_pass" type="checkbox">Pass
+                                </label>
+                                <br>
+                                <label>
+                                    <input name="device_card_reader_fail" type="checkbox">Fail
+                                </label>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label>Does the optical drive work?</label>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="device_optical_drive_pass" type="checkbox">Pass
+                                </label>
+                                <br>
+                                <label>
+                                    <input name="device_optical_drive_fail" type="checkbox">Fail
+                                </label>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label>Does the sound work?</label>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="group3" type="checkbox">Pass
+                                </label>
+                                <br>
+                                <label>
+                                    <input name="group4" type="checkbox">Fail
+                                </label>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label>Does the display work?</label>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="group5" type="checkbox">Pass
+                                </label>
+                                <br>
+                                <label>
+                                    <input name="group6" type="checkbox">Fail
+                                </label>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label>Does the graphics card/chipset work?</label>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="group7" type="checkbox">Pass
+                                </label>
+                                <br>
+                                <label>
+                                    <input name="group8" type="checkbox">Fail
+                                </label>
+                            </div>
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label for="device_test_notes">Short note (up to 500 characters)</label>
+                            <textarea class="form-control" name="device_test_notes" rows="5"></textarea>
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label>Does the system work on a whole?</label>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="group9" type="checkbox">Pass
+                                </label>
+                                <br>
+                                <label>
+                                    <input name="group10" type="checkbox">Fail
+                                </label>
+                            </div>
+                        </fieldset>
+                        <br>
+                    </div>
+                    <br>
            
-           <fieldset class="form-group">
-               <button type="submit" class="btn btn-primary padtop-2">Submit</button>
-           </fieldset>
+                    <h3>System Details</h3>
+                    <div style="border: 1px solid grey; padding: 3rem;">
+                        <fieldset class="form-group">
+                            <label for="device_manufacturer">Manufacturer</label>
+                            <input type="text" class="form-control" name="device_manufacturer" placeholder="Enter text here">
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label for="device_name">Model</label>
+                            <input type="text" class="form-control" name="device_name" placeholder="Enter text here">
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label for="device_category">Category (desktop or notebook)</label>
+                            <input type="text" class="form-control" name="device_category" placeholder="Enter text here">
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label for="device_cpu">CPU</label>
+                            <input type="text" class="form-control" name="device_cpu" placeholder="Enter text here">
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label for="device_motherboard">Motherboard</label>
+                            <input type="text" class="form-control" name="device_motherboard" placeholder="Enter text here">
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label for="device_hard_drive">Hard drive</label>
+                            <input type="text" class="form-control" name="device_hard_drive" placeholder="Enter text here">
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label for="device_lan_network_chipset">LAN network chipset</label>
+                            <input type="text" class="form-control" name="device_lan_network_chipset" placeholder="Enter text here">
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label for="device_wlan_network_chipset">WLAN network chipset</label>
+                            <input type="text" class="form-control" name="device_wlan_network_chipset" placeholder="Enter text here">
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label for="device_sound">Sound</label>
+                            <input type="text" class="form-control" name="device_sound" placeholder="Enter text here">
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label for="device_display_name">Monitor model</label>
+                            <input type="text" class="form-control" name="device_display_name" placeholder="Enter text here">
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label for="device_display_config">Display resolution (i.e. 1024x1960)</label>
+                            <input type="text" class="form-control" name="device_display_config" placeholder="Enter text here">
+                        </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label for="device_dedicated_graphics">Graphics card/chipset</label>
+                            <input type="text" class="form-control" name="device_dedicated_graphics" placeholder="Enter text here">
+                        </fieldset>
+                    </div>
+                    <br>
+                    
+                    <h3>Haiku-related information</h3>
+                    <div style="border: 1px solid grey; padding: 3rem;">
+                        <fieldset class="form-group">
+                            <label for="device_haiku_revision">Haiku Revision</label>
+                            <input type="text" class="form-control" name="device_haiku_revision" placeholder="Enter text here">
+                                </fieldset>
+                        <br>
+                        <fieldset class="form-group">
+                            <label for="component_haiku_architecture">Haiku Architecture</label>
+                            <input type="text" class="form-control" name="component_haiku_architecture" placeholder="Enter text here">
+                        </fieldset>
+                    </div>
+                    <br>
            
-           <div class="padtop-5"></div>
-         </form>
-       </div>
-      </div>
+                    <div class="padtop-2"></div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="padtop-5"></div>
+                </form>
+            </div>
+        </div>
     </div>
   </body>
 </html>
