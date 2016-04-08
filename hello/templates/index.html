@@ -70,7 +70,7 @@
             {% for component in recent_components %}
             <div class="collection">
                 <a href="{% url 'componentDetail' component.id %}" class="collection-item">{{ component.name }}
-                    <span class="new rating-badge orange"><b>Rating: {{ component.rating }}</b></span>
+                    <span class="new rating-badge orange"><b>Rating: {{ component.rating|slice:"1" }}</b></span>
                     {% if component.is_working == "Passed" %}
                     <span class="new badge green"><b>Passed</b></span>
                     {% else %}
@@ -93,7 +93,7 @@
                {% else %}
                  <span class="new badge red"><b>Failed</b></span>
                {% endif %}
-               <span class="new rating-badge orange"><b>Rating: {{ device.rating }}</b></span>
+               <span class="new rating-badge orange"><b>Rating: {{ device.rating|slice:"1" }}</b></span>
              </a>
            </div>
          {% endfor %}
