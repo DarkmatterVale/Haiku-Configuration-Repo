@@ -109,11 +109,20 @@ def create_test_view(request):
             device_dedicated_graphics = request.POST['device_dedicated_graphics']
             is_dedicated_graphics_working = request.POST['device_dedicated_graphics']
             manufacturer = request.POST['device_manufacturer']
-            category = request.POST['device_category']
             lan_chipset = request.POST['device_lan_network_chipset']
             wlan_chipset = request.POST['device_wlan_network_chipset']
             haiku_revision = request.POST['device_haiku_revision']
             haiku_architecture = request.POST['device_haiku_architecture']
+
+            try:
+                if str(request.POST['device_category_desktop']) == "on":
+                    category = "Desktop"
+            except:
+                try:
+                    if str(request.POST['device_category_notebook']) == "on":
+                        category = "Notebook"
+                except:
+                    category = "Not Specified"
             
             device_data = [
                 rating,

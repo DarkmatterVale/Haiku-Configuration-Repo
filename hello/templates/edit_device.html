@@ -102,10 +102,34 @@
               <input type="text" class="form-control" name="device_haiku_revision" value="{{ device.haiku_revision }}">
           </fieldset>
           <br>
-          <fieldset class="form-group">
-              <label for="device_category">Category (desktop or notebook)</label>
-              <input type="text" class="form-control" name="device_category" value="{{ device.category }}">
-          </fieldset>
+          <label>Type of system</label>
+          <div class="checkbox">
+              {% if device.category == "Desktop" %}
+              <label>
+                  <input name="device_category_desktop" type="checkbox" checked>Desktop
+              </label>
+              <br>
+              <label>
+                  <input name="device_category_notebook" type="checkbox">Notebook
+              </label>
+              {% elif device.category == "Notebook" %}
+              <label>
+                  <input name="device_category_desktop" type="checkbox">Desktop
+              </label>
+              <br>
+              <label>
+                  <input name="device_category_notebook" type="checkbox" checked>Notebook
+              </label>
+              {% else %}
+              <label>
+                  <input name="device_category_desktop" type="checkbox">Desktop
+              </label>
+              <br>
+              <label>
+                  <input name="device_category_notebook" type="checkbox">Notebook
+              </label>
+              {% endif %}
+          </div>
           <br>
           <fieldset class="form-group">
               <label for="device_haiku_architecture">Haiku Architecture</label>

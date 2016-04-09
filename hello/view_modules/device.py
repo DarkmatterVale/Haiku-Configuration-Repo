@@ -76,7 +76,6 @@ def save_device_view(request, device_id):
     wlan_chipset = request.POST['device_wlan_network_chipset']
     haiku_revision = request.POST['device_haiku_revision']
     haiku_architecture = request.POST['device_haiku_architecture']
-    category = request.POST['device_category']
     rating = request.POST['device_rating']
     
     try:
@@ -88,7 +87,17 @@ def save_device_view(request, device_id):
                 device.is_working = "Failed"
         except:
             device.is_working = "Not Specified"
-    
+
+    try:
+        if str(request.POST['device_category_desktop']) == "on":
+            device.category = "Desktop"
+    except:
+        try:
+            if str(request.POST['device_category_notebook']) == "on":
+                device.category = "Notebook"
+        except:
+            device.category = "Not Specified"
+
     try:
         if str(request.POST['group3']) == "on":
             device.is_sound_working = "Passed"
@@ -170,7 +179,6 @@ def save_device_view(request, device_id):
     device.wlan_network_chipset = wlan_chipset
     device.haiku_arch = haiku_architecture
     device.haiku_revision = haiku_revision
-    device.category = category
     device.rating = rating
 
     try:
