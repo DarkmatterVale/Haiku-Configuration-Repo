@@ -67,22 +67,38 @@ def save_component_view(request, component_id):
     notes = request.POST['component_notes']
     manufacturer = request.POST['component_manufacturer']
     haiku_revision = request.POST['component_haiku_revision']
-    haiku_architecture = request.POST['component_haiku_architecture']
     rating = request.POST['component_rating']
     
     component.rating = rating
     component.category = category
     component.manufacturer = manufacturer
     component.haiku_revision = haiku_revision
-    component.haiku_arch = haiku_architecture
     component.notes = notes
     
     try:
         if str(request.POST['group9']) == "on":
             component.is_working = "Passed"
     except:
-        component.is_working = "Failed"
-    
+        try:
+            if str(request.POST['group10']) == "on":
+                component.is_working = "Failed"
+        except:
+            component.is_working = "Not Specified"
+
+    try:
+        if str(request.POST['haiku_arch_x86']) == "on":
+            component.haiku_arch = "x86"
+    except:
+        try:
+            if str(request.POST['haiku_arch_x86_gcc2']) == "on":
+                component.haiku_arch = "x86_gcc2"
+        except:
+            try:
+                if str(request.POST['haiku_arch_x86_64']) == "on":
+                    component.haiku_arch = "x86_64"
+            except:
+                component.haiku_arch = "Not Specified"
+
     try:
         component.save()
         messages.success(request, 'Successfully saved edits for component')

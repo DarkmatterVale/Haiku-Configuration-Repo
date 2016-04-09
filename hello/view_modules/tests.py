@@ -112,8 +112,8 @@ def create_test_view(request):
             lan_chipset = request.POST['device_lan_network_chipset']
             wlan_chipset = request.POST['device_wlan_network_chipset']
             haiku_revision = request.POST['device_haiku_revision']
-            haiku_architecture = request.POST['device_haiku_architecture']
 
+            category = ""
             try:
                 if str(request.POST['device_category_desktop']) == "on":
                     category = "Desktop"
@@ -122,8 +122,23 @@ def create_test_view(request):
                     if str(request.POST['device_category_notebook']) == "on":
                         category = "Notebook"
                 except:
-                    category = "Not Specified"
-            
+                    pass
+
+            haiku_architecture = ""
+            try:
+                if str(request.POST['haiku_arch_x86']) == "on":
+                    haiku_architecture = "x86"
+            except:
+                try:
+                    if str(request.POST['haiku_arch_x86_gcc2']) == "on":
+                        haiku_architecture = "x86_gcc2"
+                except:
+                    try:
+                        if str(request.POST['haiku_arch_x86_64']) == "on":
+                            haiku_architecture = "x86_64"
+                    except:
+                        pass
+        
             device_data = [
                 rating,
                 haiku_revision,

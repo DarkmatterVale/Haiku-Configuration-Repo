@@ -132,8 +132,58 @@
           </div>
           <br>
           <fieldset class="form-group">
-              <label for="device_haiku_architecture">Haiku Architecture</label>
-              <input type="text" class="form-control" name="device_haiku_architecture" value="{{ device.haiku_arch }}">
+              <label>Haiku Architecture</label>
+              <div class="checkbox">
+                  {% if device.haiku_arch == "x86" %}
+                  <label>
+                      <input name="haiku_arch_x86" type="checkbox" checked>x86
+                    </label>
+                  <br>
+                  <label>
+                      <input name="haiku_arch_x86_gcc2" type="checkbox">x86_gcc2
+                    </label>
+                  <br>
+                  <label>
+                      <input name="haiku_arch_x86_64" type="checkbox">x86_64
+                    </label>
+                  {% elif device.haiku_arch == "x86_gcc2" %}
+                  <label>
+                      <input name="haiku_arch_x86" type="checkbox">x86
+                    </label>
+                  <br>
+                  <label>
+                      <input name="haiku_arch_x86_gcc2" type="checkbox" checked>x86_gcc2
+                    </label>
+                  <br>
+                  <label>
+                      <input name="haiku_arch_x86_64" type="checkbox">x86_64
+                    </label>
+                  {% elif device.haiku_arch == "x86_64" %}
+                  <label>
+                      <input name="haiku_arch_x86" type="checkbox">x86
+                    </label>
+                  <br>
+                  <label>
+                      <input name="haiku_arch_x86_gcc2" type="checkbox">x86_gcc2
+                    </label>
+                  <br>
+                  <label>
+                      <input name="haiku_arch_x86_64" type="checkbox" checked>x86_64
+                    </label>
+                  {% else %}
+                  <label>
+                      <input name="haiku_arch_x86" type="checkbox">x86
+                    </label>
+                  <br>
+                  <label>
+                      <input name="haiku_arch_x86_gcc2" type="checkbox">x86_gcc2
+                    </label>
+                  <br>
+                  <label>
+                      <input name="haiku_arch_x86_64" type="checkbox">x86_64
+                    </label>
+                  {% endif %}
+              </div>
           </fieldset>
           <br>
           <fieldset class="form-group">

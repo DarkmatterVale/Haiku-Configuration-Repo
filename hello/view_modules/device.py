@@ -75,9 +75,22 @@ def save_device_view(request, device_id):
     lan_chipset = request.POST['device_lan_network_chipset']
     wlan_chipset = request.POST['device_wlan_network_chipset']
     haiku_revision = request.POST['device_haiku_revision']
-    haiku_architecture = request.POST['device_haiku_architecture']
     rating = request.POST['device_rating']
     
+    try:
+        if str(request.POST['haiku_arch_x86']) == "on":
+            device.haiku_arch = "x86"
+    except:
+        try:
+            if str(request.POST['haiku_arch_x86_gcc2']) == "on":
+                device.haiku_arch = "x86_gcc2"
+        except:
+            try:
+                if str(request.POST['haiku_arch_x86_64']) == "on":
+                    device.haiku_arch = "x86_64"
+            except:
+                device.haiku_arch = "Not Specified"
+
     try:
         if str(request.POST['group9']) == "on":
             device.is_working = "Passed"
@@ -177,7 +190,6 @@ def save_device_view(request, device_id):
     device.manufacturer = manufacturer
     device.lan_network_chipset = lan_chipset
     device.wlan_network_chipset = wlan_chipset
-    device.haiku_arch = haiku_architecture
     device.haiku_revision = haiku_revision
     device.rating = rating
 

@@ -148,14 +148,64 @@
                 <h3>Haiku-related information</h3>
                 <div style="border: 1px solid grey; padding: 3rem;">
                     <fieldset class="form-group">
-                        <label for="component_haiku_revision">Haiku Revision</label>
+                        <label for="component_haiku_revision">Haiku revision</label>
                         <input type="text" class="form-control" name="component_haiku_revision" value="{{ component.haiku_revision }}">
                     </fieldset>
                     <br>
                     
                     <fieldset class="form-group">
-                        <label for="component_haiku_architecture">Haiku Architecture</label>
-                        <input type="text" class="form-control" name="component_haiku_architecture" value="{{ component.haiku_arch }}">
+                        <label>Haiku architecture</label>
+                        <div class="checkbox">
+                            {% if component.haiku_arch == "x86" %}
+                            <label>
+                                <input name="haiku_arch_x86" type="checkbox" checked>x86
+                            </label>
+                            <br>
+                            <label>
+                                <input name="haiku_arch_x86_gcc2" type="checkbox">x86_gcc2
+                            </label>
+                            <br>
+                            <label>
+                                <input name="haiku_arch_x86_64" type="checkbox">x86_64
+                            </label>
+                            {% elif component.haiku_arch == "x86_gcc2" %}
+                            <label>
+                                <input name="haiku_arch_x86" type="checkbox">x86
+                            </label>
+                            <br>
+                            <label>
+                                <input name="haiku_arch_x86_gcc2" type="checkbox" checked>x86_gcc2
+                            </label>
+                            <br>
+                            <label>
+                                <input name="haiku_arch_x86_64" type="checkbox">x86_64
+                            </label>
+                            {% elif component.haiku_arch == "x86_64" %}
+                            <label>
+                                <input name="haiku_arch_x86" type="checkbox">x86
+                            </label>
+                            <br>
+                            <label>
+                                <input name="haiku_arch_x86_gcc2" type="checkbox">x86_gcc2
+                            </label>
+                            <br>
+                            <label>
+                                <input name="haiku_arch_x86_64" type="checkbox" checked>x86_64
+                            </label>
+                            {% else %}
+                            <label>
+                                <input name="haiku_arch_x86" type="checkbox">x86
+                            </label>
+                            <br>
+                            <label>
+                                <input name="haiku_arch_x86_gcc2" type="checkbox">x86_gcc2
+                            </label>
+                            <br>
+                            <label>
+                                <input name="haiku_arch_x86_64" type="checkbox">x86_64
+                            </label>
+                            {% endif %}
+                        </div>
                     </fieldset>
                 </div>
                 <br>
