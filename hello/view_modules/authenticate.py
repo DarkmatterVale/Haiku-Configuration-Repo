@@ -65,8 +65,11 @@ def authenticate_sign_up(request):
     password = request.POST.get('signup_password')
     confirmation_password = request.POST.get('confirmation_password')
     
-    User.objects.create_user(username, email, password)
-    messages.success(request, 'Successfully signed up; please log in to verify account has been created')
+    try:
+        User.objects.create_user(username, email, password)
+        messages.success(request, 'Successfully signed up; please log in to verify account has been created')
+    except:
+        messages.error(request, 'Could not create a user...Please try again')
 
     return HttpResponseRedirect(reverse('index'))
 
